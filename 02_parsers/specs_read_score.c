@@ -11,7 +11,7 @@ int read_score_almt ( char *filename, Alignment * alignment, double *score ) {
     int ctr, line_ctr, aux_ctr, *renumber;
     char aa, *refseq, *aux_seq;
     
-    refseq = alignment->refseq;
+    refseq = alignment->refseq[0];
     
     /* need to do some hacking bcs r4s skips the X's if they appear in the input */
     if ( ! (aux_seq  = (char *) emalloc ( alignment->length *sizeof(char))) ) return 1;

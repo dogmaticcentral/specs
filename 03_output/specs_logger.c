@@ -22,7 +22,8 @@ int logger (Options * options, int mode, char *msg )  {
 	fprintf (fptr, "  Options:\n");
 	if (options->chain)           fprintf (fptr, "  \t pdb chain:              %c\n", options->chain);
 	if (options->almtname[0])     fprintf (fptr, "  \t alignment  file:        %s\n", options->almtname);
-	if (options->refseq_name[0])  fprintf (fptr, "  \t refseq  name:           %s\n", options->refseq_name);
+	if (options->no_refseqs)  fprintf (fptr,
+						  "  \t main refseq  name:         %s\n", options->refseq_name[0]);
 	if (options->scorename[0])    fprintf (fptr, "  \t score file:             %s\n", options->scorename);
 	if (options->pdbname[0])      fprintf (fptr, "  \t pdb file:               %s\n", options->pdbname);
 	if (options->pdbseq_name[0])  fprintf (fptr, "  \t pdb seq name:           %s\n", options->pdbname);

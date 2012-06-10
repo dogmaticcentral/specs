@@ -214,10 +214,15 @@ int read_cmd_file (char *filename, Options * options) {
 	} else if (  ! strncmp (token[0], "refseq", 4)  ) {
 	    if ( max_token < 1 ) {
 		errmsg ( log, line_ctr, line,
-			 "\t\t Keyord %s should be followed by a name.\n", token[0]);
+			 "\t\t Keyord %s should be followed by (at least one) name.\n", token[0]);
 		return 1;
 	    }
-	    sprintf ( options->refseq_name, "%s", token[1]);
+	    options->no_refseqs = max_token;
+	    options->refseq_name = chmatrix (options->no_refseqs, SHORTSTRING);
+	    if ( ! options->refseq_name) return 1;
+	    for (token_ctr = 1; token_ctr<= max_token; token_ctr ++) {
+		sprintf ( options->refseq_name[token_ctr-1], "%s", token[token_ctr]);
+	    }
 	    
 	} else if (  ! strncmp (token[0], "restr", 5)  ) {
 	    options->restrict2structure = 1;
@@ -267,13 +272,7 @@ int read_cmd_file (char *filename, Options * options) {
     }
     fclose (fptr);
     
-    /* checking and default setting: */
-    if ( !options->refseq_name[0] ) {
-	fprintf ( stderr, "Please provide the reference sequence name.\n");
-	return 1;
-	
-    }
-    if ( !options->pdbseq_name[0] && options->pdbname[0] ) {
+     if ( !options->pdbseq_name[0] && options->pdbname[0] ) {
 	fprintf ( stderr, "Pdb sequence should be part of the alignment, ");
 	fprintf ( stderr, "and the name of the pdb sequence provided to do the mapping.\n");
 	return 1;

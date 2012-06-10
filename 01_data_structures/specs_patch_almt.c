@@ -36,7 +36,18 @@ int patch_almt ( Options *options, Alignment * alignment) {
    
     for (i=0; i<no_seqs; i++) {
 	if ( !alignment->seq_gaps[i] ) continue;
-	if (options->refseq_name[0] && ! strcmp (alignment->name[i], options->refseq_name) ) continue;
+
+	int skip = 0;
+	if (options->no_refseqs) {
+	    int refseq_ctr;
+	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+		if (! strcmp (alignment->name[i], options->refseq_name[refseq_ctr]) ) {
+		    skip = 1;
+		    break;
+		}
+	    }
+	}
+	if ( skip) continue;
 	
 	nbr[0].seqno = -1; nbr[0].pct_id = 0.0; nbr[0].pct_sim = 0.0;
 	
@@ -96,28 +107,31 @@ int patch_almt ( Options *options, Alignment * alignment) {
     /* for each position which is gapped, but not more than 1/3 (?) gapped */
     /* replace the gap with the value from the nearest neighbor */
     
-    free_cmatrix ( alignment->sequence );
+    char ** old_sequence = alignment->sequence;
     
     alignment->sequence = new_sequence;
     /* referece seqeunce easy access */
     for (i=0; i<no_seqs; i++) {
-	if (! strcmp ( alignment->name[i], alignment->refseq_name) ) {
-	    alignment->refseq = alignment->sequence[i];
-	    break;
+	int refseq_ctr;
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	    if (! strcmp ( alignment->name[i], alignment->refseq_name[refseq_ctr]) ) {
+		alignment->refseq[refseq_ctr] = old_sequence[i];
+		break;
+	    }
 	}
     }
     /* careful with the pdbseq here: */
     if ( !options->skip_pdbseq ) {
 	for (i=0; i<no_seqs; i++) {
 	    if (! strcmp ( alignment->name[i], options->pdbseq_name) ) {
-		alignment->pdbseq = alignment->sequence[i];
+		alignment->pdbseq = old_sequence[i];
 		break;
 	    }
 	}
     }
 
     
- 
+    free_cmatrix (old_sequence);
     free (nbr);
     fclose (log);
     

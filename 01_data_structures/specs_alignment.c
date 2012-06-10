@@ -5,10 +5,10 @@
 int process_almt (Options *options, Alignment *alignment) {
     
     int retval;
-    int count_gaps (Alignment * alignment);
+    int count_gaps (Options *options, Alignment * alignment);
     int seq_pw_dist(Alignment * alignment);
     /* gaps */
-    count_gaps (alignment);
+    count_gaps (options, alignment);
 
     alignment->seq_dist = NULL;
 
@@ -40,7 +40,7 @@ int process_almt (Options *options, Alignment *alignment) {
 }
 
 /*****************************************************************/
-int count_gaps (Alignment * alignment) {
+int count_gaps (Options *options, Alignment * alignment) {
 
     int s, c;
     alignment->seq_gaps    = (int *) emalloc (alignment->number_of_seqs*sizeof(int));
@@ -56,13 +56,15 @@ int count_gaps (Alignment * alignment) {
 	}
     }
     alignment->refseq_gaps = 0;
-    int pos = 0;
-    for ( c=0; c<alignment->length; c++) {
-	if ( alignment->refseq[c] == '.' ) {
-	    alignment->refseq_gaps ++;
-	} else {
-	    pos ++;
+    if (options->no_refseqs) {
+	int pos = 0;
+	for ( c=0; c<alignment->length; c++) {
+	    if ( alignment->refseq[0][c] == '.' ) {
+		alignment->refseq_gaps ++;
+	    } else {
+		pos ++;
 	    
+	    }
 	}
     }
     

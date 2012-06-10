@@ -72,11 +72,11 @@ int path_determinants (double sig_cutoff, Alignment * alignment,  Tree * tree,
     /* find refseq, to begin with */
     refseq_leaf = tree->leaf;
     while ( refseq_leaf < tree->leaf + alignment->number_of_seqs &&
-	    strcmp (alignment-> refseq_name, refseq_leaf ->name) ) refseq_leaf++;
+	    strcmp (alignment-> refseq_name[0], refseq_leaf ->name) ) refseq_leaf++;
 
     if ( refseq_leaf == tree->leaf + alignment->number_of_seqs) {
 	fprintf ( stderr, "Refseq %s not found in the tree\n",
-		  alignment-> refseq_name);
+		  alignment-> refseq_name[0]);
 	// return 1;
     } else {
 	printf ( "Refseq %s found at node %d.\n", refseq_leaf->name, refseq_leaf->id);

@@ -16,7 +16,7 @@
 # include "specs_alignment.h"
 # include "specs_utils.h"
 
-# define VERSION "2008"
+# define VERSION "2012"
 # define PROBS   "/home/ivanam/baubles/specs/08_data/probs"
 
 
@@ -73,8 +73,6 @@ typedef enum { INS, LOF, GOF, DISCR } Description;
 typedef struct {
     char pdbname [BUFFLEN];
     char almtname[BUFFLEN];
-    char refseq_name [BUFFLEN];  /* reference sequence
-				    - gaps in this seq do not count when calculating the coverage*/
     char pdbseq_name [BUFFLEN];  /* the name of the pdb sequence in the alignment */
     char outname [BUFFLEN];
     char epi_file_name  [BUFFLEN];
@@ -93,6 +91,9 @@ typedef struct {
     char ** method_name;
     int tree_method;
     int queried_node;
+    int no_refseqs;
+    char ** refseq_name; /* reference sequence(s) -in particular
+			    - gaps in the refseq[0] do not count when calculating the coverage*/
     char chain;
     double max_gaps;
     double acc_cutoff;

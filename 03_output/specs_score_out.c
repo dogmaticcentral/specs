@@ -4,8 +4,8 @@
 int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 		    int * almt2prot, double ** score,  int **res_rank, int surface){
 
-    int almt_pos, score_ctr, length, seqctr, ctr;
-    int pos, restrict2structure = almt2prot && options->restrict2structure;
+    int almt_pos, score_ctr, length, seqctr, ctr, refseq_ctr;
+    int pos[options->no_refseqs], restrict2structure = almt2prot && options->restrict2structure;
     double freq[ASCII];
     int printed[ASCII];
     char aux_str[22]; /*20 amino acid ypes + gap + newline */
@@ -19,7 +19,13 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
     fptr = efopen (filename, "w");
     if ( !fptr) return 1;
     
-    fprintf (fptr, "%%%6s %4s%5s%8s", "almt", "pdb ", "aa ",  "gaps");
+    fprintf (fptr, "%%%6s %4s", "almt", "pdb ");
+    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	fprintf (fptr, "%15s",  options->refseq_name[refseq_ctr]);
+    }
+    fprintf (fptr, "%8s", "gaps");
+
+    
     for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
 	if ( options->raw_score ) {
 	    fprintf (fptr, " %15s", options->method_name[score_ctr]);
@@ -46,18 +52,22 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	}
     }
 
-    pos = -1;
+    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  pos[refseq_ctr] = -1;
+    
     for (almt_pos = 0; almt_pos < alignment->length; almt_pos++) {
 
-        if (alignment->refseq[almt_pos] != '.' )  pos++;
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)
+	    if (alignment->refseq[refseq_ctr][almt_pos] != '.' )  pos[refseq_ctr]++;
 	
 	/*  sequential id, pdb id, aa type, frac of gaps */
 	if ( almt2prot && almt2prot[almt_pos] >= 0 ) {
 	    sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
 	    aa = protein->sequence[ almt2prot[almt_pos] ].res_type_short;
 	} else {
-	    sprintf (pdbid, "%s", "-");
-	    aa = alignment->refseq[almt_pos];
+	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+		sprintf (pdbid, "%s", "-");
+		aa = alignment->refseq[refseq_ctr][almt_pos];
+	    }
 	}
 	fprintf (fptr, "%6d %5s%6c%8.2lf", almt_pos+1, pdbid, aa,
 		 (double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs);
@@ -69,10 +79,11 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 		cvg =  ( almt2prot[almt_pos] >= 0 ) ? 
 		(double)res_rank[score_ctr] [ almt2prot[almt_pos] ]/length : 1;
 	    } else {
-		if (alignment->refseq[almt_pos] == '.' ) {
+		/* the first refseq is especially dear to our heart: */
+		if (options->no_refseqs && alignment->refseq[0][almt_pos] == '.' ) {
 		    cvg = 1;
 		} else {
-		    cvg = (double)res_rank[score_ctr][pos]/length;
+		    cvg = (double)res_rank[score_ctr][pos[0]]/length;
  		}
 	    }
 	    if (options->raw_score) {

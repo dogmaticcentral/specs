@@ -3,8 +3,9 @@ int read_clustalw ( Options * options, Alignment * alignment){
     
     FILE * fptr = NULL;
     char line[BUFFLEN];
-    int  number_of_seqs, almt_length, ctr, ctr2;
-    int * seq_pos, pos, pdbseq_pos_ctr, refseq_found, pdbseq_found;
+    int  number_of_seqs, almt_length, ctr, ctr2, refseq_ctr;
+    int * seq_pos, pos, pdbseq_pos_ctr,pdbseq_found;
+    int * refseq_found = NULL;
     int * pos_ctr;
     char * seq_ptr;
     char ** sequence;
@@ -17,8 +18,18 @@ int read_clustalw ( Options * options, Alignment * alignment){
 
     memset (alignment, 0, sizeof(Alignment) );
     
-    if ( options->refseq_name[0] ) {
-	sprintf ( alignment->refseq_name, "%s", options->refseq_name);
+    if ( options->no_refseqs) {
+	alignment->refseq_name = chmatrix (options->no_refseqs*sizeof(char*), ALMT_NAME_LENGTH);
+	if ( ! alignment->refseq_name) return 1;
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+	    sprintf ( alignment->refseq_name[refseq_ctr], "%s", options->refseq_name[refseq_ctr]);
+	}
+	/* we'll asign these below */
+	alignment->refseq = emalloc (options->no_refseqs*sizeof(char*));
+	if ( ! alignment->refseq) return 1;
+
+	refseq_found = emalloc (options->no_refseqs*sizeof(int));
+	if ( !refseq_found) return 1;
     } 
     
     /* find the alignment length info */
@@ -39,15 +50,18 @@ int read_clustalw ( Options * options, Alignment * alignment){
 
     /* determine the number of sequences */
     number_of_seqs = 0;
-    refseq_found = 0;
+    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) refseq_found[refseq_ctr] = 0;
     pdbseq_found = 0;
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 	if ( ! strncmp (line, "//", 2) ) break;
 	if ( strstr(line, "Name:" ) ) {
 	    number_of_seqs++;
 	    sscanf (line, "%*s %s", curr_name);
-	    if ( !strcmp(curr_name, alignment->refseq_name) ) refseq_found = 1;
-	    
+	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+		if ( !strcmp(curr_name, alignment->refseq_name[refseq_ctr]) ) {
+		    refseq_found[refseq_ctr] = 1;
+		}
+	    }
 	    if ( options->pdbseq_name[0] && !strcmp(curr_name, options->pdbseq_name) )
 		pdbseq_found = 1;
 	}
@@ -58,16 +72,13 @@ int read_clustalw ( Options * options, Alignment * alignment){
 	return 1;
     }
     
-    if ( refseq_found ) {
-	if ( number_of_seqs <= 1 ) {
-	    fprintf ( stderr, "No sequences except the refseq  found in %s.\n",
-		      options->almtname);
+
+    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	if ( !  refseq_found[refseq_ctr] ) {
+	    fprintf ( stderr, "Refseq  %s not found in %s.\n",
+		      alignment->refseq_name[refseq_ctr],  options->almtname);
 	    return 1;
 	}
-    } else {
-	fprintf ( stderr, "Refseq  %s not found in %s.\n",
-		  alignment->refseq_name,  options->almtname);
-	return 1;
     }
 
     if ( options->pdbname[0] ) {
@@ -115,13 +126,14 @@ int read_clustalw ( Options * options, Alignment * alignment){
 	if ( strstr(line, "Name:" ) ) {
 	    sscanf (line, "%*s %s", curr_name);
 	    if (options->pdbname[0]  &&
-		options->skip_pdbseq &&  strcmp (curr_name, options->pdbseq_name) )
+		options->skip_pdbseq &&  !strcmp (curr_name, options->pdbseq_name) )
 		continue;
-	    
 	    sprintf (name[ctr], "%s", curr_name);		
 	    ctr ++;
 	}
     }
+
+    
     
     /* check for duplicate names */
     for (ctr = 0; ctr <number_of_seqs;  ctr++) {
@@ -189,9 +201,11 @@ int read_clustalw ( Options * options, Alignment * alignment){
 
     /*  reference and pdb sequence handling */
     for (ctr=0; ctr < number_of_seqs; ctr++ ) {
-	if (! strcmp ( name[ctr], alignment->refseq_name) ) {
-	    alignment->refseq = sequence[ctr];
-	    break;
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	    if (! strcmp ( name[ctr], alignment->refseq_name[refseq_ctr]) ) {
+		alignment->refseq[refseq_ctr] = sequence[ctr];
+		break;
+	    }
 	}
     }
     if (  options->pdbname[0] && !options->skip_pdbseq ) {
@@ -211,6 +225,7 @@ int read_clustalw ( Options * options, Alignment * alignment){
 
     /* free */
     free (seq_pos);
+    free (refseq_found);
     
     return 0;
 }

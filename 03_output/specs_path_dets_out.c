@@ -51,7 +51,7 @@
 	    aa = protein->sequence[ almt2prot[almt_pos] ].res_type_short;
 	} else {
 	    sprintf (pdbid, "%s", "-");
-	    aa = alignment->refseq[almt_pos];
+	    aa = alignment->refseq[0][almt_pos];
 	}
 	fprintf (fptr, "%6d%6s%6c%8.2lf", almt_pos+1, pdbid, aa,
 		 (double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs);

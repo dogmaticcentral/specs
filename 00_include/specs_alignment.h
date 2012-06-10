@@ -13,7 +13,7 @@ typedef struct{
     int  **identical_sites;
     int  **similar_sites;
     char * pdbseq;
-    char * refseq;
-    char refseq_name[ALMT_NAME_LENGTH];
+    char ** refseq;
+    char **refseq_name;
     int  refseq_gaps;
 }  Alignment;

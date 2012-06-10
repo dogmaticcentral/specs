@@ -37,8 +37,9 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	    if ( pos >= 0 ) {
 		protein_score[pos] = score[ctr];
 	    }
-	} else if ( alignment->refseq[ctr] != '.' ){
+	} else if ( alignment->refseq &&  alignment->refseq[0][ctr] != '.' ){
 	    
+	    printf (" %d    %d   %d\n", ctr, almt_length, pos);
 	    if ( pos >= new_length ) {
 		fprintf (stderr, "Error: pos ctr >= allocated length (%d) \n", new_length);
 		exit (1);
