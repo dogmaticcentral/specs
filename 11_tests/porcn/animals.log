@@ -1,0 +1,18 @@
+
+  SPECS version 2008.
+  by Ivana Mihalek, 2007
+  File produced on Wed Mar  7 18:32:20 2012
+
+  Options:
+  	 alignment  file:        animals_w_struct.msf
+  	 refseq  name:           HOM_SAP_PORCN
+  	 pdb file:               model3.orig_numbering.pdb
+  	 pdb seq name:           model3.orig_numbering.pdb
+  	 max fraction of gaps:   0.30
+  	 residue scoring method:  rvet
+  	 tree building method:   UPGMA
+  Warning:
+  	 No chain specified. Using the first one.
+  Notes:
+  	 Remember that the results will depend on the input sequence selection,
+  	 as well as the alignment quality and proportion of gaps in the alignment.

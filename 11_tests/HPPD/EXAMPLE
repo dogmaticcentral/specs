@@ -1,0 +1,106 @@
+Note: the colorbar for the coloring scheme used in pymol
+to indicate degree of conservation can be found in any xls file.
+(Produced by specs2xls.pl, 12_tools directory).
+
+
+==================================================
+==================================================
+(assuming 1sqi.pdb present in PWD )
+
+../../12_tools/pdb_extract_chain.pl 1sqi.pdb  A > 1sqiA.pdb
+../../12_tools/pdb2seq.pl 1sqiA.pdb > 1sqiA.seq
+
+(use 1sqiA.seq to do BLAST - http://blast.ncbi.nlm.nih.gov/Blast.cgi
+--> select all --> get selected sequences --> display FASTA
+--> send to File --> move sequences.fasta to PWD)
+
+ grep '>' sequences.fasta > NCBI_headers.txt
+../../12_tools/fasta_names_shorten.pl < sequences.fasta >! tmp
+mv tmp sequences.fasta
+
+
+ cat 1sqiA.seq sequences.fasta > hppd.fasta
+ ../../12_tools/muscle -in hppd.fasta -out hppd.raw.afa
+
+../../12_tools/seaview   hppd.raw.afa
+(Note: in this step we are getting rid of identical sequences
+from the alignment - it is not strictly necessary.)
+../../12_tools/prune_afa hppd.raw.afa hppd.pruned.afa 1sqiA .98 .0 .0
+../../12_tools/seaview   hppd.pruned.afa
+
+../../12_tools/afa2msf.pl hppd.pruned.afa > hppd.pruned.msf
+
+==================================================
+==================================================
+Edit cmd file, if needed.
+it should look like this:
+
+align  hppd.pruned.msf
+query  1sqiA
+pdbf   1sqiA.pdb
+outn   1sqi
+patch_sim_cutoff 0.8
+patch_min_length 0.5
+sink 0.3
+method rvet entr
+skip_query
+
+
+==================================================
+==================================================
+
+run specs
+
+../../specs cmd
+
+==================================================
+==================================================
+
+pymol visualization (A pml script is human readable,
+and can be 'run' from the file menu in Pymol  - rather
+than 'open' as is the case for pdb and pymol session files.)
+
+
+../../12_tools/specs_cbcvg.pl rvet 1sqi.score 1sqiA.pdb 1sqiA.rvet.pml
+../../12_tools/specs_cbcvg.pl entr 1sqi.score 1sqiA.pdb 1sqiA.entr.pml
+
+or to map on the full PDB entry
+ 
+../../12_tools/specs_cbcvg.pl rvet 1sqi.score 1sqi.pdb 1sqi.rvet.pml A
+(but here you'll have to do some postproceesing in pymol; see ligands.pml)
+
+==================================================
+==================================================
+
+making a spreadsheet (convenient for at-a-glance
+ comparison of various scoring methods)
+
+ ../../12_tools/specs2xls.pl 1sqi.score 1sqi
+
+the spreadsheet will be called 1sqi.xls
+
+
+==================================================
+==================================================
+==================================================
+==================================================
+
+Running rate4site and comparing the results with everything else
+(Note: this is not a necessary step. This is just in case you 
+want to compare  the scoring with rate4site.)
+
+../../12_tools/restrict_msf_to_query.pl hppd.pruned.msf 1sqiA >  hppd.pruned.restr.msf
+../../12_tools/msf2phylip.pl hppd.pruned.restr.msf > hppd.pruned.ph
+../../12_tools/rate4site -s hppd.pruned.ph -a 1sqiA -o 1sqiA.r4s
+
+add the following line to the cmd file
+r4s  1sqiA.r4s
+and change the alignment name in cmd to hppd.pruned.restr.msf
+
+rerun specs
+
+../../specs cmd
+
+
+../../12_tools/specs_cbcvg.pl r4s 1sqi.score 1sqiA.pdb 1sqiA.r4s.pml
+../../12_tools/specs2xls.pl 1sqi.score 1sqi.w_r4s

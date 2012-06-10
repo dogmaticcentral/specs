@@ -1,0 +1,123 @@
+COMPILATION
+-------------
+Fix in specs.h before compilation:
+# define PROBS   "$SPECS_HOME/08_data/probs"
+
+go to 10_objects directory and do
+make
+
+
+
+
+OUTPUT FILES
+-------------
+(the columns have headers, which
+should hopefully be self-explanatory)
+
+*.log          log of options used in the run
+*.score        scoring according to the methods specified 
+               in the cmd file -- for intiutitive interpretation and
+               comparison of different scoring scheme, each score is 
+               converted to "coverage" -  to fraction of conserved
+               residues each position belongs to (=> the smaller the better)
+*.clustering   z-score for the nonrandomness of
+               clustering on the structures - ask me about it
+               if interested
+*.nhx          tree used in the program in the nhx format
+*.overlap      (if dssp/epi files are given) gives 
+               sensitivity/specificity info (see above)
+*.path         output putative specialization events
+               along the path from the root to the query sequence
+*.patched.afa  (with patching option) the "patched" alignment
+*.patchlog     (with patching option) report on sequences patched,
+               and their homologues used for patching 
+
+
+LOOSE ENDS
+-------------
+- neighbor joining tree not tested - unclear 
+if the implementation is correct
+- works in two modes (either/or) 
+  *** clustering in the volume of the protein (default)
+  *** epitope detection (if epi file is given) in which
+      case the surface only is considered
+- sink keyword dictates the percentage of gaps after which 
+  a column is ignored, but also the percentage at which 
+  patching will be attempted
+- log file not particularly thorough
+
+KEYWORDS
+-------------
+Keywords for the cmd file:
+
+! is the comment sign in cmd
+
+align  <file name (full path)>
+acc    <accessibility cutoff>        //used with dssp input
+chai   <chain identifier>
+dssp   <dssp file name (full path)> 
+epit   < file name (full path)>     //list of res considered as an "epitope"
+insc   <input score file >          //currently only rate4site
+meth   <meth> [ <meth> <meth> ...]  
+	// acceptable method names:
+	//   ENTROPY column entropy score
+	//   VALDAR  Valdar Proteins Structure Function and Genetics 2001,42:108
+	//   RVET    Mihalek  J Mol Biol. 2004, 336:1265
+	//   PHENO   Mihalek BMC Bioinformatics. 2007, 8:488
+	//   IVET    Lichtarge  J. Mol. Biol. 1996, 257:342
+	//   ENTR_W_SIM  ENTROPY using similarity as defined in  specs_set_similarity.c
+	//   RV_W_SIM    RVET    using similarity
+	//   IV_W_SIM    IVET    using similarity
+outn   <root for output names>
+patch_sim_cutoff <fraction> // the similarity between sequences required for
+       //  the patching to be attempted - if this keyword does not appear
+       //  in the cmd file, not patching will be attempted
+patch_min_length <fraction>  // minimum legnth, experssed as a fration of
+       // the length of the full 
+path   // output positions of (possible)  loss of function, gain of function 
+       // or specialization
+pdbf   <pdb file name (full path)>
+
+query  <query name in the msf file> // must correspond to pdb if pdb given
+raw    // output raw scores in addition to scores expressed as coverage>
+sink   <gap fraction>  // sink to the bottom columns with the fraction
+                       // gaps larger than the number given here
+skip   // skip query in the alignment (useful when structure does not
+       // correspond in primary sequence to the rest of the alignment
+tree  <upgma|nj>  // upgma is default
+
+
+
+PATH OUTPUT
+-----------
+To understand path output please refer to the
+*nhx file representing the tree that the program is using.
+The first 4 columns are  almt id, pdb id, aa types, 
+and fraction of  gaps for each column. After that follow
+pairs of columns labeled by the node in the tree.
+ 
+For each node, the chi square probability is calculated
+that the left cubcolumn and the right subcolumn contain
+aa types from the same distribution. The p-value is
+deemed significant if it is smaller than the value
+given in SIGNIFICANCE_CUTOFF in specs.h header file.
+If significant, it is output to  the first column.
+The second columns is an attempt to attach some meaning
+to the difference in distributions.
+
+LOF = loss of function
+    = variable in the subtree containing query,
+      but conserved(*) in the sibling branch
+GOF = gain of function 
+    = opposite of GOF 
+DIS = discriminating position 
+    = conserved in both branches, but different
+      across the two
+
+"_" is a placeholder.
+
+*) Whether the residue is conserved in a branch
+is etimated by the magical formula:
+Shannon entropy < 0.3*(maximal entropy for the number
+                       of types seen in the subcolumn)
+See specs_dterminants.c

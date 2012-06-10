@@ -1,0 +1,13 @@
+align  animals_w_struct.msf
+
+refseq HOM_SAP_PORCN
+
+pdbf model3.orig_numbering.pdb
+pdbseq_name  model3
+skip_pdbseq
+
+outn animals.restr
+sink 0.3
+method rvet 
+
+! restrict2structure
