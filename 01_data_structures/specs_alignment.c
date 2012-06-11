@@ -29,13 +29,13 @@ int process_almt (Options *options, Alignment *alignment) {
     if ( ! alignment->similar_sites ) return 1;
     
  
-
-
+ 
 
     
     retval   = seq_pw_dist (alignment);
     if ( retval) return retval;
-    
+
+  
     return 0;
 }
 
@@ -47,6 +47,7 @@ int count_gaps (Options *options, Alignment * alignment) {
     if (!alignment->seq_gaps) return 1;
     alignment->column_gaps = (int *) emalloc (alignment->length*sizeof(int));
     if (!alignment->column_gaps) return 1;
+    
     for ( s=0; s<alignment->number_of_seqs; s++ ) {
 	for ( c=0; c<alignment->length; c++) {
 	    if ( alignment->sequence[s][c] == '.' ) {

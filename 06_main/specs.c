@@ -38,12 +38,14 @@ int main ( int argc, char * argv[]) {
     retval =  process_almt(&options, &alignment);
     if (retval) exit(retval);
     /* "patch" the alignment */
+
     if (options.patch_sim_cutoff > -1) {
 	if (patch_almt (&options, &alignment)) return 1;
 	/* output the patched alignment (afa will do)*/
 	/* output gap as a "-" to make seaview happy */
 	afa_out (&options, &alignment);
     }
+
     /* build the seq similarity tree */
     memset (&tree, 0, sizeof(Tree));
 
@@ -52,12 +54,15 @@ int main ( int argc, char * argv[]) {
 	if (retval) return retval;
 	
     } else {
+
 	retval  = build_tree(&options, &alignment, &tree);
 	if (retval) return retval;
+ 
     }
   
     retval = output_tree ( options.outname, tree.root);
     if (retval) exit(retval);
+
 
     /*******************************************/
     /*                                         */
@@ -104,6 +109,7 @@ int main ( int argc, char * argv[]) {
 	if (retval) exit(retval);
     }
     
+    
     /*******************************************/
     /*                                         */
     /*         conservation scores             */
@@ -126,6 +132,7 @@ int main ( int argc, char * argv[]) {
 				  path_to_refseq,  per_node_prob, description);
 	if (retval) exit(retval);
     }
+
     if ( options.do_scoring ) {
 	retval = scoring_module (&options, &alignment, &tree, &protein,
 				 prot2almt, almt2prot, surface, epitope);

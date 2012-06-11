@@ -1,15 +1,14 @@
 
   SPECS version 2012.
   by Ivana Mihalek, 2007
-  File produced on Sun Jun 10 15:32:14 2012
+  File produced on Mon Jun 11 20:06:01 2012
 
   Options:
   	 alignment  file:        hppd.pruned.msf
   	 main refseq  name:         210099302
-  	 pdb file:               1sqiA.pdb
-  	 pdb seq name:           1sqiA.pdb
   	 max fraction of gaps:   0.30
   	 residue scoring methods:  rvet entr
   	 tree building method:   UPGMA
-  Warning:
-  	 No chain specified. Using the first one.
+  Notes:
+  	 Remember that the results will depend on the input sequence selection,
+  	 as well as the alignment quality and proportion of gaps in the alignment.

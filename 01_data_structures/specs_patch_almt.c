@@ -48,6 +48,21 @@ int patch_almt ( Options *options, Alignment * alignment) {
 	    }
 	}
 	if ( skip) continue;
+
+
+	/* careful with the pdbseq here: */
+	if (  options->pdbseq_name && !options->skip_pdbseq ) {
+	    for (i=0; i<no_seqs; i++) {
+		if (! strcmp ( alignment->name[i], options->pdbseq_name) ) {
+		    skip = 1;
+		    break;
+		}
+	    }
+	}
+	if ( skip) continue;
+
+	
+	
 	
 	nbr[0].seqno = -1; nbr[0].pct_id = 0.0; nbr[0].pct_sim = 0.0;
 	
@@ -104,34 +119,37 @@ int patch_almt ( Options *options, Alignment * alignment) {
 	if ( !patched )  fprintf (log, "\t not patched\n");
 
     }
-    /* for each position which is gapped, but not more than 1/3 (?) gapped */
-    /* replace the gap with the value from the nearest neighbor */
-    
-    char ** old_sequence = alignment->sequence;
-    
+
+
+   
+    free_cmatrix (alignment->sequence);
     alignment->sequence = new_sequence;
-    /* referece seqeunce easy access */
-    for (i=0; i<no_seqs; i++) {
-	int refseq_ctr;
-	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	    if (! strcmp ( alignment->name[i], alignment->refseq_name[refseq_ctr]) ) {
-		alignment->refseq[refseq_ctr] = old_sequence[i];
-		break;
-	    }
-	}
-    }
-    /* careful with the pdbseq here: */
-    if ( !options->skip_pdbseq ) {
-	for (i=0; i<no_seqs; i++) {
-	    if (! strcmp ( alignment->name[i], options->pdbseq_name) ) {
-		alignment->pdbseq = old_sequence[i];
+
+
+    /* make sure that alignment->refseq and alignment->pdbseq
+       (which are aliases) point to the location in the new array */
+    for (i=0; i < no_seqs; i++ ) {
+	int refseq_i;
+	for (refseq_i=0; refseq_i<options->no_refseqs; refseq_i++)  {
+	    if (! strcmp ( alignment->name[i], alignment->refseq_name[refseq_i]) ) {
+		alignment->refseq[refseq_i] = alignment->sequence[i];
 		break;
 	    }
 	}
     }
 
+     if (  options->pdbname[0] && !options->skip_pdbseq ) {
+	for (i=0; i < no_seqs; i++ ) {
+	    if (! strcmp ( alignment->name[i], options->pdbseq_name) ) {
+		alignment->pdbseq = alignment->sequence[i];
+		break;
+	    }
+	}
+    }
+
+
     
-    free_cmatrix (old_sequence);
+    
     free (nbr);
     fclose (log);
     

@@ -62,16 +62,22 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	/*  sequential id, pdb id, aa type, frac of gaps */
 	if ( almt2prot && almt2prot[almt_pos] >= 0 ) {
 	    sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
-	    aa = protein->sequence[ almt2prot[almt_pos] ].res_type_short;
 	} else {
-	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
-		sprintf (pdbid, "%s", "-");
+	    sprintf (pdbid, "%s", "-");
+	}
+	fprintf (fptr, "%6d %5s", almt_pos+1, pdbid);
+
+	
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+	    if ( almt2prot && almt2prot[almt_pos] >= 0 ) {
+		aa = protein->sequence[ almt2prot[almt_pos] ].res_type_short;
+	    } else {
 		aa = alignment->refseq[refseq_ctr][almt_pos];
 	    }
+	    fprintf (fptr, "%6c",  aa);
 	}
-	fprintf (fptr, "%6d %5s%6c%8.2lf", almt_pos+1, pdbid, aa,
-		 (double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs);
 	
+	fprintf (fptr, "%8.2lf", (double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs);
 
 	/* scores */
 	for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {

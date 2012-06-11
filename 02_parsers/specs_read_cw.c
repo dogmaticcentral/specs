@@ -208,7 +208,8 @@ int read_clustalw ( Options * options, Alignment * alignment){
 	    }
 	}
     }
-    if (  options->pdbname[0] && !options->skip_pdbseq ) {
+
+     if (  options->pdbname[0] && !options->skip_pdbseq ) {
 	for (ctr=0; ctr < number_of_seqs; ctr++ ) {
 	    if (! strcmp ( name[ctr], options->pdbseq_name) ) {
 		alignment->pdbseq = sequence[ctr];
@@ -222,6 +223,7 @@ int read_clustalw ( Options * options, Alignment * alignment){
     alignment->length         = almt_length;
     alignment->sequence       = sequence;
     alignment->name           = name;
+ 	
 
     /* free */
     free (seq_pos);

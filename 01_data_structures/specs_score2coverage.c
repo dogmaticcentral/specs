@@ -15,6 +15,7 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     int first, cvg_ctr, surface_size;
     int new_length =0;
     
+		
     restrict2structure = almt2prot && restrict2structure; /* paranoid programing ?*/
     
     if (restrict2structure) {
@@ -23,10 +24,10 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	new_length = alignment->length - alignment->refseq_gaps;
     }
     /*allocate */
-    protein_score = (double *) emalloc ( new_length*sizeof (double) );
+    protein_score = (double *) emalloc (new_length*sizeof(double));
     if (!protein_score ) return 1;
-    sorted_res    =    (int *) emalloc ( new_length*sizeof (int) );
-    if (!sorted_res )     return 1;
+    sorted_res    =    (int *) emalloc (new_length*sizeof(int));
+    if (!sorted_res )    return 1;
 
     
     /* remove gapped positions from the score array */
@@ -37,11 +38,12 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	    if ( pos >= 0 ) {
 		protein_score[pos] = score[ctr];
 	    }
+	    
 	} else if ( alignment->refseq &&  alignment->refseq[0][ctr] != '.' ){
 	    
-	    printf (" %d    %d   %d\n", ctr, almt_length, pos);
 	    if ( pos >= new_length ) {
-		fprintf (stderr, "Error: pos ctr >= allocated length (%d) \n", new_length);
+		fprintf (stderr, "Error in %s:%d: pos ctr >= allocated length (%d) \n",
+			 __FILE__, __LINE__, new_length);
 		exit (1);
 	    }
 	    protein_score[pos] = score[ctr];
