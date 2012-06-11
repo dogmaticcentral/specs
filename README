@@ -1,11 +1,11 @@
 COMPILATION
 -------------
-Fix in specs.h before compilation:
-# define PROBS   "$SPECS_HOME/08_data/probs"
+
 
 go to 10_objects directory and do
-make
+>make
 
+the executable should appear in the $SPECS_HOME (top level) directory
 
 
 
@@ -77,9 +77,13 @@ patch_min_length <fraction>  // minimum legnth, experssed as a fration of
 path   // output positions of (possible)  loss of function, gain of function 
        // or specialization
 pdbf   <pdb file name (full path)>
+pdbseq <pdb name in the alignment file>
 
 query  <query name in the msf file> // must correspond to pdb if pdb given
 raw    // output raw scores in addition to scores expressed as coverage>
+refseq <refseq1> [<refseq2> ...] the names of the reference seqeunces to be 
+       shown in the output file; also, refseqs are never patched 
+
 sink   <gap fraction>  // sink to the bottom columns with the fraction
                        // gaps larger than the number given here
 skip   // skip query in the alignment (useful when structure does not
