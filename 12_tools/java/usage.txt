@@ -1,0 +1,17 @@
+compile:  javac TwoSeq.java
+
+run:     
+java -classpath $SPECS_HOME/02_specs/12_tools/java/  TwoSeq verts_insects.pngmaker_input verts_insects 1
+
+Ako povecamo broj sa 1 na 2 ili 3, traka ce postati sira,
+no te opcije nisu previse testirane - slova i brojke bas ne skaliraju.
+
+Output test.png je dobijen sa defaultom: java TwoSeq input.txt test
+       testScaling.png                   java TwoSeq input.txt testScaling 3    
+
+
+Ako se pokrece iz drugog direktorija:
+
+java -classpath   /!!!!/?????/  TwoSeq input.txt test 1
+
+ 

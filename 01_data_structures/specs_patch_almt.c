@@ -11,7 +11,7 @@ typedef struct {
 
 int patch_almt ( Options *options, Alignment * alignment) {
 
-    int i,j, k, no_seqs = alignment->number_of_seqs;
+    int i,j, k, p, no_seqs = alignment->number_of_seqs;
     char logname [BUFFLEN];
     int pos, patched;
     double pct_id, pct_sim;
@@ -52,8 +52,8 @@ int patch_almt ( Options *options, Alignment * alignment) {
 
 	/* careful with the pdbseq here: */
 	if (  options->pdbseq_name && !options->skip_pdbseq ) {
-	    for (i=0; i<no_seqs; i++) {
-		if (! strcmp ( alignment->name[i], options->pdbseq_name) ) {
+	    for (p=0; p<no_seqs; p++) {
+		if (! strcmp ( alignment->name[p], options->pdbseq_name) ) {
 		    skip = 1;
 		    break;
 		}

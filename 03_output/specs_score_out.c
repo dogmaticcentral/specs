@@ -21,7 +21,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
     
     fprintf (fptr, "%%%6s %4s", "almt", "pdb ");
     for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	fprintf (fptr, "%15s",  options->refseq_name[refseq_ctr]);
+	fprintf (fptr, " %15s ",  options->refseq_name[refseq_ctr]);
     }
     fprintf (fptr, "%8s", "gaps");
 
