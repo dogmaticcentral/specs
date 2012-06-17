@@ -107,17 +107,8 @@ while ( <RANKS_FILE> ) {
 
 	foreach $i (0 .. $#aux) {
 	    $column =  chr (ord('A') + $i);
-	    if ( grep ($_ =~$header[$i], ('almt', 'pdb', 'aa', 'substitutions') ) ) {
-		if ( $aux[$i] =~ /\d/ ) {
-		    $worksheet->write("$column$line", $aux[$i], $format_right);  
-		} else {  
-		    $worksheet->write("$column$line", $aux[$i], $format_centered);  
-		}  
+	    if ( grep ($_ =~$header[$i], ('rvet', 'entr', 'ivet', 'majf') ) ) {
 
-	    } elsif ($header[$i] eq 'gaps') {
-		$worksheet->write("$column$line", $aux[$i], $format_float);   
- 
-	    } else {
 		$cvg =  $aux[$i];
 		$color_index = int ($cvg*$COLOR_RANGE );
 		# the first column is the color strip
@@ -129,7 +120,18 @@ while ( <RANKS_FILE> ) {
 		$format ->set_num_format('0.00');
 		$worksheet->write("$column$line", $aux[$i], $format);
 
+	    } elsif ($header[$i] eq 'gaps') {
+		$worksheet->write("$column$line", $aux[$i], $format_float);   
  
+	    } else {
+
+		# generic behavior
+		if ( $aux[$i] =~ /\d/ ) {
+		    $worksheet->write("$column$line", $aux[$i], $format_right);  
+		} else {  
+		    $worksheet->write("$column$line", $aux[$i], $format_centered);  
+		}  
+
 	    }
 	}
 
