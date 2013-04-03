@@ -32,7 +32,7 @@ int main ( int argc, char * argv[]) {
     /*******************************************/
 
     /* read in the alignment */
-    retval = read_clustalw (&options, &alignment);
+    retval = read_alignment (&options, &alignment);
     if (retval) exit(retval);
     /* find  number of gaps, seq distances*/
     retval =  process_almt(&options, &alignment);

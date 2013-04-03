@@ -162,7 +162,7 @@ int  path_determinants (double sig_cutoff, Alignment * alignment,
 		       double  **per_node_prob, int **description);
 int  print_tree (FILE * fptr,Node * node );
 int  process_almt (Options *options, Alignment *alignment) ;
-int  read_clustalw ( Options * options, Alignment * alignment);
+int  read_alignment (Options * options, Alignment * alignment);
 int  read_cmd_file (char *filename, Options * options);
 int  read_dssp (Options * options, Protein *protein);
 int  read_epitope (Options * options, Protein * protein, int *epitope);

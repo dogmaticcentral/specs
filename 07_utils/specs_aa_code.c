@@ -69,8 +69,14 @@ char single_letter ( char code[]){
 	}
 	break;
     case 'S':
-	return 'S';
-	break;
+	switch ( code [1]) {
+	case 'E':
+	    return 'S';
+	    break;
+	case 'C':
+	    return 'C'; // SCY, selenocysteine
+	    break;
+	}
     case 'T':
 	switch ( code [1]) {
 	case 'H':
