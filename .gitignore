@@ -28,6 +28,8 @@ struct
 *.sql
 *.sqlite
 *~
+\#*
+
 pdbchains
 sys_tfm
 *.aln

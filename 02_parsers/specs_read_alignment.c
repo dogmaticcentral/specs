@@ -5,31 +5,19 @@ typedef enum {UNK, GCG, FASTA} AfaFormat;
 
 int allocate_alignment_space (Alignment * alignment, Options * options, int number_of_seqs, int almt_length);
 int get_name_from_fasta_hdr  (char * line, char * name);
-int read_gcg   (Options * options, Alignment * alignment);
-int read_fasta (Options * options, Alignment * alignment);
+int housekeeping_and_sanity_checking (Options * options, Alignment * alignment);
+int read_gcg   (Options * options, Alignment * alignment, FILE * fptr);
+int read_fasta (Options * options, Alignment * alignment, FILE * fptr);
 
 
 /*******************************************************/
 int read_alignment ( Options * options, Alignment * alignment){
 
-    FILE * fptr = NULL;
-    AfaFormat format = UNK;
+    FILE * fptr        = NULL;
+    AfaFormat format   = UNK;
+    char line[BUFFLEN] = {'\0'};
+    int retval         = 0;
     
-    /***************************************************/
-    /*  some housekeeping                              */
-    if ( options->no_refseqs) {
-	alignment->refseq_name = chmatrix (options->no_refseqs*sizeof(char*), ALMT_NAME_LENGTH);
-	if ( ! alignment->refseq_name) return 1;
-	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
-	    sprintf ( alignment->refseq_name[refseq_ctr], "%s", options->refseq_name[refseq_ctr]);
-	}
-	/* we'll asign these below */
-	alignment->refseq = emalloc (options->no_refseqs*sizeof(char*));
-	if ( ! alignment->refseq) return 1;
-
-	refseq_found = emalloc (options->no_refseqs*sizeof(int));
-	if ( !refseq_found) return 1;
-    }
     
     /***************************************************/
     /* open file                                       */
@@ -37,7 +25,7 @@ int read_alignment ( Options * options, Alignment * alignment){
     if ( !fptr ) return 1;
 
     /***************************************************/
-    /* try to guess the input format                  */
+    /* try to guess the input format                   */
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 	if ( line[0]=='>') {
 	    format = FASTA;
@@ -49,74 +37,36 @@ int read_alignment ( Options * options, Alignment * alignment){
 	} 
     }
     if ( format == UNK ) {
-	fprintf ( stderr, "Alignment format not recognized. Is the format gcg or fasta?\n",
+	fprintf ( stderr, "Alignment format in %s not recognized. Is the format gcg or fasta?\n",
 		  options->almtname);
 	return 1;
     }
 
     /***************************************************/
     /*  read                                           */
+    rewind(fptr);
     if (format == GCG) {
-	read_gcg   (options, alignment);
+	retval = read_gcg   (options, alignment, fptr);
     } else {
-	read_fasta (options, alignment);
+	retval = read_fasta (options, alignment, fptr);
     }
-    
     fclose(fptr);
-
-    /***************************************************/
-    /* sanity check                                    */
-    for (ctr=0; ctr < number_of_seqs; ctr++ ) {
-	if ( seq_pos[ctr] >  almt_length ) {
-	    fprintf (stderr,
-		     "Sequence %s is longer (%d positions) than the alignment (%d positions).\n",
-		     name[ctr],  seq_pos[ctr], almt_length);
-	    return 1;
-	} else if ( seq_pos[ctr] <  almt_length ) {
-	    fprintf (stderr,
-		     "Sequence %s is shorter (%d positions) than the alignment (%d positions).\n",
-		     name[ctr],  seq_pos[ctr], almt_length);
-	    return 1;
-	}
-    }
-
-    /***************************************************/
-    /* more housekeeping                               */
-    /*  reference and pdb sequence handling            */
-    for (ctr=0; ctr < number_of_seqs; ctr++ ) {
-	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	    if (! strcmp ( name[ctr], alignment->refseq_name[refseq_ctr]) ) {
-		alignment->refseq[refseq_ctr] = sequence[ctr];
-		break;
-	    }
-	}
-    }
-
-     if (  options->pdbname[0] && !options->skip_pdbseq ) {
-	for (ctr=0; ctr < number_of_seqs; ctr++ ) {
-	    if (! strcmp ( name[ctr], options->pdbseq_name) ) {
-		alignment->pdbseq = sequence[ctr];
-		break;
-	    }
-	}
-    }
+    if (retval) return retval;
     
-    /* return values */
-    alignment->number_of_seqs = number_of_seqs;
-    alignment->length         = almt_length;
-    alignment->sequence       = sequence;
-    alignment->name           = name;
+ 
+    retval = housekeeping_and_sanity_checking (options, alignment);
+    if (retval) return retval;
+    
     return 0;
 }
 
 
 /********************************************************************************************/
-int read_gcg ( Options * options, Alignment * alignment){
+int read_gcg ( Options * options, Alignment * alignment, FILE * fptr){
     
     char line[BUFFLEN];
-    int  number_of_seqs, almt_length, ctr, ctr2, refseq_ctr;
+    int  number_of_seqs, almt_length, ctr;
     int * seq_pos, pos, pdbseq_pos_ctr,pdbseq_found;
-    int * refseq_found = NULL;
     int * pos_ctr;
     char * seq_ptr;
     char ** sequence;
@@ -134,7 +84,7 @@ int read_gcg ( Options * options, Alignment * alignment){
 	}
     }
     if ( almt_length ) {
-	/* printf ( "Alignment length in %s is %d.\n", cwname, almt_length); */
+	printf ( "Alignment length in %s is %d.\n", options->almtname, almt_length);
     } else {
 	fprintf ( stderr, "Alignment length info not found in %s. Is the format gcg?\n",
 		  options->almtname );
@@ -143,18 +93,12 @@ int read_gcg ( Options * options, Alignment * alignment){
 
     /* determine the number of sequences */
     number_of_seqs = 0;
-    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) refseq_found[refseq_ctr] = 0;
-    pdbseq_found = 0;
+    pdbseq_found   = 0;
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 	if ( ! strncmp (line, "//", 2) ) break;
 	if ( strstr(line, "Name:" ) ) {
 	    number_of_seqs++;
 	    sscanf (line, "%*s %s", curr_name);
-	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-		if ( !strcmp(curr_name, alignment->refseq_name[refseq_ctr]) ) {
-		    refseq_found[refseq_ctr] = 1;
-		}
-	    }
 	    if ( options->pdbseq_name[0] && !strcmp(curr_name, options->pdbseq_name) )
 		pdbseq_found = 1;
 	}
@@ -165,15 +109,6 @@ int read_gcg ( Options * options, Alignment * alignment){
 	return 1;
     }
     
-
-    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	if ( !  refseq_found[refseq_ctr] ) {
-	    fprintf ( stderr, "Refseq  %s not found in %s.\n",
-		      alignment->refseq_name[refseq_ctr],  options->almtname);
-	    return 1;
-	}
-    }
-
     if ( options->pdbname[0] ) {
 	if ( pdbseq_found ) {
 	    if (options->skip_pdbseq) number_of_seqs--; /* we will store the pdbseq separately */
@@ -187,10 +122,14 @@ int read_gcg ( Options * options, Alignment * alignment){
 
     /****************************/
     allocate_alignment_space (alignment, options, number_of_seqs, almt_length);
+    seq_pos = (int *) emalloc ( number_of_seqs*sizeof(int));
+    if ( !seq_pos ) return 1;
+    sequence = alignment->sequence; /* alias */
+    name     = alignment->name;
 
 
-    /****************************/
-    /* read in                  */
+    /***************************************************/
+    /* read in the names                               */
     rewind(fptr);
     ctr = 0;
     pdbseq_pos_ctr = 0;
@@ -206,18 +145,7 @@ int read_gcg ( Options * options, Alignment * alignment){
 	}
     }
 
-    
-    /* check for duplicate names */
-    for (ctr = 0; ctr <number_of_seqs;  ctr++) {
-	for (ctr2 = ctr+1; ctr2 <number_of_seqs;  ctr2++ ) {
-	    if ( ! strcmp (name[ctr], name[ctr2]) ) {
-		fprintf ( stderr, "Duplicate names  found in the header of %s:  %s (names %d and %d: %s and %s)\n",
-			  options->almtname, name[ctr], ctr, ctr2, name[ctr], name[ctr2]);
-		return 1;
-	    }
-	}
-    }
-    
+    /***************************************************/
     /* read in the sequences */
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 	if ( isspace (line[0] ) ) continue;
@@ -237,96 +165,86 @@ int read_gcg ( Options * options, Alignment * alignment){
 	    pos_ctr = seq_pos + ctr;
 	}
 	pos = 0;
-	while ( ! isspace(line[pos]) ) pos++;
+	while ( ! isspace(line[pos]) ) pos++; /* skip the name */
 	while  (line[pos] != '\n' && pos < BUFFLEN) {
 	    if ( !  isspace(line[pos] ) ){
-                /* --> turn to uppercase */
-		if ((line[pos]>=97)&&(line[pos]<=122)) {line[pos] -= 32;}
-		/* turn dash to dot */
-		if ( line[pos]==45 )                   {line[pos]  = 46;} 
-		/* turn tweedle to dot */
-		if ( line[pos]==126)                   {line[pos]  = 46;} 
-		/* turn X to dot */
-		if ( line[pos]==88)                    {line[pos]  = 46;} 
+		if ( *pos_ctr == almt_length) {
+		    fprintf (stderr,
+			     "Sequence %s is longer  than the alignment (%d positions).\n",
+			     curr_name, almt_length);
+		    return 1;
+		}
 		seq_ptr [ *pos_ctr ] = line[pos];
 		(*pos_ctr)++;
 	    }
 	    pos ++;
 	}
     }
- 	
 
+    /* return values */
+    alignment->number_of_seqs = number_of_seqs;
+    alignment->length         = almt_length;
+    alignment->refseq_name    = options->refseq_name;
+    alignment->no_refseqs     = options->no_refseqs;
+
+    
     /* free */
     free (seq_pos);
-    free (refseq_found);
     
     return 0;
 }
 /********************************************************************************************/
-int read_fasta ( Options * options, Alignment * alignment){
+int read_fasta ( Options * options, Alignment * alignment, FILE * fptr){
     
     char line[BUFFLEN];
-    int  number_of_seqs, almt_length, ctr, ctr2, refseq_ctr;
-    int * seq_pos, pos, pdbseq_pos_ctr,pdbseq_found;
-    int * refseq_found = NULL;
-    int  pos_ctr;
+    int  number_of_seqs, almt_length, ctr;
+    int  pos, pdbseq_found;
+    int  seq_length;
+    int  line_pos, seq_pos;
     char * seq_ptr;
     char ** sequence;
     char ** name;
     char curr_name[BUFFLEN];
-     
+        
     memset (alignment, 0, sizeof(Alignment) );
     
-
     /* determine the number of sequences */
-    number_of_seqs =  0;
-    almt_length    =  0;
-    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) refseq_found[refseq_ctr] = 0;
-    pdbseq_found = 0;
+    number_of_seqs = 0;
+    almt_length    = 0;
+    pdbseq_found   = 0;
+    seq_length     = 0;
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 
 	if ( line[0]== '>' ) {
-	    
 	    /*process the previous seq*/ 
-	    if (!almt_length) {
+	    if (seq_length && !almt_length) {
 		almt_length = seq_length;
 	    } else if (seq_length != almt_length) {
 		fprintf (stderr, "Sequence length mismatch for %s: ", curr_name);
-		fprintf (stderr, "(alignment length: %d, this sequence: %d).\n", seq_length, almt_length);
+		fprintf (stderr, "(first sequence length: %d, this sequence: %d).\n", seq_length, almt_length);
 		return 1;
 	    }
 	    number_of_seqs++;
-	    if get_name_from_fasta_hdr (line, curr_name) return 1;
-	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-		if ( !strcmp(curr_name, alignment->refseq_name[refseq_ctr]) ) {
-		    refseq_found[refseq_ctr] = 1;
-		}
-	    }
+	    if ( get_name_from_fasta_hdr (line, curr_name) ) return 1;
+	    
 	    if ( options->pdbseq_name[0] && !strcmp(curr_name, options->pdbseq_name) )
 		pdbseq_found = 1;
-	    seq_length = 0
+	    
+	    seq_length = 0;
 		
         } else {
 	    for (pos=0; pos < BUFFLEN; pos++) {
-		if  (!isspace(line[pos]) ) seq_length ++;
+		if (line[pos] =='\n') break;
+		if (!isspace(line[pos]) ) seq_length ++;
 	    }
-	    
 	}
     }
     if ( !number_of_seqs ) {
-	fprintf ( stderr, "No sequences found in %s. Is the format gcg?\n",
+	fprintf ( stderr, "No sequences found in %s. Is the format fasta?\n",
 		  options->almtname);
 	return 1;
     }
     
-
-    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	if ( !  refseq_found[refseq_ctr] ) {
-	    fprintf ( stderr, "Refseq  %s not found in %s.\n",
-		      alignment->refseq_name[refseq_ctr],  options->almtname);
-	    return 1;
-	}
-    }
 
     if ( options->pdbname[0] ) {
 	if ( pdbseq_found ) {
@@ -335,76 +253,50 @@ int read_fasta ( Options * options, Alignment * alignment){
 	    fprintf ( stderr, "Sequence corresponding to the structure (%s) not found in %s.\n",
 		      options->pdbseq_name,  options->almtname);
 	    return 1;
-
 	}
     }
     
-    /****************************/
+    /******************************************************************************/
     allocate_alignment_space (alignment, options, number_of_seqs, almt_length);
-
+    sequence = alignment->sequence; /* alias */
+    name     = alignment->name;
     
     /****************************/
     /* read in                  */
     rewind(fptr);
-
+    ctr     = 0;
+    seq_ptr = NULL;
+    seq_pos = 0;
     while(fgets(line, BUFFLEN, fptr)!=NULL){
 
 	if ( line[0]== '>' ) {
-	    if get_name_from_fasta_hdr (line, curr_name) return 1;
 
-	    if (  options->pdbname[0] && options->skip_pdbseq  && ! strcmp (options->pdbseq_name, curr_name)  ) {
+	    if ( get_name_from_fasta_hdr (line, curr_name) ) return 1;
+	    
+	    if (  options->pdbname[0] && options->skip_pdbseq  && !strcmp (options->pdbseq_name, curr_name)  ) {
 		seq_ptr = alignment->pdbseq;
 	    } else {
-		ctr = 0;
-		while (  ctr <number_of_seqs &&  strcmp (name[ctr], curr_name) ) ctr++;
-		if ( ctr >= number_of_seqs ) {
-		    fprintf ( stderr, "The name %s not found in the header of %s.\n",
-			      curr_name,  options->almtname);
-		    return 1;
-		}
+		sprintf (name[ctr], "%s",  curr_name);
 		seq_ptr = sequence [ctr];
+		ctr ++;
 	    }
-	    
+	    seq_pos = 0;
+
 	} else {
-	    pos_ctr = 0;
-	    pos     = 0;
-	    while ( ! isspace(line[pos]) ) pos++;
-	    while  (line[pos] != '\n' && pos < BUFFLEN) {
-		if ( !  isspace(line[pos] ) ){
-		    /* --> turn to uppercase */
-		    if ((line[pos]>=97)&&(line[pos]<=122)) {line[pos] -= 32;}
-		    /* turn dash to dot */
-		    if ( line[pos]==45 )                   {line[pos]  = 46;} 
-		    /* turn tweedle to dot */
-		    if ( line[pos]==126)                   {line[pos]  = 46;} 
-		    /* turn X to dot */
-		    if ( line[pos]==88)                    {line[pos]  = 46;} 
-		    seq_ptr [ pos_ctr ] = line[pos];
-		    pos_ctr++;
-		}
-		pos ++;
-	    }
-
-	}
-    }
-
-    
-    
-    /* check for duplicate names */
-    for (ctr = 0; ctr <number_of_seqs;  ctr++) {
-	for (ctr2 = ctr+1; ctr2 <number_of_seqs;  ctr2++ ) {
-	    if ( ! strcmp (name[ctr], name[ctr2]) ) {
-		fprintf ( stderr, "Duplicate names  found in the header of %s:  %s (names %d and %d: %s and %s)\n",
-			  options->almtname, name[ctr], ctr, ctr2, name[ctr], name[ctr2]);
-		return 1;
+	    for (line_pos = 0; line[line_pos] != '\n' && line_pos < BUFFLEN; line_pos ++) {
+		if (  isspace(line[line_pos] ) ) continue;
+		seq_ptr [ seq_pos ] = line[line_pos];
+		seq_pos++;
 	    }
 	}
     }
-
-    /* free */
-    free (seq_pos);
-    free (refseq_found);
     
+    /* return values */
+    alignment->number_of_seqs = number_of_seqs;
+    alignment->length         = almt_length;
+    alignment->refseq_name    = options->refseq_name;
+    alignment->no_refseqs     = options->no_refseqs;
+
     return 0;
 }
 
@@ -416,8 +308,8 @@ int allocate_alignment_space (Alignment * alignment, Options * options, int numb
     printf ( "Number of sequences in %s is %d.\n",  options->almtname, number_of_seqs);
     
     /* allocate */
-    sequence = chmatrix (number_of_seqs, almt_length);
-    if ( !sequence ) return 1;
+    alignment->sequence = chmatrix (number_of_seqs, almt_length);
+    if ( !alignment->sequence ) return 1;
 
 
     if (  options->pdbname[0] && options->skip_pdbseq ) {
@@ -428,16 +320,17 @@ int allocate_alignment_space (Alignment * alignment, Options * options, int numb
     alignment->seq_dist = dmatrix (number_of_seqs, number_of_seqs);
     if ( !alignment->seq_dist ) return 1;
 
-    alignment->node = emalloc (almt_length*sizeof(Node*));
+    alignment->node     = emalloc (almt_length*sizeof(Node*));
     if ( !alignment->node ) return 1;
     
-    name     = chmatrix (number_of_seqs, ALMT_NAME_LENGTH);
-    if ( !name ) return 1;
+    alignment->name     = chmatrix (number_of_seqs, ALMT_NAME_LENGTH);
+    if ( !alignment->name ) return 1;
 
-    seq_pos = (int *) emalloc ( number_of_seqs*sizeof(int));
-    if ( !seq_pos ) return 1;
+    alignment->refseq   = emalloc (options->no_refseqs*sizeof(char*));
+    if ( !alignment->refseq ) return 1;
 
-
+    alignment->no_refseqs = options->no_refseqs;
+    
     return 0;
 }
 
@@ -447,23 +340,125 @@ int get_name_from_fasta_hdr (char * line, char * name ) {
     
     char token[MAX_TOK][MEDSTRING] = {{'\0'}};
     int retval, max_token;
-    cha comment_char;
+    char comment_char;
+
     
-    retval = tokenize ( token, &max_token, line, comment_char= '!' );
+    /* the first chracter is '>' */
+    retval = tokenize ( token, &max_token, line+1, comment_char= '!' );
     switch ( retval ) {
     case  TOK_TOOMNY:
-	errmsg ( log, line_ctr, line, "\t\t %s\n", "Too many tokens.");
-	fclose (log);
+	fprintf ( stderr, "%s\n%s\n", line, "Too many tokens.");
 	return 1;
     case TOK_TOOLONG:
-	errmsg ( log, line_ctr, line, "\t\t %s\n", "Token too long.");
-	fclose (log);
+	fprintf ( stderr, "%s\n%s\n", line, "Token too long.");
 	return 1;
     }
     if ( max_token < 0 ) return 1;
 
-    speintf(name, "%s", token[0]);
+    sprintf(name, "%s", token[0]);
 
     
     return 0;
 }
+
+
+/*******************************************************************************************/
+int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) {
+
+    int ctr, refseq_ctr;
+    int refseq_found = 0;
+
+    /* referece sequences -anmes and pointers to the sequence          */
+    if ( options->no_refseqs) {
+	
+	alignment->refseq_name = chmatrix (options->no_refseqs*sizeof(char*), ALMT_NAME_LENGTH);
+	if ( ! alignment->refseq_name) return 1;
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+	    sprintf ( alignment->refseq_name[refseq_ctr], "%s", options->refseq_name[refseq_ctr]);
+	}
+	/* we'll asign these below */
+	alignment->refseq = emalloc (options->no_refseqs*sizeof(char*));
+	if ( ! alignment->refseq) return 1;
+
+	/* do we have all refseqs that were anounced in the cmd file? use refseq_found to keep track*/
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	    refseq_found = 0;
+	    for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
+		if ( !strcmp(alignment->name[ctr], options->refseq_name[refseq_ctr]) ) {
+		    refseq_found = 1;
+		    break;
+		}
+	    }
+	    if ( !refseq_found) {
+		fprintf (stderr, "Referece seqeunce %s not found in %s\n",
+			 options->refseq_name[refseq_ctr], options->almtname);
+		return 1;
+	    }
+	}
+	/* pointers to reference seqeunces        */
+	for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
+	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+		if (! strcmp ( alignment->name[ctr], alignment->refseq_name[refseq_ctr]) ) {
+		    alignment->refseq[refseq_ctr] = alignment->sequence[ctr];
+		    break;
+		}
+	    }
+	}
+    }
+
+    /* check for duplicate names                       */
+    for (ctr = 0; ctr <alignment->number_of_seqs;  ctr++) {
+	int ctr2;
+	for (ctr2 = ctr+1; ctr2 <alignment->number_of_seqs;  ctr2++ ) {
+	    if ( ! strcmp (alignment->name[ctr], alignment->name[ctr2]) ) {
+		fprintf ( stderr, "Duplicate sequence names  found in %s:  names %d and %d: %s and %s\n",
+			  options->almtname, ctr, ctr2, alignment->name[ctr], alignment->name[ctr2]);
+		return 1;
+	    }
+	}
+    }
+
+    /* length check                                    */
+    for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
+	if (strlen(alignment->sequence[ctr]) < alignment->length ) {
+	    fprintf (stderr,
+		     "Sequence %s is shorter (%d positions) than the alignment (%d positions).\n",
+		     alignment->name[ctr], (int)strlen(alignment->sequence[ctr]), alignment->length  );
+	    return 1;
+	}
+    }
+ 	
+    
+    /* pointer to the sequence that corresponds to the structure */
+    if (  options->pdbname[0] && !options->skip_pdbseq ) {
+	for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
+	    if (! strcmp ( alignment->name[ctr], options->pdbseq_name) ) {
+		alignment->pdbseq = alignment->sequence[ctr];
+		break;
+	    }
+	}
+    }
+
+    /* cleanup the sequences:  */
+    for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
+	int pos;
+	char * seq;
+	for (pos=0; pos<alignment->length; pos++) {
+	    seq = alignment->sequence[ctr];
+	    /* --> turn to uppercase */
+	    if ((seq[pos]>=97)&&(seq[pos]<=122)) {seq[pos] -= 32;}
+	    /* turn dash to dot */
+	    if ( seq[pos]==45 )                  {seq[pos]  = 46;} 
+	    /* turn tweedle to dot */
+	    if ( seq[pos]==126)                  {seq[pos]  = 46;} 
+	    /* turn X to dot */
+	    if ( seq[pos]==88)                   {seq[pos]  = 46;} 
+	    
+	}
+    }
+
+    
+
+    
+    return 0;
+} 

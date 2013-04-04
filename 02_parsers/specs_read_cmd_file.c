@@ -218,7 +218,7 @@ int read_cmd_file (char *filename, Options * options) {
 		return 1;
 	    }
 	    options->no_refseqs = max_token;
-	    options->refseq_name = chmatrix (options->no_refseqs, SHORTSTRING);
+	    options->refseq_name = chmatrix (options->no_refseqs, ALMT_NAME_LENGTH);
 	    if ( ! options->refseq_name) return 1;
 	    for (token_ctr = 1; token_ctr<= max_token; token_ctr ++) {
 		sprintf ( options->refseq_name[token_ctr-1], "%s", token[token_ctr]);

@@ -26,13 +26,13 @@ DEFINES =
 SOURCES.F = 
 SOURCES.f = 
 SOURCES.c = 	specs.c  specs_aa_code.c  specs_area.c specs_adj_matrix.c specs_afa_out.c  \
-           	specs_alignment.c specs_clustering_out.c  specs_cluster_weight.c  \
+        specs_alignment.c specs_clustering_out.c  specs_cluster_weight.c  \
 	specs_chi2.c  specs_consensus_upgma.c specs_determinants.c \
 	specs_entropy.c specs_fraction.c  specs_hybrid.c  specs_int_trace.c \
 	specs_logger.c  specs_mapping.c   specs_node.c    specs_nj.c\
 	specs_output_epi_spec.c  specs_overlap.c  specs_read_tree.c \
 	specs_patch_almt.c specs_pheno.c \
-	specs_read_cmd_file.c specs_read_cw.c specs_read_dssp.c \
+	specs_read_cmd_file.c specs_read_alignment.c specs_read_dssp.c \
 	specs_read_epi.c  specs_read_pdb.c specs_read_score.c \
 	specs_score2coverage.c specs_score_out.c \
 	specs_path_dets_out.c \

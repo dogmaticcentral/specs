@@ -15,5 +15,6 @@ typedef struct{
     char * pdbseq;
     char ** refseq;
     char **refseq_name;
-    int  refseq_gaps;
+    int  no_refseqs;
+    int refseq_gaps;
 }  Alignment;
