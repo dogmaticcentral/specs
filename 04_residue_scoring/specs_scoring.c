@@ -1,15 +1,21 @@
 # include "specs.h"
 
+/* 'Normalization' here ferers to using only non-gapped postions to say something
+   about the conservation. [Rather than tresting gaps as 21st amino acid type.
+   Apparently Valdar is 'nomralized' by definition. */
 
 int  scoring ( Options *options, Alignment * alignment, Tree * tree,
 	       int * similar_to, double * score, int score_ctr) {
     
-    int  carbone (Alignment * alignment, Tree * tree, int * similar_to, double *score);
-    int  entropy ( Alignment * alignment, int * similar_to, double *score);
+    int  carbone (Alignment * alignment, Tree * tree, int * similar_to,
+		  int normalize, double *score);
+    int  entropy ( Alignment * alignment, int * similar_to,  int normalize, double *score);
     int  hybrid (Alignment * alignment, Tree * tree,
 		 int * similar_to, int normalize,  double *score);
-    int  int_trace (Alignment * alignment, Tree * tree, int * similar_to, double *score);
-    int  majority_fraction ( Alignment * alignment, int * similar_to, double *score);
+    int  int_trace (Alignment * alignment, Tree * tree, int * similar_to,
+		    int normalize,  double *score);
+    int  majority_fraction ( Alignment * alignment, int * similar_to,
+			     int normalize, double *score);
     int  pheno_init (char * table_file);
     int  pheno (Alignment * alignment, double *score, int blosum_ctr);
     int  hybrid_pheno (Alignment * alignment, double *score, Tree * tree);
@@ -17,6 +23,8 @@ int  scoring ( Options *options, Alignment * alignment, Tree * tree,
     int  valdar ( Alignment * alignment, double *score);
     
     static int table_init =0;
+    int normalize = 1;
+
     
     if (!table_init  && 
 	    ( options->method[score_ctr] == PHENO ||
@@ -30,25 +38,25 @@ int  scoring ( Options *options, Alignment * alignment, Tree * tree,
 	valdar ( alignment, score);
 	break;
     case ENTROPY:
-	entropy ( alignment, NULL, score);
+	entropy ( alignment, NULL,  normalize, score);
 	break;
     case ENTR_W_SIM:
-	entropy ( alignment, similar_to, score);
+	entropy ( alignment, similar_to, normalize, score);
 	break;
     case IVET:
-	int_trace ( alignment, tree, NULL, score);
+	int_trace ( alignment, tree, NULL, normalize, score);
 	break;
     case CARBONE:
-	carbone ( alignment, tree, NULL, score);
+	carbone ( alignment, tree, NULL, normalize, score);
 	break;
     case IV_W_SIM:
-	int_trace ( alignment, tree, similar_to, score);
+	int_trace ( alignment, tree, similar_to, normalize, score);
 	break;
     case MAJORITY:
-	majority_fraction ( alignment, NULL, score);
+	majority_fraction ( alignment, NULL, normalize, score);
 	break;
     case MAJORITY_W_SIM:
-	majority_fraction ( alignment, similar_to, score);
+	majority_fraction ( alignment, similar_to, normalize, score);
 	break;
     case RVET:
 	hybrid ( alignment, tree, NULL, 0,  score);
@@ -57,7 +65,7 @@ int  scoring ( Options *options, Alignment * alignment, Tree * tree,
 	hybrid ( alignment, tree, NULL, 1,  score);
 	break;
     case RV_W_SIM:
-	hybrid ( alignment, tree, similar_to, 0,  score);
+	hybrid ( alignment, tree, similar_to, normalize,  score);
 	break;
     case PHENO:
 	pheno (alignment, score, 1);

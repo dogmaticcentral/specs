@@ -2,7 +2,7 @@ align  hppd.pruned.msf
 ! pdbseq  1sqiA
 ! pdbf   1sqiA.pdb
  refseq  210099302 1362503
-outn   test
+outn   new
 !patch_sim_cutoff 0.8
 !patch_min_length 0.5
 sink 0.3
