@@ -177,7 +177,7 @@ $worksheet->write($row, $column, "variable", $format_right);
 $column =  $last_column + 3;
 $row = 0;
 
-$worksheet->write($row, $column, "cons colorbar", $format_hdr);   
+$worksheet->write($row, $column, "conservation colorbar", $format_hdr);   
 
 for ($ctr = 0; $ctr <= $COLOR_RANGE; $ctr++) {
     $format = $workbook->add_format(

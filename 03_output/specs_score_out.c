@@ -25,7 +25,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
     for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
 	fprintf (fptr, " %15s ",  options->refseq_name[refseq_ctr]);
     }
-    fprintf (fptr, "%8s", "gaps");
+    fprintf (fptr, "%8s", "gaps(%)");
 
     
     for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
@@ -82,7 +82,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    fprintf (fptr, "%6c",  aa);
 	}
 	
-	fprintf (fptr, "%8.2lf", (double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs);
+	fprintf (fptr, "%3d", (int)(100*(double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs));
 
 	/* scores */
 	for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
