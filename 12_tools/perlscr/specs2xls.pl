@@ -13,6 +13,10 @@ use Spreadsheet::WriteExcel;
 
 ($ranks_file, $outname) = @ARGV;
 
+@method_names = ('rvet', 'entr', 'ivet', 'majf', 'valdar', 'rvn', 'pheno', 'carb', 
+		 'entr_s', 'rvs', 'majf_s', 'ivet_s', 'phen_h', 'phen_n');
+$server_version = 1;
+
 my $workbook = Spreadsheet::WriteExcel->new("$outname.xls");
 $worksheet   = $workbook->add_worksheet();                  
 $worksheet->keep_leading_zeros();
@@ -93,7 +97,19 @@ while ( <RANKS_FILE> ) {
 	shift @aux;
 	@header = @aux;
 
-        # header
+	if ( $server_version) {
+	    @aux2 = ();
+	    for $hdr_field (@aux) {
+		if ( grep ($_ =~ $hdr_field, @method_names ) ) {
+		    push @aux2, " conservation score ($hdr_field) ";
+		} else {
+		    push @aux2, $hdr_field;
+		}
+	    }
+	    @aux = @aux2;
+	}
+
+	# header
  	$last_column = @aux;
 	$column =  chr (ord('A') + $last_column-1);
         $worksheet->set_column("$column:$column", 20);
@@ -107,7 +123,7 @@ while ( <RANKS_FILE> ) {
 
 	foreach $i (0 .. $#aux) {
 	    $column =  chr (ord('A') + $i);
-	    if ( grep ($_ =~$header[$i], ('rvet', 'entr', 'ivet', 'majf') ) ) {
+	    if ( grep ($_ =~$header[$i], @method_names ) ) {
 
 		$cvg =  $aux[$i];
 		$color_index = int ($cvg*$COLOR_RANGE );

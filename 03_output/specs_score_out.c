@@ -19,7 +19,9 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
     fptr = efopen (filename, "w");
     if ( !fptr) return 1;
     
-    fprintf (fptr, "%%%6s %4s", "almt", "pdb ");
+    fprintf (fptr, "%%%6s", "almt");
+    if ( almt2prot  )  fprintf (fptr, " %4s","pdb ");
+    
     for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
 	fprintf (fptr, " %15s ",  options->refseq_name[refseq_ctr]);
     }
@@ -60,13 +62,16 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    if (alignment->refseq[refseq_ctr][almt_pos] != '.' )  pos[refseq_ctr]++;
 	
 	/*  sequential id, pdb id, aa type, frac of gaps */
-	if ( almt2prot && almt2prot[almt_pos] >= 0 ) {
-	    sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
-	} else {
-	    sprintf (pdbid, "%s", "-");
+	fprintf (fptr, "%6d ", almt_pos+1);
+	
+	if ( almt2prot ) {
+	    if ( almt2prot[almt_pos] >= 0 ) {
+		sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
+	    } else {
+	        sprintf (pdbid, "%s", "-");
+	    }
+	    fprintf (fptr, "%5s", pdbid);
 	}
-	fprintf (fptr, "%6d %5s", almt_pos+1, pdbid);
-
 	
 	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
 	    if ( almt2prot && almt2prot[almt_pos] >= 0 ) {

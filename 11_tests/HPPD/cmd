@@ -1,6 +1,6 @@
 align  hppd.pruned.msf
-! pdbseq  1sqiA
-! pdbf   1sqiA.pdb
+pdbseq  1sqiA
+pdbf   1sqiA.pdb
  refseq  210099302 1362503
 outn   new
 !patch_sim_cutoff 0.8
