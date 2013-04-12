@@ -7,7 +7,7 @@ CPLUSCOMPL = g++
 HERE = $(shell pwd)
 
 NAME = ../specs
-OPTM =  -g
+OPTM =  -O
 
 
 VPATH =                       ../02_parsers:../04_residue_scoring:../06_main:\

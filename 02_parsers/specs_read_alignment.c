@@ -361,6 +361,25 @@ int get_name_from_fasta_hdr (char * line, char * name ) {
     return 0;
 }
 
+/*******************************************************************************************/
+int seq_cleanup (char * seq, int length){ 
+
+    if ( ! seq) return 0; /* not my job */
+    int pos;
+    for (pos=0; pos<length; pos++) {
+	/* --> turn to uppercase */
+	if ((seq[pos]>=97)&&(seq[pos]<=122)) {seq[pos] -= 32;}
+	/* turn dash to dot */
+	if ( seq[pos]==45 )                  {seq[pos]  = 46;} 
+	/* turn tweedle to dot */
+	if ( seq[pos]==126)                  {seq[pos]  = 46;} 
+	/* turn X to dot */
+	if ( seq[pos]==88)                   {seq[pos]  = 46;} 
+	    
+    }
+    return 0;
+}
+
 
 /*******************************************************************************************/
 int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) {
@@ -439,25 +458,13 @@ int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) 
 	}
     }
 
+
     /* cleanup the sequences:  */
     for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
-	int pos;
-	char * seq;
-	for (pos=0; pos<alignment->length; pos++) {
-	    seq = alignment->sequence[ctr];
-	    /* --> turn to uppercase */
-	    if ((seq[pos]>=97)&&(seq[pos]<=122)) {seq[pos] -= 32;}
-	    /* turn dash to dot */
-	    if ( seq[pos]==45 )                  {seq[pos]  = 46;} 
-	    /* turn tweedle to dot */
-	    if ( seq[pos]==126)                  {seq[pos]  = 46;} 
-	    /* turn X to dot */
-	    if ( seq[pos]==88)                   {seq[pos]  = 46;} 
-	    
-	}
+	seq_cleanup (alignment->sequence[ctr],alignment->length); 
     }
 
-    
+    if (options->pdbname[0])   seq_cleanup (alignment->pdbseq, alignment->length);
 
     
     return 0;
