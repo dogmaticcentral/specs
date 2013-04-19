@@ -100,20 +100,22 @@ while ( <RANKS_FILE> ) {
 	if ( $server_version) {
 	    @aux2 = ();
 	    for $hdr_field (@aux) {
-		if ( grep ($_ =~ $hdr_field, @method_names ) ) {
+		if ($hdr_field eq 'surf') {
+		    push @aux2, "surface";
+		} elsif ( grep ($_ =~ $hdr_field, @method_names ) ) {
 		    push @aux2, " conservation score ($hdr_field) ";
 		} else {
 		    push @aux2, $hdr_field;
 		}
 	    }
-	    @aux = @aux2;
+	    @header = @aux2;
 	}
 
 	# header
- 	$last_column = @aux;
+ 	$last_column = @header;
 	$column =  chr (ord('A') + $last_column-1);
         $worksheet->set_column("$column:$column", 20);
-	$worksheet->write_row(0, 0, \@aux, $format_hdr);
+	$worksheet->write_row(0, 0, \@header, $format_hdr);
 
    } else {
         # print;
@@ -138,6 +140,11 @@ while ( <RANKS_FILE> ) {
 
 	    } elsif ($header[$i] eq 'gaps') {
 		$worksheet->write("$column$line", $aux[$i], $format_float);   
+ 
+	    } elsif ($header[$i] eq 'surface') {
+		if ( $aux[$i] == 1) {
+		    $worksheet->write("$column$line", "surface", $format_centered);  
+		} 
  
 	    } else {
 

@@ -61,7 +61,6 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     /* find the lowest score in the game */
     prev_score = 0;
     for (ctr=0; ctr < new_length; ctr++) {
-	if ( surface &&  ! protein->sequence[sorted_res[ctr]].solvent_accessible ) continue; 
 	prev_score = protein_score[ sorted_res[ctr] ];
 	break; 
     }
@@ -72,14 +71,12 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     int_cvg[cvg_ctr] = 0;
     surface_size     = 0;
     for (ctr=0; ctr < new_length; ctr++) {
-	if ( surface &&  ! protein->sequence[sorted_res[ctr]].solvent_accessible ) continue;
 	surface_size ++;
 	if ( protein_score[ sorted_res[ctr] ] <= prev_score ) {
 	    int_cvg[cvg_ctr] ++;
 	} else {
 	    prev_score  = protein_score[ sorted_res[ctr] ];
 	    for (ctr2=first; ctr2 <ctr; ctr2++ ) {
-		if ( surface &&  ! protein->sequence[sorted_res[ctr2]].solvent_accessible ) continue;
 		res_rank[ sorted_res[ctr2] ] = int_cvg[cvg_ctr];
 	    }
 	    first = ctr;
@@ -88,7 +85,6 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	}
     }
     for (ctr2=first; ctr2 <ctr; ctr2++ ) {
-	if ( surface &&  ! protein->sequence[sorted_res[ctr2]].solvent_accessible ) continue;
 	res_rank[ sorted_res[ctr2] ] =  int_cvg[cvg_ctr];
     }
     
