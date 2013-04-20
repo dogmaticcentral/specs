@@ -110,7 +110,6 @@ while ( <RANKS_FILE> ) {
 	    }
 	    @header = @aux2;
 	}
-
 	# header
  	$last_column = @header;
 	$column =  chr (ord('A') + $last_column-1);
@@ -125,7 +124,7 @@ while ( <RANKS_FILE> ) {
 
 	foreach $i (0 .. $#aux) {
 	    $column =  chr (ord('A') + $i);
-	    if ( grep ($_ =~$header[$i], @method_names ) ) {
+	    if ( grep ($header[$i] =~ $_, @method_names ) ) {
 
 		$cvg =  $aux[$i];
 		$color_index = int ($cvg*$COLOR_RANGE );
