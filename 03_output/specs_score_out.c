@@ -62,7 +62,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    if (alignment->refseq[refseq_ctr][almt_pos] != '.' )  pos[refseq_ctr]++;
 	
 	/*  sequential id, pdb id, aa type, frac of gaps */
-	fprintf (fptr, "%6d ", almt_pos+1);
+	fprintf (fptr, " %6d ", almt_pos+1);
 	
 	if ( almt2prot ) {
 	    if ( almt2prot[almt_pos] >= 0 ) {
@@ -82,7 +82,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    fprintf (fptr, "%6c",  aa);
 	}
 	
-	fprintf (fptr, "%3d", (int)(100*(double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs));
+	fprintf (fptr, " %3d ", (int)(100*(double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs));
 
 	/* scores */
 	for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
