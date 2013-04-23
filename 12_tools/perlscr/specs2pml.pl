@@ -70,6 +70,8 @@ open (RANKS_FILE, "<$ranks_file") ||
 
 $method_column = -1;
 $pdb_id_column = -1;
+$bad_cvg       = 0.5;
+$min_cvg       = 1.0;
 
 while ( <RANKS_FILE> ) {
     next if ( !/\S/ );
@@ -89,14 +91,16 @@ while ( <RANKS_FILE> ) {
 	$pdb_id = $aux[$pdb_id_column];
 	next if ($pdb_id =~ '-' || $pdb_id =~ '\.'  );
 	$cvg{$pdb_id} = $aux[$method_column];
+	($cvg{$pdb_id}< $min_cvg) && ($min_cvg=$cvg{$pdb_id});
 	if ( $reverse ) {
 	    $cvg{$pdb_id} = 1 - $cvg{$pdb_id};
 	}
     }
 }
-
-
 close RANKS_FILE;
+
+
+($bad_cvg < $min_cvg) &&  ($bad_cvg = $min_cvg);
 
 ##################################################
 # output
@@ -122,10 +126,12 @@ write FPTR;
 
 if (!$chain) {
     print  FPTR "color white, struct_name\n";
+    print  FPTR "show cartoon, struct_name\n";
     print  FPTR "show spheres, struct_name\n";
 } else {
     print  FPTR "select chain$chain, struct_name and chain $chain and polymer \n";
     print  FPTR "color white, chain$chain \n";
+    print  FPTR "show cartoon, chain$chain \n";
     print  FPTR "show spheres, chain$chain \n";
 }
 
@@ -134,6 +140,8 @@ if (!$chain) {
 for $ctr ( 0 .. $#color ) {
     print  FPTR "set_color $color_name[$ctr] = $color[$ctr]\n";
 }
+
+@poorly_scoring = ();
 
 foreach $pos ( keys %cvg ) {
 
@@ -144,23 +152,49 @@ foreach $pos ( keys %cvg ) {
 	print  FPTR  "and chain $chain";
     }
     print  FPTR "\n";
-     
+    if ( $cvg{$pos} > $bad_cvg ) {
+         push @poorly_scoring,$pos; 
+    }      
 }
+
+$from = 0;
+$slc   = "";
+while ($from < int (@poorly_scoring) ) {
+    $to = $from + 10;
+    ($to > $#poorly_scoring)  &&  ($to=$#poorly_scoring);
+    $reslist = join "+", @poorly_scoring[$from .. $to];
+    if ($slc) {
+       $slc .= "select poorly_scoring, poorly_scoring or resid $reslist\n"
+    } else {
+       $slc  = "select poorly_scoring, resid $reslist\n"
+    }
+    $from = $to+1;
+
+} 
 
 
 if ( $chain ) {
 
+    if ($slc) {
+      $slc  .= "select poorly_scoring, poorly_scoring and chain$chain\n";
+        
+    }
+ 
     print  FPTR "select heteroatom, hetatm and not solvent \n";
     print  FPTR "select other_chains, not chain $chain \n";
     print  FPTR "select struct_water, solvent and chain $chain \n";
     print  FPTR "cartoon putty \n";
-    print  FPTR "show  cartoon, other_chains \n";
-    print  FPTR "show  sticks, heteroatom \n";
+    print  FPTR "show  cartoon,  other_chains \n";
+    print  FPTR "show  sticks,   heteroatom \n";
     print  FPTR "show  spheres,  struct_water \n";
     print  FPTR "color palecyan, struct_water \n";
     print  FPTR "color lightteal, other_chains or heteroatom \n";
-    print  FPTR "zoom chain$chain\n";
+    print  FPTR "zoom  chain$chain\n";
 }
+
+$slc .= "hide spheres, poorly_scoring\n";
+
+print  FPTR $slc;
 
 
 print  FPTR "deselect \n";
