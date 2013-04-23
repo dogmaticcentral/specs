@@ -4,7 +4,7 @@ int  struct_almt_mapping (Protein * protein, Alignment * alignment,
     int prot_pos, almt_pos;
     char * pdbseq = alignment->pdbseq;
     Residue * prot_seq;
-    
+
  
     /*compare */
     prot_pos = 0;
@@ -16,6 +16,8 @@ int  struct_almt_mapping (Protein * protein, Alignment * alignment,
 	    if ( prot_seq[prot_pos].res_type_short ==  pdbseq [almt_pos] ) {
 		prot2almt[prot_pos] = almt_pos;
 		almt2prot[almt_pos] = prot_pos;
+		/* add this to the set of protected positions, now that I'm at that */
+		alignment->protected_position[almt_pos] = 1;
 	    } else {
 		fprintf (stderr, "Structure/alignment mismatch,\n");
 		if(prot_seq[prot_pos].res_type_short){

@@ -50,7 +50,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	if ( restrict2structure) {
 	    length = protein->length;
 	} else {
-	    length = alignment->length - alignment->refseq_gaps;
+	    length = alignment->number_of_protected_positions;
 	}
     }
 
@@ -91,11 +91,11 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 		(double)res_rank[score_ctr] [ almt2prot[almt_pos] ]/length : 1;
 	    } else {
 		/* the first refseq is especially dear to our heart: */
-		if (options->no_refseqs && alignment->refseq[0][almt_pos] == '.' ) {
-		    cvg = 1;
-		} else {
+		if ( alignment->protected_position[almt_pos]) {
 		    cvg = (double)res_rank[score_ctr][pos[0]]/length;
- 		}
+ 		} else {
+		    cvg = 1;
+		}
 	    }
 	    if (options->raw_score) {
 		fprintf (fptr, " %8.3lf %6.2lf", score[score_ctr][almt_pos], cvg);

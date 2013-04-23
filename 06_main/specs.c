@@ -84,8 +84,7 @@ int main ( int argc, char * argv[]) {
 	/* find mapping between the structure and the alignment*/
 	if ( ! (prot2almt = (int *) emalloc (protein.length*sizeof(int))) ) exit (1);
 	if ( ! (almt2prot = (int *) emalloc (alignment.length*sizeof(int))) )exit (1);
-	retval    = struct_almt_mapping (&protein, &alignment,
-					 prot2almt, almt2prot);
+	retval = struct_almt_mapping (&protein, &alignment, prot2almt, almt2prot);
 	if (retval) exit(retval);
 	
 	/*  read in the epitope, if provided       */
@@ -104,7 +103,9 @@ int main ( int argc, char * argv[]) {
     /*                                         */
     /*******************************************/
     if ( options.dssp_file_name[0] ) {
-	surface = 1;
+	/* surface = 0; */
+        /* let's not couple the two - rather, the surface
+	   could be made protected, but that's yet to be implemented*/
 	retval  = read_dssp (&options, &protein);
 	if (retval) exit(retval);
     }

@@ -21,8 +21,9 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     if (restrict2structure) {
 	new_length = protein->length;
     } else {
-	new_length = alignment->length - alignment->refseq_gaps;
+	new_length = alignment->number_of_protected_positions;
     }
+
     /*allocate */
     protein_score = (double *) emalloc (new_length*sizeof(double));
     if (!protein_score ) return 1;
@@ -38,8 +39,9 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	    if ( pos >= 0 ) {
 		protein_score[pos] = score[ctr];
 	    }
-	    
-	} else if ( alignment->refseq &&  alignment->refseq[0][ctr] != '.' ){
+
+	    /* the reference and pdb  sequences are protected */   
+	} else if ( alignment->protected_position[ctr] ){
 	    
 	    if ( pos >= new_length ) {
 		fprintf (stderr, "Error in %s:%d: pos ctr >= allocated length (%d) \n",
