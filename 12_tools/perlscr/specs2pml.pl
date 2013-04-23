@@ -105,11 +105,9 @@ load @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< , struct_name
      $pdb_file
 zoom complete=1
 bg_color white
-color white, struct_name
-show spheres, struct_name
-hide lines, struct_name
-#spacefill
+hide everything
 .
+
 
 # open the output file
 if  ($reverse ) {
@@ -121,6 +119,17 @@ if  ($reverse ) {
 open (FPTR, ">$filename") || die "cno $filename\n";
 
 write FPTR;
+
+if (!$chain) {
+    print  FPTR "color white, struct_name\n";
+    print  FPTR "show spheres, struct_name\n";
+} else {
+    print  FPTR "select chain$chain, struct_name and chain $chain and polymer \n";
+    print  FPTR "color white, chain$chain \n";
+    print  FPTR "show spheres, chain$chain \n";
+}
+
+
 
 for $ctr ( 0 .. $#color ) {
     print  FPTR "set_color $color_name[$ctr] = $color[$ctr]\n";
@@ -139,6 +148,22 @@ foreach $pos ( keys %cvg ) {
 }
 
 
+if ( $chain ) {
+
+    print  FPTR "select heteroatom, hetatm and not solvent \n";
+    print  FPTR "select other_chains, not chain $chain \n";
+    print  FPTR "select struct_water, solvent and chain $chain \n";
+    print  FPTR "cartoon putty \n";
+    print  FPTR "show  cartoon, other_chains \n";
+    print  FPTR "show  sticks, heteroatom \n";
+    print  FPTR "show  spheres,  struct_water \n";
+    print  FPTR "color palecyan, struct_water \n";
+    print  FPTR "color lightteal, other_chains or heteroatom \n";
+    print  FPTR "zoom chain$chain\n";
+}
+
+
+print  FPTR "deselect \n";
 
 close FPTR; 
 
