@@ -3,7 +3,7 @@
  
 
 (defined $ARGV[3]) ||
-    die "Usage:  cbcvg.pl  <method [rvet|majf|entr]>  <specs score file>  <pdb_file_full_path>  <output name> [<chain> and/or -r and/or -b] \n"; 
+    die "Usage:  $0  <method [rvet|majf|entr]>  <specs score file>  <pdb_file_full_path>  <output name> [<chain> and/or -r and/or -b] \n"; 
 ($method, $ranks_file, $pdb_file, $output_file) = @ARGV;
 
 ##################################################
@@ -69,23 +69,25 @@ open (RANKS_FILE, "<$ranks_file") ||
     
 
 $method_column = -1;
+$pdb_id_column = -1;
 
 while ( <RANKS_FILE> ) {
     next if ( !/\S/ );
-    if ( /\%/ ){
+    if ( /^\%/ ){
 	@aux = split;
 	shift @aux;
 	for ($ctr=0; $ctr< $#aux; $ctr++) {
 	    if ($aux[$ctr] eq $method ) {
 		$method_column = $ctr;
-		last;
+	    } elsif ($aux[$ctr] eq "pdb_id") { 
+		$pdb_id_column = $ctr;
 	    }
 	}
-    } elsif ($method_column > -1) {
+    } elsif ($method_column > -1 && $pdb_id_column > -1) {
 	chomp;
 	@aux = split;
-	$pdb_id = $aux[1];
-	next if ($pdb_id =~ '-' );
+	$pdb_id = $aux[$pdb_id_column];
+	next if ($pdb_id =~ '-' || $pdb_id =~ '\.'  );
 	$cvg{$pdb_id} = $aux[$method_column];
 	if ( $reverse ) {
 	    $cvg{$pdb_id} = 1 - $cvg{$pdb_id};

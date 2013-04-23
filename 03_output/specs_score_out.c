@@ -18,28 +18,9 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 
     fptr = efopen (filename, "w");
     if ( !fptr) return 1;
-    
-    fprintf (fptr, "%%%6s", "almt");
-    if ( almt2prot  )  fprintf (fptr, " %4s","pdb ");
-    
-    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
-	fprintf (fptr, " %15s ",  options->refseq_name[refseq_ctr]);
-    }
-    fprintf (fptr, "%8s", "gaps(%)");
 
-    
-    for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
-	if ( options->raw_score ) {
-	    fprintf (fptr, " %15s", options->method_name[score_ctr]);
-	} else {
-	    fprintf (fptr, " %6s", options->method_name[score_ctr]);
-	}
-    }
-    if ( surface ) {
-      fprintf (fptr, "%6s", "surf");
-    }
-    fprintf (fptr, "   substitutions\n");
-
+    /******************************************************************************/
+    /* normalization for the fractional coverage (= fract coverage  of what)      */
     if ( surface ) {
 	int resctr;
 	length = 0;
@@ -53,7 +34,39 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    length = alignment->number_of_protected_positions;
 	}
     }
+    /******************************************************************************/
+    /* print out the header                                                       */
+    fprintf (fptr, "%%%6s", "almt");
+    
+    fprintf (fptr, "%8s", "gaps(%)");
+    
+    for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
+	if ( options->raw_score ) {
+	    fprintf (fptr, " %15s", options->method_name[score_ctr]);
+	} else {
+	    fprintf (fptr, " %6s", options->method_name[score_ctr]);
+	}
+    }
 
+    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
+	fprintf (fptr, " %15s ",  options->refseq_name[refseq_ctr]);
+	fprintf (fptr, " pos_in_%s ",   options->refseq_name[refseq_ctr]);
+    }
+
+    
+    if ( almt2prot ) {
+	fprintf (fptr, " %8s ", "pdb_aa");
+	fprintf (fptr, " %8s ", "pdb_id");
+    }
+
+    if ( options->dssp_file_name[0] ) {
+      fprintf (fptr, "%6s", "surf");
+    }
+    fprintf (fptr, "   substitutions\n");
+
+
+    /******************************************************************************/
+    /* print out the rest                                                         */
     for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  pos[refseq_ctr] = -1;
     
     for (almt_pos = 0; almt_pos < alignment->length; almt_pos++) {
@@ -61,29 +74,13 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)
 	    if (alignment->refseq[refseq_ctr][almt_pos] != '.' )  pos[refseq_ctr]++;
 	
-	/*  sequential id, pdb id, aa type, frac of gaps */
+	/*  sequential id*/
 	fprintf (fptr, " %6d ", almt_pos+1);
 	
-	if ( almt2prot ) {
-	    if ( almt2prot[almt_pos] >= 0 ) {
-		sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
-	    } else {
-	        sprintf (pdbid, "%s", "-");
-	    }
-	    fprintf (fptr, "%5s", pdbid);
-	}
-	
-	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
-	    if ( almt2prot && almt2prot[almt_pos] >= 0 ) {
-		aa = protein->sequence[ almt2prot[almt_pos] ].res_type_short;
-	    } else {
-		aa = alignment->refseq[refseq_ctr][almt_pos];
-	    }
-	    fprintf (fptr, "%6c",  aa);
-	}
-	
+	/* percent gaps in the alignment */
 	fprintf (fptr, " %3d ", (int)(100*(double)alignment->column_gaps[almt_pos]/alignment->number_of_seqs));
-
+	
+	
 	/* scores */
 	for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
 	    if ( restrict2structure ) {
@@ -104,8 +101,31 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	    }
 	}
 	
+	/* reference sequence(s) */
+	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
+	    aa = alignment->refseq[refseq_ctr][almt_pos];
+	    if ( aa == '.' ) {
+		fprintf (fptr, "%6c  %6c",  '.',  '.');
+	    } else {
+		fprintf (fptr, "%6c  %6d ",  aa, pos[refseq_ctr]+1);
+	    }
+	}
+	
+
+	/* pdb aa, and position (identifier ~= position) */
+	if ( almt2prot ) {
+	    if ( almt2prot[almt_pos] >= 0 ) {
+		sprintf (pdbid, "%s", protein->sequence[ almt2prot[almt_pos] ].pdb_id );
+		aa =  protein->sequence[ almt2prot[almt_pos] ].res_type_short;
+	    } else {
+	        sprintf (pdbid, "%s", ".");
+		aa = '.';
+	    }
+	    fprintf (fptr, " %5c  %5s", aa, pdbid);
+	}
+	
 	/* surface accessibility */
-	if ( surface && almt2prot ) {
+	if ( options->dssp_file_name[0] ) {
 	  int acc =  ( almt2prot[almt_pos] < 0 ) ?  
 	    -1: protein->sequence[almt2prot[almt_pos]].solvent_accessible;
 	    fprintf ( fptr," %6d",  acc);
