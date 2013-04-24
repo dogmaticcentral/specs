@@ -194,6 +194,17 @@ print  FPTR $slc;
 
 print  FPTR "deselect \n";
 
+
+$session_file = $output_file;
+if ($output_file =~ /\.pml$/) {
+    $session_file =~ s/\.pml$/\.pse/;
+} else {
+    $session_file .= ".pse";
+    
+}
+print  FPTR "save $session_file \n";
+
+
 close FPTR; 
 
 
