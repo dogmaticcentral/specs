@@ -192,7 +192,7 @@ if ( $chain ) {
     print  FPTR "zoom  chain$chain\n";
 }
 
-$slc .= "hide spheres, poorly_scoring\n";
+#$slc .= "hide spheres, poorly_scoring\n";
 
 print  FPTR $slc;
 
