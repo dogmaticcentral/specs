@@ -104,13 +104,6 @@ close RANKS_FILE;
 
 ##################################################
 # output
-format FPTR = 
-load @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< , struct_name 
-     $pdb_file
-zoom complete=1
-bg_color white
-hide everything
-.
 
 
 # open the output file
@@ -121,16 +114,18 @@ if  ($reverse ) {
 }
 
 open (FPTR, ">$filename") || die "cno $filename\n";
-
-write FPTR;
+print  FPTR "load $pdb_file, the_whole_thing\n";
+print  FPTR "zoom complete=1\n";
+print  FPTR "bg_color white\n";
+print  FPTR "hide everything\n";
 
 if (!$chain) {
-    print  FPTR "color white, struct_name\n";
-    print  FPTR "show cartoon, struct_name\n";
-    print  FPTR "show spheres, struct_name\n";
+    print  FPTR "color white,  the_whole_thing\n";
+    print  FPTR "show cartoon, the_whole_thing\n";
+    print  FPTR "show spheres, the_whole_thing\n";
 } else {
-    print  FPTR "select chain$chain, struct_name and chain $chain and polymer \n";
-    print  FPTR "color white, chain$chain \n";
+    print  FPTR "select chain$chain, the_whole_thing and chain $chain and polymer \n";
+    print  FPTR "color white,  chain$chain \n";
     print  FPTR "show cartoon, chain$chain \n";
     print  FPTR "show spheres, chain$chain \n";
 }
@@ -180,15 +175,15 @@ if ( $chain ) {
         
     }
  
-    print  FPTR "select heteroatom, hetatm and not solvent \n";
+    print  FPTR "select heteroatoms, hetatm and not solvent \n";
     print  FPTR "select other_chains, not chain $chain \n";
     print  FPTR "select struct_water, solvent and chain $chain \n";
     print  FPTR "cartoon putty \n";
     print  FPTR "show  cartoon,  other_chains \n";
-    print  FPTR "show  sticks,   heteroatom \n";
+    print  FPTR "show  sticks,   heteroatoms \n";
     print  FPTR "show  spheres,  struct_water \n";
     print  FPTR "color palecyan, struct_water \n";
-    print  FPTR "color lightteal, other_chains or heteroatom \n";
+    print  FPTR "color lightteal, other_chains or heteroatoms \n";
     print  FPTR "zoom  chain$chain\n";
 }
 
