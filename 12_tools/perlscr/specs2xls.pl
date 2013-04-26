@@ -81,6 +81,9 @@ $format_right->set_align('right');
 $format_float = $workbook->add_format();
 $format_float->set_num_format('0.00');
 #
+$format_left = $workbook->add_format();
+$format_left->set_align('left');
+#
 $format_hdr = $workbook->add_format(); # Add a format
 $format_hdr->set_bold();
 $format_hdr->set_border();
@@ -139,6 +142,15 @@ while ( <RANKS_FILE> ) {
 
 	    } elsif ($header[$i] eq 'gaps') {
 		$worksheet->write("$column$line", $aux[$i], $format_float);   
+ 
+	    } elsif ($header[$i] eq 'annotation') {
+		if ($aux[$i] eq  "none")  {
+		    $aux[$i] = "  ";
+		} else {
+		    $aux[$i]  =~ s/_/ /g;
+		}
+		$worksheet->write("$column$line", $aux[$i], $format_left);  
+		
  
 	    } elsif ($header[$i] eq 'surface') {
 		if ( $aux[$i] == 1) {
