@@ -184,7 +184,7 @@ if ( $chain ) {
     print  FPTR "color palecyan, struct_water \n";
     print  FPTR "color lightteal, other_chains or heteroatoms \n";
     print  FPTR "color magenta, metals\n";
-    print  FPTR "zoom  chain$chain\n";
+    print  FPTR "zoom  chain $chain\n";
 }
 
 #$slc .= "hide spheres, poorly_scoring\n";
