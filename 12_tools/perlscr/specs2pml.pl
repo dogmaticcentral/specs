@@ -62,12 +62,9 @@ for  $argctr ( 4 .. 5 ) {
     }
 }
 
-
-
 open (RANKS_FILE, "<$ranks_file") || 
     die "cno $ranks_file\n";
     
-
 $method_column = -1;
 $pdb_id_column = -1;
 $bad_cvg       = 0.5;
@@ -98,7 +95,6 @@ while ( <RANKS_FILE> ) {
     }
 }
 close RANKS_FILE;
-
 
 ($bad_cvg < $min_cvg) &&  ($bad_cvg = $min_cvg);
 
@@ -175,15 +171,19 @@ if ( $chain ) {
         
     }
  
-    print  FPTR "select heteroatoms, hetatm and not solvent \n";
+    print  FPTR "select heteroatoms,  hetatm and not solvent \n";
     print  FPTR "select other_chains, not chain $chain \n";
     print  FPTR "select struct_water, solvent and chain $chain \n";
+    print  FPTR "select metals,       symbol mg+ca+fe+zn\n";
+
     print  FPTR "cartoon putty \n";
     print  FPTR "show  cartoon,  other_chains \n";
     print  FPTR "show  sticks,   heteroatoms \n";
     print  FPTR "show  spheres,  struct_water \n";
+    print  FPTR "show  spheres,  metals \n";
     print  FPTR "color palecyan, struct_water \n";
     print  FPTR "color lightteal, other_chains or heteroatoms \n";
+    print  FPTR "color magenta, metals\n";
     print  FPTR "zoom  chain$chain\n";
 }
 
@@ -206,6 +206,8 @@ print  FPTR "save $session_file \n";
 
 
 close FPTR; 
+
+
 
 
 
