@@ -1,4 +1,4 @@
-# define ALMT_NAME_LENGTH 30
+# define ALMT_NAME_LENGTH 150
 
 typedef struct{
     int number_of_seqs;
