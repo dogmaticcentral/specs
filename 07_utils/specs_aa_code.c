@@ -66,6 +66,9 @@ char single_letter ( char code[]){
 	case 'R':
 	    return 'P';
 	    break;
+	case 'T':
+	    return 'Y'; //PTR phosphotyrosine
+	    break;
 	}
 	break;
     case 'S':
@@ -89,7 +92,7 @@ char single_letter ( char code[]){
 	    return 'Y';
 	    break;
 	case 'P':
-	    return 'T'; // phosphothreonine
+	    return 'T'; // TPO phosphothreonine
 	    break;
 	}
 	break;
