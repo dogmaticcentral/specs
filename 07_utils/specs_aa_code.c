@@ -88,6 +88,9 @@ char single_letter ( char code[]){
 	case 'Y':
 	    return 'Y';
 	    break;
+	case 'P':
+	    return 'T'; // phosphothreonine
+	    break;
 	}
 	break;
     case 'V':
