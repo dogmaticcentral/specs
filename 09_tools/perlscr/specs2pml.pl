@@ -36,7 +36,7 @@ for ( $ctr=1; $ctr <= int ($COLOR_RANGE/$N); $ctr++ ) {
 for ( $ctr= int ($COLOR_RANGE/$N)+1 ; $ctr <= $COLOR_RANGE; $ctr++ ) {
 
     $ratio =  ( $ctr -  $COLOR_RANGE/$N)/ ($COLOR_RANGE*($N-1)/$N);
-    $red = $ratio;
+    $red   = $ratio;
     $green = $blue = $red;
 		 
     $color[$ctr] = "[$red, $green, $blue]"; 
@@ -174,10 +174,11 @@ if ( $chain ) {
     print  FPTR "select heteroatoms,  hetatm and not solvent \n";
     print  FPTR "select other_chains, not chain $chain \n";
     print  FPTR "select struct_water, solvent and chain $chain \n";
-    print  FPTR "select metals,       symbol mg+ca+fe+zn\n";
+    print  FPTR "select metals, symbol  mg+ca+fe+zn+na+k+mn+cu+ni+cd+i\n";
 
     print  FPTR "cartoon putty \n";
     print  FPTR "show  cartoon,  other_chains \n";
+    print  FPTR "hide  spheres,   heteroatoms \n";
     print  FPTR "show  sticks,   heteroatoms \n";
     print  FPTR "show  spheres,  struct_water \n";
     print  FPTR "show  spheres,  metals \n";
@@ -185,6 +186,7 @@ if ( $chain ) {
     print  FPTR "color lightteal, other_chains or heteroatoms \n";
     print  FPTR "color magenta, metals\n";
     print  FPTR "zoom  chain $chain\n";
+
 }
 
 #$slc .= "hide spheres, poorly_scoring\n";
