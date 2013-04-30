@@ -205,17 +205,29 @@ tempInput = (float)tok.nval;
 			int color_index;
  			red = green = blue = 254;
 
- 			if (cvg <= 0.05 + 0.00001)
- 				return new Color(254,(int)(0.83*254), (int)(0.17*254));
- 			else {
+                        
+                        //04/2013
+                        //to be able to comment out the first if below had to include 
+                        //if(ratio > 1)
+                        //            ratio = 1;
+                        //further down
+                       // because that commented if was taking care of rounding errors)
+                        
+ 			//if (cvg <= 0.05 + 0.00001)
+                        //  if (cvg <= -1)  
+ 			//	return new Color(254,(int)(0.83*254), (int)(0.17*254));
+ 			//else {
 
 			    color_index = (int) (range * cvg);
 			    bin_size = (int)Math.round ( (double)(range - 1) / N);
 
 			    if (cvg <= 0.25) {
-
 				ratio =  (double)(bin_size - color_index + 1)/bin_size;
-				//System.out.println ( cvg + " " +  ratio);
+		//		System.out.println ( "ratio " + cvg + " " +  ratio);
+               //                 System.out.println ( "bin_size " + bin_size );
+                //                System.out.println ( "color_index " + color_index );
+                                if(ratio > 1)
+                                    ratio = 1;
 				red = ratio * 254;
 				green = blue = 0.;
 				//System.out.println (bin_size +"  " +  color_index );
@@ -223,15 +235,19 @@ tempInput = (float)tok.nval;
 
 			    } else {
 				ratio = ( color_index  - range / N) / ( (double) (N-1.)/ N * range);
+                                if(ratio > 1)
+                                    ratio = 1;
 				red = ratio * 254;
 				green = blue = red;
+                 //               System.out.println ( "color_index " + color_index + " " +  range / N);
 			    }
-			}
-			//int re, bl, gr;
-			//re = (int)red;
-			//bl = (int)blue;
-			//gr = (int)green;
-			//System.out.println("cvg = " + cvg + " " + re + " " + bl + " " + gr);
+			//}
+			int re, bl, gr;
+                 //      System.out.println("red = " + red);
+			re = (int)red;
+			bl = (int)blue;
+			gr = (int)green;
+		//	System.out.println("cvg = " + cvg + " " + re + " " + bl + " " + gr);
 			return new Color((int)red, (int)blue, (int)green);
 
  		}
