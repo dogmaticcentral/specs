@@ -109,7 +109,7 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 		(double)res_rank[score_ctr] [ almt2prot[almt_pos] ]/length : 1;
 	    } else {
 		/* the first refseq is especially dear to our heart: */
-		if ( alignment->protected_position[almt_pos]) {
+		if ( alignment->protected_position[almt_pos] && pos[0] >= 0 && pos[0] < alignment->length) {
 		    cvg = (double)res_rank[score_ctr][pos[0]]/length;
  		} else {
 		    cvg = 1;
