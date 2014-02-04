@@ -27,7 +27,7 @@ Contact: ivana.mihalek@gmail.com.
 
 int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
 	       double * score, int almt_length,
-	       int * res_rank, int * int_cvg ,
+	       int * res_rank, int * number_of_positions_at_cvg ,
 	       int restrict2structure, int surface) {
 
     double * protein_score, prev_score; /* "score" refers to alignment positions */
@@ -79,9 +79,7 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     for (pos=0; pos < new_length; pos++) sorted_res[pos] = pos;
     array_qsort ( sorted_res, protein_score, new_length);
 
-    /* turn the sorted array to coverage info */
-    
-    /* find the lowest score in the game */
+     /* find the lowest score in the game */
     prev_score = 0;
     for (ctr=0; ctr < new_length; ctr++) {
 	prev_score = protein_score[ sorted_res[ctr] ];
@@ -89,32 +87,34 @@ int coverage ( Protein * protein, Alignment * alignment, int * almt2prot,
     }
     
     
+    /* turn the sorted array to coverage info */
     first   = 0;
     cvg_ctr = 0;
-    int_cvg[cvg_ctr] = 0;
+    number_of_positions_at_cvg[cvg_ctr] = 0;
     surface_size     = 0;
     for (ctr=0; ctr < new_length; ctr++) {
 	surface_size ++;
 	if ( protein_score[ sorted_res[ctr] ] <= prev_score ) {
-	    int_cvg[cvg_ctr] ++;
+	    number_of_positions_at_cvg[cvg_ctr] ++;
 	} else {
 	    prev_score  = protein_score[ sorted_res[ctr] ];
 	    for (ctr2=first; ctr2 <ctr; ctr2++ ) {
-		res_rank[ sorted_res[ctr2] ] = int_cvg[cvg_ctr];
+		res_rank[ sorted_res[ctr2] ] = number_of_positions_at_cvg[cvg_ctr];
 	    }
 	    first = ctr;
 	    cvg_ctr ++;
-	    int_cvg[cvg_ctr] =  int_cvg[cvg_ctr-1] + 1;
+	    number_of_positions_at_cvg[cvg_ctr] =  number_of_positions_at_cvg[cvg_ctr-1] + 1;
 	}
+	
     }
     for (ctr2=first; ctr2 <ctr; ctr2++ ) {
-	res_rank[ sorted_res[ctr2] ] =  int_cvg[cvg_ctr];
+	res_rank[ sorted_res[ctr2] ] =  number_of_positions_at_cvg[cvg_ctr];
     }
     
-    
+   
     /* sanity : */
-    if (  int_cvg[cvg_ctr] != surface_size ) {
-	fprintf (stderr, "Error: surf size %d, counted %d \n", surface_size, int_cvg[cvg_ctr] );
+    if (  number_of_positions_at_cvg[cvg_ctr] != surface_size ) {
+	fprintf (stderr, "Error: surf size %d, counted %d \n", surface_size, number_of_positions_at_cvg[cvg_ctr] );
 	exit (1);
     }
 

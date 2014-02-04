@@ -25,7 +25,7 @@ Contact: ivana.mihalek@gmail.com.
 int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 		    int * almt2prot, double ** score,  int **res_rank, int surface){
 
-    int almt_pos, score_ctr, length, seqctr, ctr, refseq_ctr;
+    int almt_pos, score_ctr, length, seqctr, ctr, refseq_ctr, protected_pos;
     int pos[options->no_refseqs], restrict2structure = almt2prot && options->restrict2structure;
     double freq[ASCII];
     int printed[ASCII];
@@ -89,9 +89,13 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
     /******************************************************************************/
     /* print out the rest                                                         */
     for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  pos[refseq_ctr] = -1;
-    
-    for (almt_pos = 0; almt_pos < alignment->length; almt_pos++) {
 
+    protected_pos = -1; /* protected positions were invented as a trick so that long tails
+			   appearing only in one or two sequences would not count in evaulating coverage */
+    for (almt_pos = 0; almt_pos < alignment->length; almt_pos++) {
+	
+	if ( alignment->protected_position[almt_pos] ) protected_pos++;
+							   
 	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)
 	    if (alignment->refseq[refseq_ctr][almt_pos] != '.' )  pos[refseq_ctr]++;
 	
@@ -106,11 +110,11 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	for ( score_ctr=0; score_ctr<options->number_of_methods; score_ctr++) {
 	    if ( restrict2structure ) {
 		cvg =  ( almt2prot[almt_pos] >= 0 ) ? 
-		(double)res_rank[score_ctr] [ almt2prot[almt_pos] ]/length : 1;
+		(double)res_rank[score_ctr] [ protected_pos ]/length : 1;
 	    } else {
 		/* the first refseq is especially dear to our heart: */
 		if ( alignment->protected_position[almt_pos] && pos[0] >= 0 && pos[0] < alignment->length) {
-		    cvg = (double)res_rank[score_ctr][pos[0]]/length;
+		    cvg = (double)res_rank[score_ctr][protected_pos]/length;
  		} else {
 		    cvg = 1;
 		}
