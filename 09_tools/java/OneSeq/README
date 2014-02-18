@@ -1,0 +1,4 @@
+to create jarfile:
+
+>javac SeqReport.java
+>jar cvfm SeqReport.jar manifest *.class

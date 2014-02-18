@@ -1,5 +1,3 @@
-package seqreport;
-
 /**
  *
  * @author Ivica 2005
@@ -55,7 +53,6 @@ public class SeqReport {
 		stringInput = tok.sval;
 		if (tok.nextToken() != TT_NUMBER)
 		    throw new Exception ("Coverage missing at input line " + tok.lineno());
-
 		tempExtra = (int)tok.nval;
 
 		if (cnt >= start && cnt <= end) {
@@ -77,7 +74,6 @@ public class SeqReport {
 		    x[arrayIndex] = tempInput;
 		    residue[arrayIndex] = stringInput;
 		    y[arrayIndex] = tempExtra;
-		    //System.out.println (x[arrayIndex]);
 		    arrayIndex++;
 		}
 		cnt++;
@@ -87,9 +83,7 @@ public class SeqReport {
 
 	    int countMissing = 0;
 	    for (int j = 0; j < y.length - 1; j++) {
-		//	System.out.println("y = " + y[j]);
 	    	if ( (int)(y[j + 1] - y[j]) != 1) {
-		    //	System.out.println("diff " + y[j + 1] + " " + y[j]);
 		    missing = true;
 		    countMissing ++;
 	    	}
@@ -131,6 +125,7 @@ public class SeqReport {
 	    System.out.println("Exception " + e.getMessage() + " in readRanks()");
 	}
 
+
     }
 
     public static void skipLeadingNewLines(StreamTokenizer t) throws IOException {
@@ -139,6 +134,7 @@ public class SeqReport {
     }
 
     class MapPanel extends JComponent {
+	//this class does all the drawing
 
 	float width = 500;//0;  // frame size
 	float height = 500;//0;
@@ -172,9 +168,9 @@ public class SeqReport {
 	    int color_index;
 	    red = green = blue = 254;
 
- 	    if (cvg < 0.05)
+	    if (cvg < 0.05) {
 		return new Color(254,(int)(0.83*254), (int)(0.17*254));
-	    else {
+	    } 	else {
 
 		color_index = (int) (range * cvg);
 		bin_size = (int)Math.round ( (double)(range - 1) / N);
@@ -238,6 +234,7 @@ public class SeqReport {
 	    g.setPaint(Color.black);
 	    g.drawString("1",x+squareX+5,i + 6);
 	    i=0;
+
 	    g.drawString(Integer.toString(i),x+squareX+5,i + 6);
 
 	    g.setPaint(Color.black);
@@ -309,9 +306,10 @@ public class SeqReport {
 		    g.setFont(residueFont);
 		    String axes = "";
 		    axes = residue[i];
+		    //	if (i < x.length - 5)
 		    g.drawString(axes,margin + delta + 1.5f, marginTop + position + stripe + 25) ;
-		    if(countResidues%10 == 0){// || (countResidues+1)%10 == 0) {
-			axes = Integer.toString(y[i]);//Integer.toString(shift + i+1);
+		    if(countResidues%10 == 0){ 
+			axes = Integer.toString(y[i]);
 			g.drawString(axes,margin + delta, marginTop + position + stripe + 33.5f) ;
 		    }
 		    countResidues++;
@@ -338,7 +336,6 @@ public class SeqReport {
 
 	    g.draw(boundary);
 	    g.translate(width - 2*margin, marginTop);
-	    //  System.out.println(marginTop + position);
 
 	}
     }   //end of class MapPanel
@@ -394,10 +391,8 @@ public class SeqReport {
        	g.setColor(Color.white);
        	g.fillRect(0, 0, w, h);
       	map.drawSequence(g,w,h,shift);
-	//  map.drawLegend(g, 200, 200);
-        // produce a png image
-        System.out.println(args[1]+".png");
        	ImageIO.write(image, "png", new File(args[1]+".png"));
+
 
     }
 
