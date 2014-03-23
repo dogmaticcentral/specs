@@ -1,0 +1,14 @@
+patch_sim_cutoff   0.4
+patch_min_length   0.4
+sink  0.3  
+skip_query 
+
+align  ENSG00000196419.afa
+refseq  human opossum zebrafish
+method  rvet
+
+outn  specs_out
+
+!pdbf      /tmp/specs_021805414620838/shelterin.illustrationB.pdb  
+!pdbseq    pdb_shelterin.illustrationB
+!dssp   /tmp/specs_021805414620838/shelterin.illustration.dssp

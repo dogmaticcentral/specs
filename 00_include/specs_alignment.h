@@ -40,4 +40,8 @@ typedef struct{
     int * protected_position;
     int number_of_protected_positions;
     int refseq_gaps;
+
+    int * number_of_exon_bdries; /* in each reference sequence */
+    char ** exon_bdry;
+
 }  Alignment;

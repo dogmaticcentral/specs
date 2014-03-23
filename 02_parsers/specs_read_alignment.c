@@ -141,7 +141,7 @@ int read_gcg ( Options * options, Alignment * alignment, FILE * fptr){
 	}
     }
 
-    /****************************/
+    /****************************************************/
     allocate_alignment_space (alignment, options, number_of_seqs, almt_length);
     seq_pos = (int *) emalloc ( number_of_seqs*sizeof(int));
     if ( !seq_pos ) return 1;
@@ -208,12 +208,13 @@ int read_gcg ( Options * options, Alignment * alignment, FILE * fptr){
     alignment->refseq_name    = options->refseq_name;
     alignment->no_refseqs     = options->no_refseqs;
 
-    
     /* free */
     free (seq_pos);
     
     return 0;
 }
+
+
 /********************************************************************************************/
 int read_fasta ( Options * options, Alignment * alignment, FILE * fptr){
     
@@ -390,7 +391,7 @@ int seq_cleanup (char * seq, int length){
     for (pos=0; pos<length; pos++) {
 	/* --> turn to uppercase */
 	if ((seq[pos]>=97)&&(seq[pos]<=122)) {seq[pos] -= 32;}
-	/* turn dash to dot */
+	/* turn dash  to dot */
 	if ( seq[pos]==45 )                  {seq[pos]  = 46;} 
 	/* turn tweedle to dot */
 	if ( seq[pos]==126)                  {seq[pos]  = 46;} 
@@ -408,7 +409,7 @@ int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) 
     int ctr, refseq_ctr;
     int refseq_found = 0;
 
-    /* referece sequences -anmes and pointers to the sequence          */
+    /* referece sequences - names and pointers to the sequence          */
     if ( options->no_refseqs) {
 	
 	alignment->refseq_name = chmatrix (options->no_refseqs*sizeof(char*), ALMT_NAME_LENGTH);
@@ -430,12 +431,12 @@ int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) 
 		}
 	    }
 	    if ( !refseq_found) {
-		fprintf (stderr, "Referece seqeunce %s not found in %s\n",
+		fprintf (stderr, "Reference sequence %s not found in %s\n",
 			 options->refseq_name[refseq_ctr], options->almtname);
 		return 1;
 	    }
 	}
-	/* pointers to reference seqeunces        */
+	/* pointers to reference sequences        */
 	for (ctr=0; ctr < alignment->number_of_seqs; ctr++ ) {
 	    for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++)  {
 		if (! strcmp ( alignment->name[ctr], alignment->refseq_name[refseq_ctr]) ) {
@@ -486,7 +487,6 @@ int housekeeping_and_sanity_checking (Options * options, Alignment * alignment) 
     }
 
     if (options->pdbname[0])   seq_cleanup (alignment->pdbseq, alignment->length);
-
     
     return 0;
 } 

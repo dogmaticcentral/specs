@@ -128,9 +128,14 @@ int  output_score ( Options * options, Protein * protein, Alignment * alignment,
 	
 	/* reference sequence(s) */
 	for (refseq_ctr=0; refseq_ctr<options->no_refseqs; refseq_ctr++) {
-	    aa = alignment->refseq[refseq_ctr][almt_pos];
-	    if ( aa == '.' ) {
-		fprintf (fptr, "%6c  %6c",  '.',  '.');
+	    /* is position pos in sequence refseq coinciding with exon boundary */
+	    if (alignment->exon_bdry && alignment->exon_bdry[refseq_ctr][almt_pos] ) {
+		aa = 'Z';
+	    } else {
+		aa = alignment->refseq[refseq_ctr][almt_pos];
+	    }
+	    if ( aa == '.' || aa=='Z' ) {
+		fprintf (fptr, "%6c  %6c",  aa,  '.');
 	    } else {
 		fprintf (fptr, "%6c  %6d ",  aa, pos[refseq_ctr]+1);
 	    }

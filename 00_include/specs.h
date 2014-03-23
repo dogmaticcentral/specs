@@ -121,7 +121,7 @@ typedef struct {
     double significance_cutoff;
     double patch_sim_cutoff;
     double patch_min_length;
-    
+
 } Options; 
 
 /* scoring methods */
