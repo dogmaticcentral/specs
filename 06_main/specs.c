@@ -200,8 +200,6 @@ int scoring_module (Options *options, Alignment * alignment,
 	
     for (score_ctr = 0; score_ctr< options->number_of_methods; score_ctr++) {
 
-	printf ("score: %s\n", options->method_name[score_ctr]);
-	
 	if ( options->method[score_ctr] == EXTERN ) {
             /*  thrid party score, if provided         */
 	     retval = read_score_almt ( options->scorename, alignment, score[score_ctr] ); 

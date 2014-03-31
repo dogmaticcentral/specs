@@ -105,7 +105,7 @@ int read_gcg ( Options * options, Alignment * alignment, FILE * fptr){
 	}
     }
     if ( almt_length ) {
-	printf ( "Alignment length in %s is %d.\n", options->almtname, almt_length);
+	//printf ( "Alignment length in %s is %d.\n", options->almtname, almt_length);
     } else {
 	fprintf ( stderr, "Alignment length info not found in %s. Is the format gcg?\n",
 		  options->almtname );
@@ -327,7 +327,7 @@ int read_fasta ( Options * options, Alignment * alignment, FILE * fptr){
 /************************************************************************************************************/
 int allocate_alignment_space (Alignment * alignment, Options * options, int number_of_seqs, int almt_length) {
     
-    printf ( "Number of sequences in %s is %d.\n",  options->almtname, number_of_seqs);
+    //printf ( "Number of sequences in %s is %d.\n",  options->almtname, number_of_seqs);
     
     /* allocate */
     alignment->sequence = chmatrix (number_of_seqs, almt_length);

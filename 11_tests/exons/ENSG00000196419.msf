@@ -1,0 +1,1314 @@
+PileUp
+
+            GapWeight: 30
+            GapLengthWeight: 1
+
+
+  MSF: 965  Type: N    Check:  9554   .. 
+
+ Name: human                  Len:   965   Check: 9554   Weight: 1.00
+ Name: gorilla                Len:   965   Check: 9554   Weight: 1.00
+ Name: chimpanzee             Len:   965   Check: 9554   Weight: 1.00
+ Name: orangutan              Len:   965   Check: 9554   Weight: 1.00
+ Name: gibbon                 Len:   965   Check: 9554   Weight: 1.00
+ Name: macaque                Len:   965   Check: 9554   Weight: 1.00
+ Name: marmoset               Len:   965   Check: 9554   Weight: 1.00
+ Name: tarsier                Len:   965   Check: 9554   Weight: 1.00
+ Name: lemur                  Len:   965   Check: 9554   Weight: 1.00
+ Name: galago_lemur           Len:   965   Check: 9554   Weight: 1.00
+ Name: guinea_pig             Len:   965   Check: 9554   Weight: 1.00
+ Name: kangaroo_rat           Len:   965   Check: 9554   Weight: 1.00
+ Name: squirrel               Len:   965   Check: 9554   Weight: 1.00
+ Name: mouse                  Len:   965   Check: 9554   Weight: 1.00
+ Name: rat                    Len:   965   Check: 9554   Weight: 1.00
+ Name: pika                   Len:   965   Check: 9554   Weight: 1.00
+ Name: rabbit                 Len:   965   Check: 9554   Weight: 1.00
+ Name: tree_shrew             Len:   965   Check: 9554   Weight: 1.00
+ Name: panda                  Len:   965   Check: 9554   Weight: 1.00
+ Name: dog                    Len:   965   Check: 9554   Weight: 1.00
+ Name: ferret                 Len:   965   Check: 9554   Weight: 1.00
+ Name: cat                    Len:   965   Check: 9554   Weight: 1.00
+ Name: cow                    Len:   965   Check: 9554   Weight: 1.00
+ Name: pig                    Len:   965   Check: 9554   Weight: 1.00
+ Name: dolphin                Len:   965   Check: 9554   Weight: 1.00
+ Name: alpaca                 Len:   965   Check: 9554   Weight: 1.00
+ Name: horse                  Len:   965   Check: 9554   Weight: 1.00
+ Name: european_shrew         Len:   965   Check: 9554   Weight: 1.00
+ Name: bat                    Len:   965   Check: 9554   Weight: 1.00
+ Name: flying_fox             Len:   965   Check: 9554   Weight: 1.00
+ Name: sloth                  Len:   965   Check: 9554   Weight: 1.00
+ Name: armadillo              Len:   965   Check: 9554   Weight: 1.00
+ Name: madagascar_hedgehog    Len:   965   Check: 9554   Weight: 1.00
+ Name: elephant               Len:   965   Check: 9554   Weight: 1.00
+ Name: elephant_2             Len:   965   Check: 9554   Weight: 1.00
+ Name: hyrax                  Len:   965   Check: 9554   Weight: 1.00
+ Name: opossum                Len:   965   Check: 9554   Weight: 1.00
+ Name: tasmanian_devil        Len:   965   Check: 9554   Weight: 1.00
+ Name: platypus_2             Len:   965   Check: 9554   Weight: 1.00
+ Name: platypus               Len:   965   Check: 9554   Weight: 1.00
+ Name: duck                   Len:   965   Check: 9554   Weight: 1.00
+ Name: flycatcher             Len:   965   Check: 9554   Weight: 1.00
+ Name: zebra_finch            Len:   965   Check: 9554   Weight: 1.00
+ Name: zebra_finch_2          Len:   965   Check: 9554   Weight: 1.00
+ Name: chicken                Len:   965   Check: 9554   Weight: 1.00
+ Name: turkey                 Len:   965   Check: 9554   Weight: 1.00
+ Name: anole_lizard           Len:   965   Check: 9554   Weight: 1.00
+ Name: turtle                 Len:   965   Check: 9554   Weight: 1.00
+ Name: turtle_2               Len:   965   Check: 9554   Weight: 1.00
+ Name: xenopus                Len:   965   Check: 9554   Weight: 1.00
+ Name: coelacanth             Len:   965   Check: 9554   Weight: 1.00
+ Name: zebrafish              Len:   965   Check: 9554   Weight: 1.00
+ Name: zebrafish_2            Len:   965   Check: 9554   Weight: 1.00
+ Name: cod                    Len:   965   Check: 9554   Weight: 1.00
+ Name: stickleback            Len:   965   Check: 9554   Weight: 1.00
+ Name: medaka                 Len:   965   Check: 9554   Weight: 1.00
+ Name: platyfish              Len:   965   Check: 9554   Weight: 1.00
+ Name: tilapia                Len:   965   Check: 9554   Weight: 1.00
+ Name: fugu                   Len:   965   Check: 9554   Weight: 1.00
+ Name: pufferfish             Len:   965   Check: 9554   Weight: 1.00
+ Name: lamprey                Len:   965   Check: 9554   Weight: 1.00
+
+//
+
+
+
+human               ---------- --------MS GWESYYKTEG DEEAEEEQEE NLE-AS---Z 
+gorilla             ---------- ---------- ---------- ---------- ---------Z 
+chimpanzee          ---------- --------MS GWESYYKTEG DEEAEEEQEE NLE-AS---Z 
+orangutan           ---------- --------MS GWESYYKTEG DEEAEEEQEE NLE-AS---Z 
+gibbon              ---------- --------MS GWESYYKTEG DEEAEEEQEE NLE-AS---Z 
+macaque             ---------- --------MS GWESYYKTEG DEEAEEEQEE NLE-ASG--Z 
+marmoset            ---------- ---------- ---------- ---------- ---------Z 
+tarsier             ---------- --------MS GWSSYYKPEG DEQEEEEHEE GLD-AG---Z 
+lemur               ---------- --------MS GWESYYKTEG DEEEE--EEE SFE-AG---Z 
+galago_lemur        ---------- --------MS GWESYYKTEG DEEEEE-QDE SLE-AG---Z 
+guinea_pig          ---------- --------MS GWESYYKTE- ---------- ---------Z 
+kangaroo_rat        ---------- ---------- ---------- ---------- ---------Z 
+squirrel            ---------- --------MS GWESYYKTEG DEEEEE-QEE SPE-AG---Z 
+mouse               ---------- --------MS EWESYYKTEG EEEEE--EEE SPD-TG---Z 
+rat                 ---------- --------MS EWESYYKTEG EEEEE--EEQ SPD-TN---Z 
+pika                ---------- ---------- ---------- ---------- ---------Z 
+rabbit              ---------- --------MS GWESYYKTEG DEEVEE-EEE SPE-AG---Z 
+tree_shrew          ---------- ---------- ---------- ---------- ---------Z 
+panda               ---------- --------MS GWESYYKNEG NEEEE--QEE GLE-AG---Z 
+dog                 ---------- --------MS GWESYYKNEG DEEGE--QED GLE-AG---Z 
+ferret              ---------- --------MS GWESYYKNEG DEEEE--QEE GLE-AG---Z 
+cat                 ---------- --------MS GWESYYKNEG DEEEE--EEE GLE-AG---Z 
+cow                 ---------- ----SSNNMS GWESYYKNEG DEEEE--QEE GLE-AG---Z 
+pig                 ---------- --------MS GWESYYKNQG DEEEE--EEE GRE-TG---Z 
+dolphin             ---------- --------MS GWESYYKNQG DEEEED-QEE GLE-EG---Z 
+alpaca              ---------- --------MS GWESYYKNQG DEEEEE-QEE GLE-AGL--Z 
+horse               ---------- --------MS GWESYYKNEG DEEEEE-QEE GLE-AG---Z 
+european_shrew      ---------- --------MS GWESYYKNEG EEEEEE-QEE NQE-LG---Z 
+bat                 ---------- --------MS GWESFYKNEG DEEEE--QEE GPE-AG---Z 
+flying_fox          ---------- --------MS EWESYYKNEG DEEEE--EEE SLE-AG---Z 
+sloth               ---------- --------MS GWESYYKTEG DEEEEEGQDE GAE-AG---Z 
+armadillo           ---------- --------MS GWESYYKNEG DDDDDEGQDE GAD-AG---Z 
+madagascar_hedgehog ---------- --------MS EWESYYKNEG DEEEEEQDEG GPE-TG---Z 
+elephant            ---------- --------MS SWESYYKNE- ---------- ---------Z 
+elephant_2          ---------- --------MS RWETYYKNEG DEEEEE-EDE GPE-AG---Z 
+hyrax               ---------- ---------- ----YYKNER EEEEEE-EDE GRE-AG---Z 
+opossum             ---------- ---------- ---------- ---------- ---------Z 
+tasmanian_devil     ---------- --------MS GWESYYKNEG EDEEEE-QEE GAD-AE---Z 
+platypus_2          ---------- ---------- ---------- ---------- ---------Z 
+platypus            ---------- --------MS AWESYYKKEE GEEEEE-QDE ETE-TV---Z 
+duck                ---------- ---------- ---------- ---------- ---------Z 
+flycatcher          ERPLAEGQRG RVWRCRGAMA GWGSFYRGEG LEEEEEQQEE EEGAEAV--Z 
+zebra_finch         ---------- --------MA GWGVVLPGEG LEEEEEQQEE EEGSEAV--Z 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------Z 
+chicken             ---------- -AVLSAAAMA DWVSYYRGDG PDEEEDGEQQ EEEGPEAV-Z 
+turkey              ---------- -----AAAMA DWVSYYRGDG PDEEEDGEQQ EEEGQEAV-Z 
+anole_lizard        ---------- --------MS NWVSYYKNED EEEGEE-QDE EVE-TI---Z 
+turtle              ---------- --------MS EWMSYYKNEE DEDEEE-YHE EVE-TG---Z 
+turtle_2            ---------- ---------- ---------- ---------- ---------Z 
+xenopus             ---------- ------QKMN EWGEYFVKEE DEDDEE-QEE GERDAG---Z 
+coelacanth          ---------- --------MS DW-AYYRKGD DEDEQE-EEA GEQGE----Z 
+zebrafish           ---------- --------MA NWGNYFPNED DVDEQDEEES G--------Z 
+zebrafish_2         ---------- --------MA NWGNYFPNED DVDEQDEEES G--------Z 
+cod                 ---------- --------MA EWNAYYHNEE EDED---QEE GEE-SG---Z 
+stickleback         ---------- -----AAHMA EWNTFYRNEE DEED---QEE GEQ-SG---Z 
+medaka              ---------- ---------- ---------- ---------- ---------Z 
+platyfish           ---------- --------MA EWNAYYQNED EEQE---QEE AEL-SG---Z 
+tilapia             ---------- ---------- ---------- ---------- ---------Z 
+fugu                ---------- --------MA QWNAYYHNDD EEEE---QED GEQFRGK--Z 
+pufferfish          ---------- ---------- ---------- ---------- ---------Z 
+lamprey             ---------- ---------- ---------- ---------- ---------Z 
+
+human               --------GD YKYSGRDSLI FLVDASKAMF ESQ---SEDE LTPFDMSIQ- 
+gorilla             ---------- ---------- ---------- ---------- ---------- 
+chimpanzee          --------GD YKYSGRDSLI FLVDASKAMF ESQ---SEDE LTPFDMSIQ- 
+orangutan           --------GD YKYSGRDSLI FLVDASKAMF ESQ---SENE LTPFDMSIQ- 
+gibbon              --------GD YKYSGRDSLI FLVDASKAMF ESQ---SENE LTPFDMSIQ- 
+macaque             ---------- ---------- ---------- ---------- ---------- 
+marmoset            ---------- ---------- ---------- ---------- ---------- 
+tarsier             --------GE YKYSGRDSLI FLVDASKAMF ESQ---SEDE LTPFDMSIQ- 
+lemur               ---------- ---------- ---------- ---------- ---------- 
+galago_lemur        --------GE YKYSGRDSLI FLVDASRAMF ESQ---DEDE LTPFDMSIQ- 
+guinea_pig          ----FYPLGE YKYSGRDSLI FLVDASRAMF VSQ---GENE LTPFDMSIQ- 
+kangaroo_rat        ---------- ---------- ---------- ---------- ---------- 
+squirrel            --------GE HKYSGRDSLI FLVDASRAMF ESQ---GEDE LTPFDMSIQ- 
+mouse               --------GE YKYSGRDSLI FLVDASRAMF ESQ---GEDE LTPFDMSIQ- 
+rat                 --------GE YKYSGRDSLI FLVDASRAMF ESQ---GEDE LTPFDMSIQ- 
+pika                ---------E YTYSGRDSLI FLVDVSRAMF ESQ---SEDE LTPFDMSIQ- 
+rabbit              --------GE YKYSGRDSLI FLVDASRAMF ESQ---SEDE LTPFDMSIQ- 
+tree_shrew          ---------E YKCSGRDSLI FLVDASSAMF EYQ---DEEE LSPFDMSIQ- 
+panda               --------GE YTYSGRDSLI FLVDGSRAMF ESQ---GEVE LTPFDMSIQ- 
+dog                 --------GE YTYSGRDSLI FLVDGSRAMF ESQ---GEVE LTPFDMSIQ- 
+ferret              --------GE YTYSGRDSLI FLVDGSRAMF ESE---GEDE MTPFDMSIQ- 
+cat                 --------GE YTYSGRDSLI FLVDGSKAMF ESQ---SEVE LTPFDMSIQ- 
+cow                 --------GD YSYSGRDSLI FLVDASRAMF ESQ---DEDE LTPFDMSIQ- 
+pig                 --------ED YRCSGRDSLI FLVDASRAMF ESQ---DEDE LTPFDMSIQ- 
+dolphin             --------GD YKYSGRDSLI FLIDASEAMF ETQ---DEDE LTPFDMSIQ- 
+alpaca              ---------D YKYSGRDSLI FLVDASRAMF DSQ---GENE LTPFDMSIQ- 
+horse               --------GE HKYSGRDSLI FLVDASKAMF ESQ---DEDE LTPFDMSIQ- 
+european_shrew      --------GE YKYSGRDSLI FLVDASRAMF DSQ---GEDG LTPFDMSIQ- 
+bat                 --------GE YTYSGRDSLI FLVDASRAMF KSE---GEDE MTPFDMSIQ- 
+flying_fox          --------RE YKYSGRDSLI FVVDASRAMF ESQ---SEDE LTPFDMSIQ- 
+sloth               ---------- ---------- ---------- ---------- ---------- 
+armadillo           --------GE YKYSGRDSLI FLVDASKTMF ESQ---DEDE LTPFDMSIQ- 
+madagascar_hedgehog --------GE YKYSGRDSLI FLVDTSRAMF ESQ-----DE LTPFDMSIQ- 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          --------GE YKYSGRDSLI FLVDASKAMF EIQGEGDEDE LTPFDMSIQ- 
+hyrax               --------GE HKYSGRDSLI FLVDASRAMF ECQGEGDENE LTPFDMSIQ- 
+opossum             --ETLPLLGQ YKYSGRDSLI FLVDASKAMF EPQ---DEGP RTSFELTIQ- 
+tasmanian_devil     --------GN YKYSGRDSLI FLVDASKAMF ELQ---AEDG RTSFDLTIQ- 
+platypus_2          ---------- ---------- ---------- ---------- ---------- 
+platypus            --------GD YKYSGRDSLI FLVDASKPMF EAQ-NDDADG PTPFDMTIE- 
+duck                ---------- ---------- ---------- ---------- ---------- 
+flycatcher          ---------D QRFAGRDSLI FLVDASKAMF E----SDGDA ETPFGMTIQ- 
+zebra_finch         ---------D QRVSGRDSLI FLVDASKAMF E----SDGEA ETPFDMTIQ- 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             ---------D YRFSGRDSLI FLVDASKAMF EPY--EDEEA ATPFDMTMQ- 
+turkey              ---------D HRFSGRDSLI FLVDASKAMF EPY--EDEEA ATPFDMTMQ- 
+anole_lizard        --------GE YKYSGRDTLL FLVDASKAMF DSFDHDDDDD LTPFDMTIQ- 
+turtle              --------GE YKYSGRDSLI FLVDASKAMF EYY--DDDDE CTPFDMTIQ- 
+turtle_2            ---------- ---------- ---------- ---------- ---------- 
+xenopus             ---------V FRFAGRDSLI FLIDASKPMF EST----GDE LTPFDLTLQ- 
+coelacanth          ---------D VKYSGRDSLI FLVDASSAMF ESS---DEGE LSPFDMTIQ- 
+zebrafish           ---------D YKSSGRDSLV FLVDASKEMF IKG---ENGE PSNFDMTMQ- 
+zebrafish_2         ---------D YKSSGRDSLV FLVDASKEMF IKG---ENGE PSNFDMTMQ- 
+cod                 --------GD FKFTGRDSLV FLVDASKEMF IKG---ENDE PSNFDMTMQ- 
+stickleback         ----ASLFAD YKATGRDSLV FLVDASKEMF IKG---EDGQ PSNFDMTMQ- 
+medaka              ---------- ---------- ---------- ---------- ---------- 
+platyfish           --------GD YKVSGRDSLV FLVDASKEMF IKG---EDGQ PSNFDMTMQ- 
+tilapia             ---------D YKITGRDSLV FLVDASKEMF IKG---EDGE PSNFDMTMQ- 
+fugu                -----SLLSD YKVTGRDSLV FLVDASKEMF VKG---EDGQ PSNFDLSMQ- 
+pufferfish          ------SLLD YKVTGRDSLV FLVDASKDMF VRG---EDGQ PSNFDLTMQ- 
+lamprey             ---------- ---------- ---------- ---------- ---------- 
+
+human               Z--------- CIQSVYISKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+gorilla             Z--------- ---------- ---------- ---------- ---------- 
+chimpanzee          Z--------- CIQSVYISKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+orangutan           Z--------- CIQSVYISKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+gibbon              Z--------- CIQSVYISKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+macaque             Z--------- CIQSVYISKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+marmoset            Z--------- ---------- ---------- ---------- ---------- 
+tarsier             Z--------- CIQSVYISKI VSSDRDLLAV VFYGTE---- KDKNSVN-FK 
+lemur               Z--------- CIQSVYINKI ISSDRDLLAV VFYGTK---- EDKNSVN-FK 
+galago_lemur        Z--------- CIQSVYISKI ISSDRDLLAV VFYGTK---- KEKNSVN-FK 
+guinea_pig          Z--------Q CIESVYTSKI ISSDRDLLGV VFYGTK---- KDKNSVN-FK 
+kangaroo_rat        Z--------- CIVSVYTNKI ISSNRDLLAV VFYGTE---- KDKNSVN-FK 
+squirrel            Z--------- CVQSVYASKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+mouse               Z--------- CIQSVYTSKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+rat                 Z--------- CIQSVYTSKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+pika                Z--------- CIRSVYTSKI ISSAHDLLAV VFYGTE---- KDKNSVN-FK 
+rabbit              Z--------- CIQSVYTSKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+tree_shrew          Z--------- CIQSVYTNKL ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+panda               Z--------- CIQSVYTNKI ISSDQDLLAV VFYGTE---- KDKNSVN-FK 
+dog                 Z--------- CIQSVYTNKI ISSNQDLLAV VFYGTE---- KDKNSVN-FK 
+ferret              Z--------- CILSVYTNKI ISSDQDLLAV VFYGTE---- KDKNSVN-FK 
+cat                 Z--------- CIQSVYTNKI ISSNQDLLAV VFYGTE---- KDKNSVN-FK 
+cow                 Z--------- CIRSVYTNKI ISSNRDLLAV VFYGTK---- KDKNSVN-FK 
+pig                 Z--------- CIQSVYTNKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+dolphin             Z--------- CIRSVYTSKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+alpaca              Z--------- CIQSVYTNKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+horse               Z--------- CIQSVYTNKI ISSNQDLLAV VFYGTE---- KDKNSVN-FK 
+european_shrew      Z--------- CIQSVYTNKI ISSDRDLLAV VFYGTE-Z-- KEKNSVD-FK 
+bat                 Z--------- CIQSVYTSKI ISSDRDLLAV VFYGTK---- KDKNSVN-FK 
+flying_fox          Z--------- CIKSVYTNKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+sloth               Z--------- CIQSVYTNKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+armadillo           Z--------- CILSVYTNKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+madagascar_hedgehog Z--------- ---------- ---------- ---------- ---------- 
+elephant            Z--------- ---------- ---------- ---------- ---------- 
+elephant_2          Z--------- CILSVYTNKI ISSDRDLLAV VFYGTE---- KDKNSVN-FK 
+hyrax               Z--------- ---------- ---------- ---------- KDKNSVN-FK 
+opossum             Z--------- CIQSVYSSKI ISSDRDLLAV VFYGTD---- KAKNSVN-FR 
+tasmanian_devil     Z--------- CIQSVYSSKI ISSDRDLLAV VFYGTD---- KDKNSVN-FR 
+platypus_2          Z--------- ---------- ---------- ---------- ---------- 
+platypus            Z--------- CIRSVYTSKI ISSDRDLLAV VFYGTD---- KHKNSVN-FK 
+duck                Z-LTPVHAFQ CIRNVYTSKI ISSDRDLLSV VFYGTQ---- TNKNSAD-FK 
+flycatcher          Z--------- CIRNVYTSKI ISSDRDLLGV VFYGTE---- DNKNSAD-FK 
+zebra_finch         Z--------- CIRTVYTSKI ISSDRDLLSV VFYGTE---- NNKNSAD-FK 
+zebra_finch_2       Z--------- ---------- ---------- ---------- ---------- 
+chicken             Z--------- CIRNVYTSKI ISSDKDLLSV VFYGTE---- NNKNSAD-FK 
+turkey              Z--------- CIRNVYTSKI ISSDKDFLSV VFYGTE---- NNKNSAG-FK 
+anole_lizard        Z--------- CIQNVYTNKI ISHDRDLVGV VFYGTE---- QYKNSVD-FK 
+turtle              Z--------- CIRNVYTSKI ISSDRDLLSV VFYGTE---- KHKNSVD-FK 
+turtle_2            Z--------- ---------- ---------- ---------- ---------- 
+xenopus             Z--------- CIRSVYASKI ISSDHDLLSV VFFGTR---- ESNNCDP-FK 
+coelacanth          Z--------- ---------- ---------- ---------- ---------- 
+zebrafish           Z--------- CVRSVYTSKI ISSDRDLVAL VFYGTE---- QSKNPRNSFK 
+zebrafish_2         Z--------- CVRSVYTSKI ISSDRDLVAL VFYGTE---- QSKNPRNSFK 
+cod                 Z--------- CVRSVYTSKI ISNHRDLVAL VFYGVE---- QSKNPRNSFK 
+stickleback         Z--------- VVRSVYASKI ISSHRDLMAL VFYGTE---- QSKNPRNSFK 
+medaka              Z--------- ---------- ---------- ---------- ---------- 
+platyfish           Z--------- VVRSVYTSKI IRSHRDLVAL VFYGTE---- QSKNPRNSFK 
+tilapia             Z--------- VVRTVYTSKI ISSDKDLVAL VFYGTE---- ESKNPRNSFK 
+fugu                Z--------- VVRSVYTSKI ISSHRDLMAL VFYGTE---- QSKNPSNSFK 
+pufferfish          Z--------- VVRSVYTSKI ISSHRDLVAL VFYGTE---- QSKNPSNSFK 
+lamprey             Z--------- ---------- ---------- ---------- ---------- 
+
+human               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+gorilla             ---------- --Z------- ---------- ---------- ---------- 
+chimpanzee          NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+orangutan           NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+gibbon              NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+macaque             NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+marmoset            ---------- --Z--DGSRA VFESQSEDEW TPFDKSIQRI QSVYISKIIS 
+tarsier             NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+lemur               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+galago_lemur        NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+guinea_pig          NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+kangaroo_rat        NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+squirrel            NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+mouse               NIYVLQDLDN P-Z------- ---------- ---------- ---------- 
+rat                 SIYVLQDLDN P--------- ---------- ---------- ---------- 
+pika                NIYVLQDLDT P-Z------- ---------- ---------- ---------- 
+rabbit              NIYVLQDLDN P-Z------- ---------- ---------- ---------- 
+tree_shrew          NIYVLQELDS P-Z------- ---------- ---------- ---------- 
+panda               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+dog                 NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+ferret              NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+cat                 NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+cow                 NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+pig                 NIYVLQELDS P-Z------- ---------- ---------- ---------- 
+dolphin             NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+alpaca              NIYVLQELDS P-Z------- ---------- ---------- ---------- 
+horse               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+european_shrew      HIYVLQELDS P-Z------- ---------- ---------- ---------- 
+bat                 NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+flying_fox          NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+sloth               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+armadillo           NVYVLQELDN P-Z------- ---------- ---------- ---------- 
+madagascar_hedgehog ---------- --Z------- ---------- ---------- ---------- 
+elephant            ---------- --Z------- ---------- ---------- ---------- 
+elephant_2          NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+hyrax               NIYVLQELDN P-Z------- ---------- ---------- ---------- 
+opossum             SVYVLHELDP P-Z------- ---------- ---------- ---------- 
+tasmanian_devil     NIYVLHELDI P-Z------- ---------- ---------- ---------- 
+platypus_2          ---------- --Z------- ---------- ---------- ---------- 
+platypus            HVYVLQELDN P-Z------- ---------- ---------- ---------- 
+duck                HVYVLQDLDN P-Z------- ---------- ---------- ---------- 
+flycatcher          HIYVLQELDN P-Z------- ---------- ---------- ---------- 
+zebra_finch         HIYVLQELDN P-Z------- ---------- ---------- ---------- 
+zebra_finch_2       ---------- --Z------- ---------- ---------- ---------- 
+chicken             HVYVLQELDN P-Z------- ---------- ---------- ---------- 
+turkey              HVYVLQELDN P-Z------- ---------- ---------- ---------- 
+anole_lizard        HIYVLQDLDN P-Z------- ---------- ---------- ---------- 
+turtle              HVYVLQELDN P-Z------- ---------- ---------- ---------- 
+turtle_2            ---------- --Z------- ---------- ---------- ---------- 
+xenopus             HLCVLHDLDT P-Z------- ---------- ---------- ---------- 
+coelacanth          ---------- --Z------- ---------- ---------- ---------- 
+zebrafish           HVYVYHDLES P-Z------- ---------- ---------- ---------- 
+zebrafish_2         HVYVYHDLES P-Z------- ---------- ---------- ---------- 
+cod                 HVYVYHDLDE P-Z------- ---------- ---------- ---------- 
+stickleback         HVYVYHDLDE P-Z------- ---------- ---------- ---------- 
+medaka              ---------- --Z------- ---------- ---------- ---------- 
+platyfish           HVYVYHDLDE P-Z------- ---------- ---------- ---------- 
+tilapia             HVYVYHDLSE P-Z------- ---------- ---------- ---------- 
+fugu                HVYVYHNLDE P-Z------- ---------- ---------- ---------- 
+pufferfish          HVYVYHSLDE P-Z------- ---------- ---------- ---------- 
+lamprey             ---------- --Z------- ---------- ---------- ---------- 
+
+human               ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+gorilla             ---------- ---------- ---------- ---------- ---------- 
+chimpanzee          ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+orangutan           ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+gibbon              ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+macaque             ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+marmoset            SNRDLSAVVF CGTGEDKNPV NFKNIYVLQE LDNSEAKRIL ELDQFKGQQG 
+tarsier             ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+lemur               ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+galago_lemur        ---------- ---------- ---------- ----GAKRIL ELDQFKGQQG 
+guinea_pig          ---------- ---------- ---------- ----GAKRVL ELDRFKGQPG 
+kangaroo_rat        ---------- ---------- ---------- ----GAKRVL ELDRFKGQQG 
+squirrel            ---------- ---------- ---------- ----GAKRML ELDQFKGQQG 
+mouse               ---------- ---------- ---------- ----GAKRVL ELDQFKGQQG 
+rat                 ---------- ---------- ---------- ----GAKRVL ELDRFKGQQG 
+pika                ---------- ---------- ---------- ----GAKRVL ELDRLKWPEG 
+rabbit              ---------- ---------- ---------- ----GAKRML ELDRFKGQEG 
+tree_shrew          ---------- ---------- ---------- ----GAKRVL ELDQFKGQQG 
+panda               ---------- ---------- ---------- ----GAKRVL ELDQFKGEQG 
+dog                 ---------- ---------- ---------- ----GAKRVL ELDQFKGERG 
+ferret              ---------- ---------- ---------- ----GAKRVL ELDQFKGEQG 
+cat                 ---------- ---------- ---------- ----GAKRVL ELDQFKGEQG 
+cow                 ---------- ---------- ---------- ----GVKRVQ ELDKFKGQEG 
+pig                 ---------- ---------- ---------- ----GAKRVQ ELDRFKGQEG 
+dolphin             ---------- ---------- ---------- ----GAKRVL ELDRFKGQEG 
+alpaca              ---------- ---------- ---------- ----GAKRVL ELDQFKGPKG 
+horse               ---------- ---------- ---------- ----GAKRVL ELDRLKGQQG 
+european_shrew      ---------- ---------- ---------- ----SAKRVL ELDQFKGPQG 
+bat                 ---------- ---------- ---------- ----GAKRVL ELAQFKGQQG 
+flying_fox          ---------- ---------- ---------- ----GAKRVL ELDRFKGQQG 
+sloth               ---------- ---------- ---------- ---------- ---------- 
+armadillo           ---------- ---------- ---------- ---------- ------DLQG 
+madagascar_hedgehog ---------- ---------- ---------- ---------- ---------- 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          ---------- ---------- ---------- ----GAKRVL ELDQFKGQQG 
+hyrax               ---------- ---------- ---------- ----GARRVL ELDRFKGQQG 
+opossum             ---------- ---------- ---------- ----GAKRIL ELDRFKGEQG 
+tasmanian_devil     ---------- ---------- ---------- ----GAKRIL ALDQFKGKQG 
+platypus_2          ---------- ---------- ---------- ---------- ---------- 
+platypus            ---------- ---------- ---------- ----GAKRVL ELDQFKGDQG 
+duck                ---------- ---------- ---------- ----GAKRVL ELDQYRGEEG 
+flycatcher          ---------- ---------- ---------- ----GAKRVL ELDQYRGDEG 
+zebra_finch         ---------- ---------- ---------- ----GAKRVL ELDQYRGDEG 
+zebra_finch_2       ---------- ---------- ---------- ----GAKRVL ELDQYRGDEG 
+chicken             ---------- ---------- ---------- ----GAKRIL ELDQYRGDEG 
+turkey              ---------- ---------- ---------- ----GAKRIL ELDQYRGDEG 
+anole_lizard        ---------- ---------- ---------- ----GAKRVL ELGKYKGEQG 
+turtle              ---------- ---------- ---------- ----GAKRVL ELDKYKGDQG 
+turtle_2            ---------- ---------- ---------- ---------- ---------- 
+xenopus             ---------- ---------- ---------- ----GAKRIL DLDKYKEEKG 
+coelacanth          ---------- ---------- ---------- -----AKRVL ELNKFRGDEG 
+zebrafish           ---------- ---------- ---------- ----GAKRVQ DIDKLKGDKG 
+zebrafish_2         ---------- ---------- ---------- ----GAKRVQ DIDKLKGDKG 
+cod                 ---------- ---------- ---------- ----GAKRVQ DVEALRGDKG 
+stickleback         ---------- ---------- ---------- ----GAKRVQ DVDALRGDKG 
+medaka              ---------- ---------- ---------- ---------- --------KG 
+platyfish           ---------- ---------- ---------- ----GAKRVQ DADALRGEKG 
+tilapia             ---------- ---------- ---------- ----GAKRVQ EVDALRGEKG 
+fugu                ---------- ---------- ---------- ----GAKRVQ EVDALQGEKG 
+pufferfish          ---------- ---------- ---------- ----GAKRVL EVDSLQGDKG 
+lamprey             ---------- ---------- ---------- ---------- ---------- 
+
+human               QKRFQDMMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+gorilla             ---------- ---------- ---------- ---------- ---------- 
+chimpanzee          QKRFQDMMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+orangutan           QKRFQELMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+gibbon              QKRFQDLMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+macaque             QKRFQDLMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+marmoset            QKCFHELMGH R--SGCSPSE VLWVCGSLFS GIQFKMSHKR IMLFTNED-- 
+tarsier             KKHFQDLMGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+lemur               KKHFQDRIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+galago_lemur        KKHFQDLIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNDDNP 
+guinea_pig          QDHFQDLIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNNDDP 
+kangaroo_rat        KTHFQELIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNEDDP 
+squirrel            KKHFQDLIGH G--SDYSLSE VLWVCANLFS NVQFKMSHKR IMLFTNEDDP 
+mouse               KKHFRDTVGH G--SDYSLSE VLWVCANLFS DVQLKMSHKR IMLFTNEDDP 
+rat                 KKHFRDTIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+pika                KQHFQDLIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNEDNP 
+rabbit              KEHFQDLIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+tree_shrew          KKRFQDQMGH G--SDYSFSE VLWVCANLFS DVQVKMSHKR IMLFTNEDDP 
+panda               KKHFQDLIGH G--SDYSLSE VLWVCANLFS DVRVKMSHKR VMLFTNEDDP 
+dog                 KKHFQDLIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNEDDP 
+ferret              KEHFQDLIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNEDDP 
+cat                 KKHFQDLIGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNEDDP 
+cow                 KKYFEDQIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+pig                 TKYFQDLLGH G--SDYSLSE VLWVCANLFS DVQVKMSHKR IMLFTNDDDP 
+dolphin             KKHFQDLIGH G--SDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+alpaca              KKHFQDLIGH G--SDYSLSE VLWVCANLFS NVQFKMSYKR IMLFTNEDDP 
+horse               KKHFQDLLGH G--SDYSLSE VLWVCANLFS NVQFKMSHKR IMLFTNEDDP 
+european_shrew      KEHFQKLLGH G--AEYSLSE VLWVCANLFS SVQVKMSHKR IMLFTNEDDL 
+bat                 KKHFQDLIGY G--CDYSLSE VLWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+flying_fox          KKHFQDMIGH G--CDYSLNE VLWVCANLFS DVQFKMSHKR IMLFTNEDNP 
+sloth               ---------- ---------- ---------- ---------- ---------- 
+armadillo           EEHFRDLIGH G--SDYSLSE ALWVCANLFS DVQFKMSHKR IMLFTNEDDP 
+madagascar_hedgehog ---------- ---------- ---------- ---------- ---------- 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          RKHFQDLIGH G--SDYSLNE ALWVCANLFS DVQFKLSHKR VMLFTNEDDP 
+hyrax               KEHFQTLIGH G--SESSLSE ALWVCANLFS DVQVKMSHKR IMLFTNEDNP 
+opossum             ERNFRELIGH G--PDYSLSE ALWVCANLFS GVRLKMSHKR IMLFTNEDHP 
+tasmanian_devil     EKHFQELIGC G--SDYSLAE ALWVCANLFS GVRLKMSHKR VMLFTNNDSP 
+platypus_2          ---------- ---------- ---------- ---------- ---------- 
+platypus            KAHFRTLIGH G--ADYTLSE ALWVCSNLFS DVRLKMSHKR IMLFTNEDDP 
+duck                QALFRETFGH N--ADYSLGE ALWACSNLFS DVRVRLSHKR IMLFTNEDNP 
+flycatcher          RAHFQENFGH N--ADYSLGE ALWACSNLFS DVRVRLSHKR IMLFTNEDDP 
+zebra_finch         RALFRENFGH S--ADYSLGE ALWACSNLFS DVRVRLSHKR IMLFTNEDDP 
+zebra_finch_2       RALFRESFGH S--ADYSLGE ALWACSNLFS DVRVRLSHKR IMLFTNEDDP 
+chicken             RVLFRETFGH N--ADYSLGE ALWACSNLFS DVRVRLSHKR IMLFTNEDNP 
+turkey              RLLFRESFGH N--ADYSLGE ALWACSNLFS NVQVRLSHKR IMLFTNEDNP 
+anole_lizard        KALFSKSFGH S--TNYSLGE ALWVCSNLFS DVRLKMSHKR IMLFTNEDNP 
+turtle              KALFRESFGH N--ADYSLGE ALWACCNLFS DVRLKMSHKR IMLFTNEDNP 
+turtle_2            ---------- ---------- ---------- ---------- ---------- 
+xenopus             RALFRDTIGC G--GDFSLGE ALWLCSNLFS NVKVKMSHKR IMLFTNEDNP 
+coelacanth          QRHFREKIGH S--ADFSLGE ALWVCSNLFS DVKVKLSHKR VMLFTNQDNP 
+zebrafish           GQFAEKTMGS G---ETSLGE ALWCCSNLYS DIKLRLSHKR LMIFTCRDEP 
+zebrafish_2         GQFAEKTMGS G---ETSLGE ALWCCSNLYS DIKLRLSHKR LMIFTCRDEP 
+cod                 ARLAEETLGC GGEAETSLGD ALWCCSNLYS DIKLRLSHKR LMLFTCRDQP 
+stickleback         AQLAAETMGS G---ETSLGD ALWCCANLYS DIKLRLSHKR LMIFTCRDEP 
+medaka              AQLAAKTLGS G---EASLGD ALWCCANLYS DIKLRLSHKR LMIFTCRDEP 
+platyfish           AQLAAEALGS G---ETSLGD ALWCCANLYS DIKLRLSHKR LMIFTCRDDP 
+tilapia             AKLAAETIGS G---ETSLGD ALWCCANLYS DIKLRLSHKR LMIFTCRDEP 
+fugu                ARLMEKTMGS G---ETSLGD ALWCCANLYS DIKLRLSFKR LMIFTCRDEP 
+pufferfish          ARLMEETVGS G---ETSLGD ALWCCANLYS DIKLRLSFKR LMIFTCRDQP 
+lamprey             ---------- ---------- ---------- ---------- ---------- 
+
+human               HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+gorilla             ---------- ---------- ---------Z ---------- ---------- 
+chimpanzee          HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+orangutan           HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+gibbon              HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+macaque             HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+marmoset            ---------- ---------- ---------Z -----QRTRT SEKPGGSDIS 
+tarsier             HGNDSARASR ARTKAGDLRD T--------Z --GIFLDLMH LKKEGGFDIS 
+lemur               HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKHGGFDIS 
+galago_lemur        HGDDSAKASR ARTKAGDLRE T--------Z --GIFLDLMH LKKPGGYDIS 
+guinea_pig          HGDDSAKASR ARTKASDLRD T--------Z --GIFIDLMH LKKCGGFDIS 
+kangaroo_rat        HGNDSAKASR ARTKASDLRD T--------Z ---------- ---------- 
+squirrel            HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKHGGFDIS 
+mouse               HGRDSAKASR ARTKASDLRD T--------Z --GIFLDLMH LKKPGGFDVS 
+rat                 HGNDSAKASR ARTKASDLRD T--------Z --GIFLDLMH LKKRGGFDVS 
+pika                HGNDSAKASR ARTKASDLRD T--------Z --GIYVDLMH LKKRGGFDVS 
+rabbit              HGDDSAKASR ARTKASDLRD T--------Z --GIYLDLMH LKKRGGFDIS 
+tree_shrew          HRNDSAKASR ARTKASDLRD T--------Z --GIFLELMH LKKPGGFDIS 
+panda               HGDDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LRKRGGFDIS 
+dog                 HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKRGGFDIS 
+ferret              HGLDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKRGGFDIS 
+cat                 HGNDSARASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+cow                 HGDDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKRGGFDTS 
+pig                 HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+dolphin             HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLLH LRKRGGFDIS 
+alpaca              HGGDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+horse               HSSDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKPGGFDIS 
+european_shrew      HRXXXXXXXX XXXXXXXXXX X--------Z --XIFLDLMH LKKDGGFDIS 
+bat                 HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKRGGFDIS 
+flying_fox          HGNDSAKASR ARTKAGDLRD T--------Z --GIFLDLMH LKKHGGFDIS 
+sloth               ---------- ---------- ---------Z ---IFLDLMH LRKPGGFDIS 
+armadillo           HGNDSAKASR ARTKASDLRD T--------Z --GIFLDLMH LRKRGGFDIS 
+madagascar_hedgehog ---------- ---------- ---------Z ---IFLDLMH LKKAGGFDIS 
+elephant            ---------- ---------- ---------Z ---------- ---------- 
+elephant_2          HGNDSAKASR ARTKAADLRD T--------Z --GIFLDLMH LKKHGGFDIS 
+hyrax               YGNDSAKACR ARTKAADLRD T--------Z --GIFLDLMH LKKHGGFDIS 
+opossum             HANDGAKASR ARTKASDLRD T--------Z --GIFLDLMN LKKPGGFDVA 
+tasmanian_devil     HGDDSTKASR AKTKACDLRD T--------Z --GIFLDLMN LKKPGGFDIS 
+platypus_2          ---------- ---------- ---------Z --GIFLDLMH LKKPGGFDIS 
+platypus            HAGDKAKAAL ARTKATDLRD TGGQLPPL-Z ---------- ---------- 
+duck                HANDSAKAKL ARTRAGDLRD T--------Z --GIILDLLH LKKPGGFDIS 
+flycatcher          HANDSAKAKL ARTRAGDLRD T--------Z --GIILDLMH LRKPGGFDIS 
+zebra_finch         HANDSAKAKL ARTRAGDLRD T--------Z --GIILDLMH LKKPGGFDIS 
+zebra_finch_2       HANDSAKAKL ARTRAGDLRD T--------Z --GIILDLMH LKKPGGFDIS 
+chicken             HANDSAKAKL ARTRAGDLRD T--------Z --GIILDLMH LKKPGGFDIS 
+turkey              HANDNAKAKL ARTRAGDLRD T--------Z --GIILDLMH LKKLGGFDIS 
+anole_lizard        HGQDSSKAKF ARTKATDLRD T--------Z --GIYLDLMH LRKPGGFDIS 
+turtle              HGHDNTKAKL ARTKAADLRD T--------Z --GIFLDLLH LKKPGGFDIS 
+turtle_2            ---------- ---------- ---------Z ---------- ---------- 
+xenopus             HANDQAKAKQ ARAKAEDLRE M--------Z --GIFLDLMH LEKPEGFDIS 
+coelacanth          HVDDGGKARM ARTKAADLRE M--------Z --GIFLDLMH LKKPGGFMIS 
+zebrafish           HGGDSAKDRQ ARTKAADLKE T--------Z --GVAIDLMH LSKPGGFDVS 
+zebrafish_2         HGGDSAKDRQ ARTKAADLKE T--------Z --GVAIDLMH LSKPGGFDVS 
+cod                 HAGDSARDRQ ARTKAGDLKE T--------Z --GVVIDLMH LTRPGGFDVS 
+stickleback         HGSDGAKDRQ ARTKAGDLKE T--------Z --GVVVNLMH LMKPGGFDVA 
+medaka              HWGDSAKDRQ ARTKASDLKE T--------Z --GVVIDLMH LLKPGGFDVS 
+platyfish           HGGDGARDRQ ARTKASDLKE T--------Z --GVLIDLMH LTKPGGFDVS 
+tilapia             HGGDSVKDRQ ARTKASDLKE T--------Z --GVVIDLMH LMKPGGFDIS 
+fugu                HGGDTAKDRQ ARTKASDLKE T--------Z --GVFIDLMH LMKPGGFDVS 
+pufferfish          HGGDAAKDRQ ARTKASDLKE T--------Z --GVIIDLLH LMKPGGFDVS 
+lamprey             ---------- ---------- ---------Z ---------- ---------- 
+
+human               LFYRDIISIA EDE-DLRVHF EESSKLEDLL RKVRAKETRK RALS--Z--- 
+gorilla             ---------- ---------- ---------- ---------- ------Z--- 
+chimpanzee          LFYRDIISIA EDE-DLRVHF EESSKLEDLL RKVRAKETRK RALS--Z--- 
+orangutan           LFYRDIISIA EDE-DLRVHF EESSKLEDLL RKVRAKETRK RALS--Z--- 
+gibbon              LFYRDIISIA EDE-DLRVHF EESSKLEDLL RKVRAKETRK RALS--Z--- 
+macaque             LFYRDIISIA EDE-DLRVHF EESSKLEDLL RKVRAKETRK RALS--Z--- 
+marmoset            LFHRDI-STA EDE-GLRIHF EESSKLEDLL WKVRAKETR- ------Z--- 
+tarsier             LFYRDIISIA EDE-DLGVHF EESSKLEDLL RKVRAKETRK RVLY--Z--- 
+lemur               LFYRDIISIA EDE-DLGIHF EESSKLEDLL RKVRAKESRK RVLY--Z--- 
+galago_lemur        LFYRDIISIA EDE-DLGVHF EESSRLEDLL RKVRAKENKK RVLF--Z--- 
+guinea_pig          LFYRDIISVA EDS-DLGVHF EESSKLEDLL RKVRAKENRK RVLS--Z--- 
+kangaroo_rat        ---------- ---------- ---------- ---------- ------Z--- 
+squirrel            LFYRDIISIA EDE-DLGVHF EESSKLEDLL RKVRAKETKK RVLS--Z--- 
+mouse               VFYRDIITTA EDE-DLGVHF EESSKLEDLL RKVRAKETKK RVLS--Z--- 
+rat                 LFYRDIISIA EDE-DLGVHF EESSKLEDLL RKVRAKETKK RVLS--Z--- 
+pika                LFYRDIISAA EDE-ELGVHF EESSKLEDLL RKVRGKET-- ------Z--- 
+rabbit              LFYRDIISIA EDE-ELGVYF EESSKLEDLL RKVRAKETRK RVLS--Z--- 
+tree_shrew          LFYRDIISVA EDE-DLGVHL EVSSKLEDLM RKVRAKETKK RPLY--Z--- 
+panda               LFYRDIISTA EDE-DLGVHF EESSKLEDLL RKVRAKETRK RVLQ--Z--- 
+dog                 LFYRDIISIA EDE-DLGVHF EESSKLEDLL RKVRAKETRK RVLC--Z--- 
+ferret              LFYQDIISTA EDE-DLGVHF EESSKLEDLL RKVRAKETKK RVLC--Z--- 
+cat                 LFYRDIISIA DDE-DLGVHF EESSKLEDLL RKVRAKETKK RMLS--Z--- 
+cow                 LFYRDVI-IA ENE-DIGIHF EESSKLEDLL RKVRAKETRK RVLS--Z--- 
+pig                 LFYRDIISVA EDE-DIGVHF EESHKLEDLL RKVRAKETRK RVLH--Z--- 
+dolphin             LFYRDIISIA EDE-DIGVHF EESSKLEDLS RKVRAKETRK RVLC--Z--- 
+alpaca              LFYRDIISIA EDE-DIGVHF EESSKLEDLL RKVRAKENRK RVLY--Z--- 
+horse               LFYRDIISVA EDE-DLGVHF EESRKLEDLL RKVRAKETKK RVLC--Z--- 
+european_shrew      LFYRDIISIA EDE-DLGVHF EESSKLEDLL RKVRAKETRK RVLC--Z--- 
+bat                 LFYRDVISTA EDE-DLGVHF KESSKLEDLL RKVRAKETRK RPLS--Z--- 
+flying_fox          VFYRDIISIA EDE-DFGVHF EESSKLEDLL RKVLSRDTKK RALS--Z--- 
+sloth               VFYRDIISIA EDK-DIGVHF EESSKLEDLL RKVRAKETRK RALC--Z--- 
+armadillo           VFYRDIISVA EDK-DIGVHF EESSKLEDLL RKVRAKETRK RTLC--Z--- 
+madagascar_hedgehog LFYRDIISLA EDE-DIGVHF EESSKLEDLM RKVRAKETRK RTLS--Z--- 
+elephant            ---------- ---------- ---------- ---------- ------Z--- 
+elephant_2          LFYRDIISLA EDE-DTGVHF EESSKLEDLL RKIRAKENRK RTLG--Z--- 
+hyrax               LFYRDIISTA EDE-DIGVYF EESSRLEDLL RKVRAKENRK RVLS--Z--- 
+opossum             LFYRDLITPA EGE-EVGVHF EESGRLEDLL RKVRAKETRK RALA--Z--- 
+tasmanian_devil     LFYRDIITPG KDE-DLGVHF EESGRLEDLL RKVRAKETRK RSLA--Z--- 
+platypus_2          LFYRDIINTA EDE-DLGVHF EESGKLEDLM KKVRAKETRK RSLA--Z--- 
+platypus            ---------- ---------- ---------- ---------- ------Z--- 
+duck                LFYRDIINVA EDE-DLGIQP DESGKLEDLM KKVRAKETRK RALV--Z--- 
+flycatcher          LFYRDIINVA EDE-DLGIQP KESEKLEHLM KKVRAKETKK RTLV--Z--- 
+zebra_finch         LFYRDIINVA EDE-DLGIHP KESEKLEHLM KKVRAKETRK RALV--Z--- 
+zebra_finch_2       LFYRDIINVA EDE-DLGIHP KESEKLEHLM KKVRAKETRK RALVR-Z--- 
+chicken             LFYRDIINVA EDE-DLGIQP DESGKLEHLM KKVRAKETRK RALS--Z--- 
+turkey              LFYRDIINIA EDE-DLGIQP DESGKLEHLM KKVRAKEARK RALV--Z--- 
+anole_lizard        LFYRDIINTA EDE-DLGVHF DESSKLADLM KKVRSKETRK RALG--Z--- 
+turtle              LFYRDIINTA EDE-DLGVQT EASGKLEDLM KKVRAKETKK RALA--Z--- 
+turtle_2            ---------- ---------- ---------- ---------- ------Z--- 
+xenopus             LFYRDIVNTA EDQ-DLGVQF KASEKLDDLL KKVRAKEAKK RALA--Z--- 
+coelacanth          HFYRDIITVL EDE-DLGVHF EESAALEDLL KKVRAKEMRK RAQA--Z--- 
+zebrafish           LFFCDIVSPP EDESDLGLQI EPCRKLEDLQ KRVRAKELKK RAQC--Z--- 
+zebrafish_2         LFFCDIVSPP EDESDLGLQI EPCRKLEDLQ KRVRAKELKK RAQC--Z--- 
+cod                 LFFRDVVSHQ DDEDELGLQL EPSRKLEDLQ KRVQAKEQKK RTLA--Z--- 
+stickleback         TFFRDVISPP EDESELGLQL EPCDKLEDLK KRVRAKEQKK RAMA--Z--- 
+medaka              AFFCDIISPP EDEEELGLQM EPCGKLEDLR KRVRAKELKK RTLA--Z--- 
+platyfish           LFFRDIVSPP DDDGELGLQL EPCDKLEDLQ KRVRARETKK RALA--Z--- 
+tilapia             LFFCDIVSPP EDESELGLQL QPSDKLEDLL KRVRAKELKK RALA--Z--- 
+fugu                TFFCDIIS-P DSEGELGLQL EPCGKLEDLK KRVRAKEQKK RAMS--Z--- 
+pufferfish          SFFCDIISPP SSEGELGLQL EPSDKLEDLR RRVRAKEQKK RALS--Z--- 
+lamprey             ---------- ---------- ---------- ---------- ------Z--M 
+
+human               ----RLKLKL NKDIVISVGI YNLVQKALKP PPIKLYRETN EPVKTKTRTF 
+gorilla             ---------- ---------- ---------- ---------- ---------- 
+chimpanzee          ----RLKLKL NKDIVISVGI YNLVQKALKP PPIKLYRETN EPVKTKTRTF 
+orangutan           ----RLKLKL NKDIVISVGI YNLVQKALKP PPIKLYRETN EPVKTKTRTF 
+gibbon              ----RLKLKL NKDIVISVGI YNLVQKALKP PPIKLYRETN EPVKTKTRTF 
+macaque             ----RLKLKL NKDIVISVGV YNLVQKALKP PPIKLYRETN EPVKTKTRTF 
+marmoset            ---------- ---------- ---------- ---------- ---------- 
+tarsier             ----RLKLKL NSDIALTVGI YNMVQKAHKP PPVRLYRETN ELVKTRTRTF 
+lemur               ----RLKLKL NKDIALTLGV YNMVQKAVKP APIRLYRETN EPVKTKTRTF 
+galago_lemur        ----SLKFKL SKDIALTLGV YNLVQKAVKP APIRLYRETN EPVKTKTRTF 
+guinea_pig          ----RLKFKL DKDTALTVGI YNLVQKANKP PPVRLYRETN EPVKTKTRTF 
+kangaroo_rat        ---------- ---------- ---------- ---------- ---------- 
+squirrel            ----RLKFKL NKDIALTVGI YNLVQKANKP FPIKLYRETN EPVKTKTRTF 
+mouse               ----RLKFKL GEDVVLMVGI YNLVQKANKP FPVRLYRETN EPVKTKTRTF 
+rat                 ----RLKFKL GKDVALMVGV YNLVQKANKP FPVRLYRETN EPVKTKTRTF 
+pika                ----GLKFKL NQDVALSVGV YNMVQKANKP PPVRLYRETN EPVRTKTRTF 
+rabbit              ----RLKFKL NKDVVFSVGI YNMVQKATKP MPVRLYRETN EPVKTKTRTF 
+tree_shrew          ----RLKFKL SKDIALTVGI YNLLQKAFKS SAIRLYRETN EPVKVKTRIF 
+panda               ----RLKFKL SKDIALTVGM YNMVQKAFKP PPVRLYRETN EPVKSKTRTF 
+dog                 ----RLKLKL SKDTALTVGI YNMVQKAVRP APVRLYRETN EPVKSKTRTF 
+ferret              ----RLKFKL SKDIALTVGM YNMVQKAVKP PPVRLYRETN EPVKSKTRTF 
+cat                 ----SLKLKL SKDIALTVGI YNLVQKAYRP PPVRLYRETN EPVKTKTRTF 
+cow                 ----RLKLKL NKDVTLTVGI YNMVQKAYRP PPVRLYRETN EPVKTKTRTF 
+pig                 ----RLKLKL SKDVALTVGI YNLVQKAYKP FPVRLYRETN EPVKTKTRTF 
+dolphin             ----RLKLKL NKDVALTVGI YNMVQKALKP SPVRLYRETN EPVKTKTRTF 
+alpaca              ----RLKLKL TKDVVLTVGI YNLVQKAFRP LPVRLYRETN EPVKTKTRTF 
+horse               ----RLKFKL NKDIAFTVGI YNMVQKAHKP PPIKLYRETN EPVKTKTRTF 
+european_shrew      ----RLKFKL NKDLAFTVGV YNMVQKAYKP APVKLYRETN ELVKTKTRTF 
+bat                 ----RLKFKL NKDTAFTVGI YNMVQKAHKP PPIRLYRETN EPVKTKTRTF 
+flying_fox          ----RLKLKL NKDIALTVGI YNMVQKALKP PPIKLYRETN EPVKTKTRTF 
+sloth               ----RLKFKL NKDIALTVGI YNLVQKAFKP PPVRLYRETN EPVKTKTRTF 
+armadillo           ----RLKLKL SKDIALTVGI YNLVQKAFKP PPVRLYRETN EPVKTKTRTF 
+madagascar_hedgehog ----RLKFKL NKDIAMTVGI YNLVQKAFKP PPVRLYRETN EPVKTKTRTF 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          ----RLKFKL SKDIALTVGI YNLVQKAFRP SPIRLYRETN EPVKTKTRTF 
+hyrax               ----RLKFKL SKDIALTVGI YNLVQKAFRP PPIRLYRETN EPVKIKTRTF 
+opossum             ----RLKLRL GKDVALMVSI FNLVQKACKP LPIRLYRETN EQVKTKTRTF 
+tasmanian_devil     ----RLKLRL GKDVALTISI YNMVQKAFRP PPIRLYRETN EQVKIKTRTF 
+platypus_2          ----RLNLRL GKDVALTVSI FNLVQKAFKP PPIRLYRETN EPVKTKTRTF 
+platypus            ---------- ---------- ---------- ---------- ---------- 
+duck                ----RLNLYL NKDLSLSVGV YNLIQKAYKP YPVKLYRETN EPVKTKTRVF 
+flycatcher          ----RLNLHL SNNVALSVGV YNLIQKAYKP FPVKLYRETN EPVKTKTRMF 
+zebra_finch         ----RLNLHL GKDVVLSVGV YNLIQKAYKP LPVKLYRETN EPVKIKTRMF 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             ----RLNLYL NKDLSFSVGV YNLIQKAYKP YPVKLYRETN EPVKTKTRVF 
+turkey              ----RLNLYL NKDLSFSVGV YNLIQKAYKP YPVKLYRETN EPVKTKTRVF 
+anole_lizard        ----RLNLYL GKDVALSVGI FNLVQRAFKQ PPVKLYRETN EPVKTKTRTF 
+turtle              ----RLNLHL GKDLSLTVGV YNLVQKAFKP PPVKLYRETN EPVKTKTRTF 
+turtle_2            ---------- ---------- ---------- ---------- ---------- 
+xenopus             ---SRLTLKL GPDVGLTVGI YNLVQKAVKP PTVKLYRESN EPVKTKTRIF 
+coelacanth          ----RLNLKL GEGVAMCVGV YHLVRSATKP YPVKLYRETN EMVKTKTRWF 
+zebrafish           ----RLTFSL GEGVDLAVGV YVLARTAMKP SAVKLYRDNN EPVRTKSRLF 
+zebrafish_2         ----RLTFSL GEGVDLAVGV YVLARTAMKP SAVKLYRDNN EPVRTKSRLF 
+cod                 ---------- ---------- ---------- ---------- ---------- 
+stickleback         ----RMNLCL GEGLNVAVGI YATAVTARKP APIRLYRETN EPVRSKTRTF 
+medaka              ----RLSLSL GEGVNVAVGL YATAVSARKP PPVRLYRETN EPVRSKTRTF 
+platyfish           ----RLSLTL GEGLNVAVGV YATAVTARKP ASVRLYRETN EPVRSKTRIF 
+tilapia             ----RLNLCL GEGINVAVGI YATAVAARKP GSIKLYRETN EPVRSKTRTF 
+fugu                ----RLNLSL GEGLNLAVGI YAMAVPAKIP GSVKLYRETN KQVHSKPQTF 
+pufferfish          ----RLNLCL GEGVNVAVGI YTVAVPARVP AAIKLYRETN KQVQSKTRTF 
+lamprey             RACTRLPLKL GEGLSLGVAV YTLTRTAHKS FPVKLYRETN EPVKAKKQTF 
+
+human               NTSTGGLLLP SDTKRSQ--Z --IYGSRQII LEKEETEELK RFDDPGLMLM 
+gorilla             ---------- ---------Z ---------- ---------- ---------- 
+chimpanzee          NTSTGGLLLP SDTKRSQ--Z --IYGSRQII LEKEETEELK RFDDPGLMLM 
+orangutan           NTSTGGLLLP SDTKRSQ--Z --IYGSRQII LEKEETEELK RFDDPGLMLM 
+gibbon              NTSTGGLLLP SDTKRSQ--Z --IYGSRQII LEKEETEELK RFDDPGLMLM 
+macaque             NTSTGGLLLP SDTKRSQ--Z --IYGSRQII LEKEETEELK RFDDPGLMLM 
+marmoset            ---------- ---------Z ---------- ---------- ---------- 
+tarsier             NVNTGSLLLP SDTKRTQ--Z --TYGSRQIV LEKEETEELK RFDEPGMILI 
+lemur               NVNTGSLLLP SDTKRSQ--Z --IYGSRQIV LEKEETEELK RFDEPGLILI 
+galago_lemur        NVNTGSLLLP SDTKRSQ--Z --MYGSRQIV LEKEETEELK RFDEPGLILI 
+guinea_pig          SVNTGSLLLP SDTKRSQ--Z --MYGNRKIV LEKEETEQLK RFDEPGLILI 
+kangaroo_rat        ---------- ---------Z --IYGSRPII LEKEETEDLK RFEDPGLVLV 
+squirrel            NVNTGSLLLP SDTKRSQ--Z --TYGSRQIV LEKEETEELK RFDEPGLILL 
+mouse               NVNTGSLLLP SDTKRSL--Z --TYGTRQIV LEKEETEELK RFDEPGLILM 
+rat                 NVNTGSLLLP SDTKRSL--Z --TFGTRQIV LEKEETEELK RFDEPGLILM 
+pika                SVNTGSLLLP SDTKRAQ--Z --IYGNRQIV LEKEETEELK RFDEPGLILI 
+rabbit              NVNTGSLLLP SDTKRSQ--Z --IYGSRQIV LEKEETEELK RFDEPGLILI 
+tree_shrew          SINTGSLLLP SDTKRSQ--Z --IYGNRQIL LEKEETEELK RFDEPGLILI 
+panda               NVNTGSLLLP SDTKRSQ--Z --NYGNRQIV LEREETEELK RFDEPGLILI 
+dog                 NVNTGSLLLP SDTKRSQ--Z --NYGNRQIV LEKEETEELK RFDEPGLILI 
+ferret              NVNTGSLLLP SDTKRSQ--Z --SYGSREIV LEKEETEELK RFDEPGLILI 
+cat                 NVNTGSLLLP SDTKRSQ--Z --IYGNRQIV LEKEETEELK RFDEPGLILI 
+cow                 NVNTGSLLLP SDTKRSQ--Z --TYSHRQIV LEKEETEELK RFDEPGFILI 
+pig                 NVNTGSLLLP SDTKRSQ--Z ---------- ---------- RFDEPGLILI 
+dolphin             NVNTGSLLLP SDTKRSQ--Z ---------- ---------- ---------- 
+alpaca              NVNTGSLLLP SDTKRAQ--Z --TYGGRQIV LEKEETEELK RFDEPGLILI 
+horse               SVNTGSLLLP SDTKRSQ--Z --TYGSRQIV LEKEETEALK RFDEPGLLLI 
+european_shrew      NVNTGSLLLP SDTKRSQ--Z ---------- ---------- ---------- 
+bat                 NVNTGSLLLP SDTKRSQ--Z --VYGSRQIV LEKEEMEQLK RFDEPGLVLI 
+flying_fox          NVNTGSLLLP SDTKRSQ--Z --IYGSRQIV LEKEETELLR RFDEPGLILI 
+sloth               NVNTGSLLLP SDTKRSQ--Z --IYGGRQIV LEKEETEQLK RFDEPGLILI 
+armadillo           NVNTGSLLLP SDTKRSQ--Z --VYGSRQIV LEKEETEQLK RFDEPGLILI 
+madagascar_hedgehog NVNDG----- ---------Z --SYGSRQIV LEREETEQLK RFDEPGLSLI 
+elephant            ---------- ---------Z ---------- ---------- ---------- 
+elephant_2          NVNNGSLLLP SDTKRSQ--Z --SYGSRQIV LEKEETEQLK RFDEPGLTLI 
+hyrax               NVNNGSLLLP SDTKRSQ--Z --SYGSRQIV LEKEETEQLK RFEDPGLVLM 
+opossum             SVQTGGLLLP SDTKRSQ--Z --VYGGRPIV MEKAETEELK RFDEPGLVLI 
+tasmanian_devil     NVETGSLLLP SDTKRAQ--Z --TYGGRQIV MEKEETEELK RFDEPGLILI 
+platypus_2          NLDTGGLLLP SDTKRSQ--Z --TYGNRQIV MEKEETEELK RFDDPGLILI 
+platypus            ---------- ---------Z ---------- ---------- ---------- 
+duck                NGKTGSLLLP SDTKRAQ--Z --VYGNRQIV LEKEETEELK RFGSPGLFLI 
+flycatcher          SGKTGSLLLP SDTKRAQ--Z --TYGKRQIV LEKEETEELK RFDSPGLFLI 
+zebra_finch         SGKTGSLLLP SDTKRAQ--Z --TYGNRQIV LEKEETEELK QFDSPGLFLI 
+zebra_finch_2       ---------- ---------Z ---------- ---------- ---------- 
+chicken             NGKTGSLLLP SDTKRAQ--Z --TYGNRQIA MEKEETEEVK RFDSPGLFLI 
+turkey              NGKTGSLLLP SDTKKAQ--Z --TYGSRQIV MEKEETEEVK RFDSPGLFLI 
+anole_lizard        NKETGSLLLP SDTKRAQ--Z --IYGNRQIV LEKEEVEETK RFDSPGLYLV 
+turtle              NRETGSLLLP SDSKKAQV-Z ---------- ---------- ---------- 
+turtle_2            ---------- ---------Z ---------- ---------- ---------- 
+xenopus             HSNTGSLLLP SDTKRSQ--Z --TYGNRQIV LEKDETEQLK RFDEPSLVLI 
+coelacanth          NTETGSLLLP SDTKRTQ--Z --TYGNRQIV LEKEEVEELK RFDNPGLVLI 
+zebrafish           HTQTGGILLP NDTKRAQ--Z --VYGQKQIV MEKDEVDEIK KFDDPGLVLI 
+zebrafish_2         HTQTGGILLP NDTKRAQ--Z --VYGQKQIV MEKDEVDEIK KFDDPGLVLI 
+cod                 ---------- ---------Z --MYGEKQIV MEKDEVDSMK KFEDPGLHLI 
+stickleback         HTQTGSLLLP SEIKKSQ--Z --VYGKKQIV MERDEVDAIK KFEDPGMSLI 
+medaka              HTQTGSLLLP SDIKKAQ--Z --VYAKKQIV MERDEVDAIK KFDDPGLVLI 
+platyfish           HTQTGSLLLP SEIKKAQ--Z --VYGRKQIV MEKDEVDAIK KFHDPGLFLI 
+tilapia             HTQTGSLLLP SEIKKAQ--Z -------VIV MERDEVDAIK KFDDPGLFLI 
+fugu                DTQTGRLLLP SEIKKAQ--Z --VYGKKQIV MERDEVDSIK KFEDPGLYLI 
+pufferfish          HTQTGSLLLP SEVKKAQ--Z --VYGGKQIV MERDEVDSIK KFEDPGLQLI 
+lamprey             HAKTGRLLLP SDTKKSQ--Z --VYGYRQIV LENEEVQKVK KFFEPGLVLI 
+
+human               GFKPLVLLKK HHYLRPSLFV YPEESLVI-- Z--------- ---------- 
+gorilla             ---------- ---------- ---------- Z--------- ---------- 
+chimpanzee          GFKPLVLLKK HHYLRPSLFV YPEESLVI-- Z--------- ---------- 
+orangutan           GFKPLVLLKK HHYLRPSLFV YPEESLVI-- Z--------- ---------- 
+gibbon              GFKPLVLLKK HHYLRPSLFV YPEESLVI-- Z--------- ---------- 
+macaque             GFKPLVLLKK HHYLRPSLFV YPEESLVIG- Z--------- ---------- 
+marmoset            ---------- ---------- ---------- Z--HLSPGLA ISLCGHLSPG 
+tarsier             GFKPVVMLKK HQHLKPSLFV YPEESLVN-- Z--------- ---------- 
+lemur               GFKPLAMLKT HHYLRPSLFL YPEESLVNG- Z--------- ---------- 
+galago_lemur        GFKPLEMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+guinea_pig          GFKPLALLKK HHYVRPSLFV YPEESLVN-- Z--------- ---------- 
+kangaroo_rat        GFKPLAVLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+squirrel            GFKPLLMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+mouse               GFKPTVMLKK QHYLRPSLFV YPEESLVS-- Z--------- ---------- 
+rat                 GFKPMVMLKN HHYLRPSLFL YPEESLVN-- Z--------- ---------- 
+pika                GFKPLAMLKK HHFLRPSLFV YPEESLVS-- Z--------- ---------- 
+rabbit              GFKPLVLLKK HHFLRPSLFV YPEESMVN-- Z--------- ---------- 
+tree_shrew          GFKPLVMLKK HHYLRPSMFV YPEETLVNG- Z--------- ---------- 
+panda               GFKPLIMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+dog                 GFKPLIMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+ferret              GFKPLTMLKK HHHLRPSLFV YPEESLVN-- Z--------- ---------- 
+cat                 GFKPLIMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+cow                 GFKPLMMLKK HHYLRHSLFV YPEESLIN-- Z--------- ---------- 
+pig                 GFKPLGMLKR HHYVRPSLFV YPEESLVN-- Z--------- ---------- 
+dolphin             ---------- ---------- ---------- Z--------- ---------- 
+alpaca              GFKPLVMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+horse               GFKPLLMLKQ HHYLRPSLFV YPEESLVNG- Z--------- ---------- 
+european_shrew      ---------- ---------- ---------- Z--------- ---------- 
+bat                 GFKPLLMLKK HHYVRPSLFV YPEESLIN-- Z--------- ---------- 
+flying_fox          GFKPLTMLKK HHFLRPSLFV YPEEYLMN-- Z--------- ---------- 
+sloth               GFKPLIMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+armadillo           GFKPLIMLKK HHYLRPSLFV YPEESLVN-- Z--------- ---------- 
+madagascar_hedgehog GFKLLLMLKK HHYLRLSLFV YPEEALVNG- Z--------- ---------- 
+elephant            ---------- ---------- ---------- Z--------- ---------- 
+elephant_2          GFKPLIMLKK HHYLKPSLFV YPEESLVN-- Z--------- ---------- 
+hyrax               GFKPLSLLKK HHYLRPNLFV YPEESLVN-- Z--------- ---------- 
+opossum             GFKPLFLLKQ HHFLRPSLFV YPEESLVHG- Z--------- ---------- 
+tasmanian_devil     GFKPLFMLKQ HHFLRPSLFV YPEESLVN-- Z--------- ---------- 
+platypus_2          GFKPLTTLKR HQYLRPSQFV YPEESLVN-- Z--------- ---------- 
+platypus            ---------- ---------- ---------- Z--------- ---------- 
+duck                GFKPLSMLKQ HHHIKPAQFI YPEESLIS-- Z--------- ---------- 
+flycatcher          GFKPLSMLKQ HHHIRPSQFI YPEESLVR-- Z--------- ---------- 
+zebra_finch         GFKPLSMLKQ HHHIRCSQFI YPEESLVR-- Z--------- ---------- 
+zebra_finch_2       ---------- ---------- ---------- Z--------- ---------- 
+chicken             GFKPLSMLKQ HHHIRPSQFM YPEESLVT-- Z--------- ---------- 
+turkey              GFKPLSMLKQ HHHIRPSQFI YPEESLVT-- Z--------- ---------- 
+anole_lizard        GFKPLLMLKQ HHYIKPAQFI YPDESLIS-- Z--------- ---------- 
+turtle              ---------- ---------- ---------- Z--------- ---------- 
+turtle_2            ---------- ---------- ---------- Z--------- ---------- 
+xenopus             GFKPITFLKK HHFTRPAQFI YPEESLIN-- Z--------- ---------- 
+coelacanth          GFKPLSMLKR QHHIKPTQFL YPDETLVT-- Z--------- ---------- 
+zebrafish           GFKPIDRLKL HHHLRPALFI YPEEEQIS-- Z--------- ---------- 
+zebrafish_2         GFKPIDRLKL HHHLRPALFI YPEEE----- Z--------- ---------- 
+cod                 GFKPMDKLKL HHHIRPSVFL YPEEEQIT-- Z--------- ---------- 
+stickleback         GFKPMAKLKR HHHIRPAVFL YPEEDEVK-- Z--------- ---------- 
+medaka              GFKPMEKLKL HHHIRPSVFL YPEEEEVK-- Z--------- ---------- 
+platyfish           GFKPMEKLKL HHHIRPSVFI YPEEDEVK-- Z--------- ---------- 
+tilapia             GFKPMEKLKL HHHIRPAVFL YPEEDEVK-- Z--------- ---------- 
+fugu                GFKPIKMLKI HHHIRPAVFI YPEENMVK-- Z--------- ---------- 
+pufferfish          GFKPLERLKI HHHIHPALFI YPEEDMV--- Z--------- ---------- 
+lamprey             GFKPMEYLKR HHHLRPTQFI YPEESLFT-- Z--------- ---------- 
+
+human               ---------- ---------- -------GSS TLFSALLIKC LEKEVAALCR 
+gorilla             ---------- ---------- ---------- ---------- ---------- 
+chimpanzee          ---------- ---------- -------GSS TLFSALLIKC LEKEVAALCR 
+orangutan           ---------- ---------- ---------- ---------- ---------- 
+gibbon              ---------- ---------- -------GSS TLFSALLIKC LEKEVAALCR 
+macaque             ---------- ---------- --------NS TLFSALLIKC LEKEVAALCR 
+marmoset            PAISLCGHLS PGPAISLCGH LSPGPVIGSS TPFSALLIKC LEKEVTALSR 
+tarsier             ---------- ---------- ---------- ---------- ---------- 
+lemur               ---------- ---------- --------DS TLFSALLIKC LEKEVLAVCR 
+galago_lemur        ---------- ---------- -------GSS TLFSALLTKC LEKEVLAVCR 
+guinea_pig          ---------- ---------- -------GSS TLFSALLIKC LEKEVIAVCR 
+kangaroo_rat        ---------- ---------- ---------- ---------- ---------- 
+squirrel            ---------- ---------- -------GSS TLFSALLTKC LEKAVLAVCR 
+mouse               ---------- ---------- -------GSS TLFSALLTKC VEKEVIAVCR 
+rat                 ---------- ---------- -------GSS TLFSALLTKC VEKEVIAVCR 
+pika                ---------- ---------- -------GSS TLFSALLTKC LAKEVLAVCR 
+rabbit              ---------- ---------- -------GSS TLFSALLTKC LEKEVLAVCR 
+tree_shrew          ---------- ---------- --------SS TLFSALLSKC LEKEVVAVCR 
+panda               ---------- ---------- -------GSS TLFSALLTKC LEKEVMAVCR 
+dog                 ---------- ---------- -------GSS TLFIALLTKC LEKEVMAVCR 
+ferret              ---------- ---------- -------GSS TLFHALLTKC LEKEVMAVCR 
+cat                 ---------- ---------- -------GSS TLFSALLTKC LEKEVMAVCR 
+cow                 ---------- ---------- -------GSS TLFSALLTKC LEKEVMAVCR 
+pig                 ---------- ---------- -------GSS TLFTALLTKC LEKEVMAVCR 
+dolphin             ---------- ---------- --------SS TLFSALLTKC LEKEVMAVCR 
+alpaca              ---------- ---------- -------GSS TLFSALLTKC LEKEVMAVCR 
+horse               ---------- ---------- --------NS TLFIALLTKC LEKEVMAVCR 
+european_shrew      ---------- ---------- ---------S TLFHALLTKC LEKDVVALCR 
+bat                 ---------- ---------- -------GSS TLFSALLTKC LEKEVVAVCR 
+flying_fox          ---------- ---------- -------GSS TLFSALLTKC LEKEVMAVCR 
+sloth               ---------- ---------- -------GST TLFSALLTKC LEKEVMALCR 
+armadillo           ---------- ---------- -------XXX XXXXXXXXXX XXXXXXXXXX 
+madagascar_hedgehog ---------- ---------- --------NT TLFSALLTKC LEKEVMALCR 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          ---------- ---------- -------GST ALFSALLTKC LEKEVMAVCR 
+hyrax               ---------- ---------- -------GST ALFSALLTKC LEKEVMAVCR 
+opossum             ---------- ---------- --------DT TLFSALLTKC LEKGVLALCR 
+tasmanian_devil     ---------- ---------- -------GST TLFVALLTKC LEKGVLALCR 
+platypus_2          ---------- ---------- -------GST TLFNALLTKC LEKEVLALCR 
+platypus            ---------- ---------- ---------- ---------- ---------- 
+duck                ---------- ---------- -------GST TLFNALLIKC LEREVMALCR 
+flycatcher          ---------- ---------- -------GST TLFNALLMKC SERKMMMLCR 
+zebra_finch         ---------- ---------- -------GST TLFNALLIRC LERAMMMLCR 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             ---------- ---------- -------GST TLFNALLMKC LEKEVMALCR 
+turkey              ---------- ---------- -------GST TLFNALLMKC LEKEVMALCR 
+anole_lizard        ---------- ---------- -------GST ALFRALLTKC LEKGVMAICR 
+turtle              ---------- ---------- ---------- ---------- ---------- 
+turtle_2            ---------- ---------- --------ST TLFNALLTKC LEKEVMALCR 
+xenopus             ---------- ---------- -------GST TLFHALLLRC LAQQVMAICR 
+coelacanth          ---------- ---------- -------GST SLFNALLTKC LEKGVFAVCR 
+zebrafish           ---------- ---------- -------GSS CMFTALLLKC CEKNVFALCK 
+zebrafish_2         ---------- ---------- ----FTTGSS CMFTALLLKC CEKNVFALCK 
+cod                 ---------- ---------- -------GSA CLFNALLKRC SERQVFAVCR 
+stickleback         ---------- ---------- -------GSA CLFSALLTKC SERNVFALCR 
+medaka              ---------- ---------- -------GSA CLFTALLKRC SDRSVFALCR 
+platyfish           ---------- ---------- -------GSA CLFSALLKKC IERNVFALCR 
+tilapia             ---------- ---------- -------GSS CLFSALLKKC SERNVFALCR 
+fugu                ---------- ---------- -------GSS CLFSALLTKC SEKDVFALCR 
+pufferfish          ---------- ---------- LALFSPSGSS CLFSALLTKC IEKKVFALCR 
+lamprey             ---------- ---------- -------GSG RLFTALLTQC LKRGVWALCH 
+
+human               YTPRRNIPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+gorilla             ---------- ---------- ---------- ---------- ------Z--- 
+chimpanzee          YTPRRNIPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+orangutan           ---------- ---------- ---------- ---------- ------Z--F 
+gibbon              YTPRRNIPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+macaque             YTPRRNIPPY FVALVPQDEE LDDQKIQVTP P--------- ------Z-GF 
+marmoset            YTPWENTPPY FVALVPQDEE LDDQKIQGAP PGFQLVFLLF ADDKR-Z--- 
+tarsier             ---------- ---------- ---------- ---------- ------Z--F 
+lemur               YTPRKNIPPC FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+galago_lemur        YTPRKNIPPY FVALVPQEEE LDGQKIQVTP S--------- ------Z-GF 
+guinea_pig          YTPRKSVPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+kangaroo_rat        ---------- ---------- ---------- ---------- ------Z--F 
+squirrel            YTPRKNTPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+mouse               YTPRKNVSPY FVALVPQEEE LDDQNIQVTP G--------- ------Z-GF 
+rat                 YTARKNVSPY FVALVPQEEE LDDQNIQVTP A--------- ------Z-GF 
+pika                YTPRKNIPPY FVALVPQEEE LDDQKIQLTP P--------- ------Z-GF 
+rabbit              YTPRKNVPPY FVALVPQEEE VDDQKIQLTP P--------- ------Z-GF 
+tree_shrew          YTPRKNTPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+panda               YTPRQNIPPY FVALLPQEEE LDDQKIQLTP P--------- ------Z-GF 
+dog                 YTPRRNIPPY FVALLPQEEE LDDQKIQVTP P--------- ------Z-GF 
+ferret              YTARQNIPPY FVALLPQEEE LDKQKIQVTP P--------- ------Z-GF 
+cat                 YTPRRNTPPY FVVLLPQEEE LDDQKIQVTP P--------- ------Z-GF 
+cow                 YTPRRNSPPC FVALVPQEEE LDDQKIQVAP P--------- ------Z-GF 
+pig                 YTPRKNLPPY FVALMPQEEE LDDQKVQVTP P--------- ------Z-GF 
+dolphin             YTPRQNVPPC FVALMPQEEE LDDQKIQVTP P--------- ------Z--- 
+alpaca              YTPRQNTPPC FVALMPQEEV LDDQKIQVAP P--------- ------Z-GF 
+horse               YTPRKNIPPY FVALIPQEEE LDDQKIQVTP P--------- ------Z-GF 
+european_shrew      YTPRQNIPPY FVALMPQEEE LDDQKVQITP P--------- ------Z--F 
+bat                 YTPRQNIPPY FVALMPQEEE LDDQKIQVTP P--------- ------Z-GF 
+flying_fox          YTPRQNISPY FVALVPQEEE LDEQKIQVTP P--------- ------Z-GF 
+sloth               YIPRQNIPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+armadillo           YIPRQNTPPY FVALVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+madagascar_hedgehog YVPRKNSPPH FVTLVPQEEE LDDQKIQVTP P--------- ------Z--- 
+elephant            ---------- ---------- ---------- ---------- ------Z--- 
+elephant_2          YIPRHNSPPY FVMLVPQDEE LDDQKIQVTP P--------- ------Z-GF 
+hyrax               YTPRRNSPPH FVTLVPQEEE LDDQKIQVTP P--------- ------Z-GF 
+opossum             YTPHQNSPPC FVALVPQEEE LDAQRVQVTP P--------- ------Z-GF 
+tasmanian_devil     YTPRQNSPPY FVALIPQEEE LDVQRVQVTP P--------- ------Z-GF 
+platypus_2          YTPRRNTPPR FVALVPQDEE LDAQKIQVSP P--------- ------Z-GF 
+platypus            ---------- ---------- ---------- ---------- ------Z--- 
+duck                YTIRQNTPPR FVALVPQEEE LDEQKVQISP P--------- ------Z-GF 
+flycatcher          YTPRRNIPPR FVALVPQEEE LDEQKVQIAP P--------- ------Z-GF 
+zebra_finch         YTPRRNVPPR FVALVPQEEE LDEQKVQMAP P--------- ------Z-GF 
+zebra_finch_2       ---------- ---------- ---------- ---------- ------Z--- 
+chicken             YIARRNTPPR IVALIPQEEE VDEQKVQIAP P--------- ------Z-GF 
+turkey              YIARRNTPPR FVALVPQEEE LDEQKVQIAP P--------- ------Z-GF 
+anole_lizard        YTARRNIPPR FIALVPQEEE LDEQNVQISP P--------- ------Z-GF 
+turtle              ---------- ---------- ---------- ---------- ------Z--- 
+turtle_2            YTPRRNTPPR FVALVPQKEE LDEQKMQTAP P--------- ------Z-GF 
+xenopus             YTPRRNTPPR FVALVPQDEE LDDQNIQSKP P--------- ------Z-GF 
+coelacanth          YTARRNMPPR FVALVPQEEQ LDEQKVQVVP S--------- ------Z-GF 
+zebrafish           YIPRRNTPPR FVALVPQREE LDQSQTQATP P--------- ------Z-GF 
+zebrafish_2         YIPRRNTPPR FVALVPQREE LDQSQTQATP P--------- ------Z-GF 
+cod                 YIPRRNHPPR FVALVPQVEV LDQGPIQITP P--------- ------Z--- 
+stickleback         CVARRNFPPR FVALVPQKEE VGEGKVQISP P--------- ------Z-GF 
+medaka              CIPRRNFPPR FVALVPQKEE VDEANAQISP A--------- ------Z-GF 
+platyfish           SVFRRNYPPR FVALVPQMEA VDEGKVQITP P--------- ------Z-GF 
+tilapia             FISRRNYPPR FVALLPQNEE LDEGKVQITP P--------- ------Z-GF 
+fugu                CIIRRNCPPR FAALVPQKEE LDEGKVQITA P--------- ------Z-GF 
+pufferfish          CVARRNSPPR FAALVPQREV LDEGKVQLSA P--------- ------Z-GF 
+lamprey             YTPRRYAQPR LVGLLPQDEV KEENGTQDTP P--------- ------Z-GF 
+
+human               QLVFLPFADD KRKMPFTEKI M-ATPEQVGK MKAIVEKLRF TY-Z------ 
+gorilla             ---------- ---------- ---------- ---------- ---Z--KVMA 
+chimpanzee          QLVFLPFADD KRKMPFTEKI M-ATPEQVGK MKAIVEKLRF TY-Z------ 
+orangutan           QLVFLPFADD KRKMPFTEKI M-ATPEQVDK MKAIVEKLRF TY-Z------ 
+gibbon              QLVFLPFADD KRKMPFTEKI M-ATSEQVDK MKAIVEKLRF TY-Z------ 
+macaque             QLVFLPFADD KRKMPFTEKI M-ATPEQVDK MKAIVEKLRF TY-Z------ 
+marmoset            ---------- ---------- ---------- ---------- ---Z------ 
+tarsier             QLVFLPYADD KRKVPFPEKV V-ANPEQVDK MKAIVQKLRF QY-Z------ 
+lemur               QLVFLPYADD KRKVPFTEKV I-ANSEQVDK MKAIVQKLRF KY-Z------ 
+galago_lemur        QLVFLPYADD KRKVPFPEKV T-ANPEQVDK MKAIVQKLRF KY-Z------ 
+guinea_pig          QLVFLPYADD KRNVPITEKV V-ANSEQIDK MKAIVQKLRF KY-Z------ 
+kangaroo_rat        QLVFLPYADD KRKVPLTDKV I-ANSEQIDK MKAIVQRLRF KY-Z------ 
+squirrel            QLVFLPYADD KRKVPFTEKV M-ANPEQIDK MKAIVQKLRF KY-Z------ 
+mouse               QLVFLPYADD KRKVPFTEKV T-ANQEQIDK MKAIVQKLRF TY-Z------ 
+rat                 QLVFLPYADD KRKVPFTEKV M-ANPEQIDK MKAIVQKLRF TY-Z------ 
+pika                QLVFLPYADD KRKVPFTDRV L-ANPEQVDK MKAIVQKLRF RY-Z------ 
+rabbit              QLVFLPYADD KRKVPFTDRV L-ANPEQVDK MKAIVQKLRF RY-Z------ 
+tree_shrew          QLFYLPYADD KRKVPITEKV K-ANPEQVDK MKAIIQKLRF KY-Z------ 
+panda               QLVFLPYADD KRRVPFTEKV L-ANPEQIDK MKAIVQKLRF NY-Z------ 
+dog                 QLVFLPYADD KRKVPFTEKV M-ANPEQIDK MKAIVQKLRF NY-Z------ 
+ferret              QLVFLPYADD KRKVPFTEKV M-ANPEQIDK MKAIIQKLRF NY-Z------ 
+cat                 QLVFLPYADD KRKVPFTEKV M-ANPEQIDK MKAIVQKLRF NY-Z------ 
+cow                 QLVFLPYADD KRKVPFTEKV M-ANPEQVDK MKAIVQKLRF KY-Z------ 
+pig                 QLVFLPYADD KRKVPFTEKI M-ANPEQVDK MKAIVQKLRF KY-Z------ 
+dolphin             ---------- ---------- ---------- ---------- ---Z------ 
+alpaca              QLIFLPFADD RRKVPFTEKV M-ANPEQVDK MKAIVQKLRF KY-Z------ 
+horse               QLVFLPYADD KRKVPLTEKV M-ANPEQVDK MKAIVQKLRF KY-Z------ 
+european_shrew      HLIFLPYADD KRKVPFTGKV S-ATPEQVDK MKAIVQKLRF KY-Z------ 
+bat                 HLVFLPYADD KRKVPFTEKV M-ANPEQVDK MKAIVQKLRF KY-Z------ 
+flying_fox          QLVFLPYADD KRKVPFTEKV M-ANREQIDS MKAIVQKLRF KY-Z------ 
+sloth               QLVFLPYADD KRKVPFTEKV M-ANPEQVDK MKAIVQKLRF RY-Z------ 
+armadillo           QLVFLPYADD KRKVPFTEKV T-ANPEQVDK MKAIVQKLRF KY-Z------ 
+madagascar_hedgehog ---------- ---------- ---------- ---------- ---Z------ 
+elephant            ---------- ---------- ---------- ---------- ---Z------ 
+elephant_2          QLMFLPYADD KRKVPFTEKI L-ANPEQVDK MKAIVQKLRF SY-Z------ 
+hyrax               QLIFLPYADD KRKVPFTEKV L-ANPEQVNK MKAIVQKLRF TY-Z------ 
+opossum             QLVFLPYADD KRKVPATEKV T-ANPEQVDK MKAIVQRLRF KY-Z------ 
+tasmanian_devil     QLVFLPYADD KRKVPFTEKV T-ANPEQVDK MKAIIQKLRF KY-Z------ 
+platypus_2          QLVFLPYADD KRKVPFTEKV P-ANPEQVDK MKAIVQKLRF KY-Z------ 
+platypus            ---------- ---------- ---------- ---------- ---Z------ 
+duck                HVIFLPYADD KRNVDYTEKV P-ASQEQVNK MKEIIQKLRF KY-Z------ 
+flycatcher          HLIFLPYADD KRNVDFTENV P-ASQEQVDK MKEIIQKLRF KY-Z------ 
+zebra_finch         HLIFLPYADD KRNVDFTENV P-ASQEQVDK MKEIIQKLRF KY-Z------ 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---Z------ 
+chicken             HIIFLPYADD KRNVDFTEKV P-ANREQVDK MKEIIQKLRF KY-Z------ 
+turkey              HIIFLPYADD KRNVDFTEKV P-ANREQVDK MKEIIQKLRF KY-Z------ 
+anole_lizard        HLIFLPYADD KRKIDFTEKV P-ANQEQVNK MKEIVQKLRF KY-Z------ 
+turtle              ---------- ---------- ---------- ---------- ---Z------ 
+turtle_2            HLIFLPYADD KRKVDFTEKV P-ANQEQVDK MKEIIQKLRF KY-Z------ 
+xenopus             NLVFLPFADD IRKIDPPEKI T-ANEEQVDK MKEIVHKLRF NF-Z------ 
+coelacanth          HLISLPYADD IRKMDYTEKI P-ANQDQVDK MKQIVHKLRF KY-Z------ 
+zebrafish           HVIYLPFADD IRTVDPHVGP T-ASDEQVDK MKEIVHKLRF KY-Z------ 
+zebrafish_2         HVIYLPFADD IRTVDPHVGP T-ASDEQVDK MKEIVHKLRF KY-Z------ 
+cod                 ---------- ---------- ---------- ---------- ---Z------ 
+stickleback         HVIYLPYADD MRTLDPPQFP T-ASQRQVDK MKEIVSKLRF KY-Z------ 
+medaka              NVIYLPFADD FRTLDLPRCP Y-ASQMQVNK MKEIISKLRF KY-Z------ 
+platyfish           NVIYLPYADD LRTLDPPRCP P-ASQTQVNK MKEIVQKLRF KY-Z------ 
+tilapia             NVIYLPFADD FRTLDPPQFP S-ASQTQVDK MKEIVSKLRF KY-Z------ 
+fugu                HLIYLPYADD IRTLDPPQFP S-ASQIPVDK MKQIVSKLRF KY-Z------ 
+pufferfish          YLLHLPYADD IRTLEPQPFP S-ASQVQVDK MKQIVSKLRF KY-Z------ 
+lamprey             HILFLPFADD VRNVPKLEGV AWANREQVDK AKAIVERLKF TY-Z------ 
+
+human               ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+gorilla             TPEQVDKMKA IVQKLRFTCR SDSFENPGLQ QHFRNLEALA L-DLMETEQT 
+chimpanzee          ---------- ---------- ---------- ---------- ---------- 
+orangutan           ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+gibbon              ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+macaque             ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+marmoset            ---------- ---------- ---------- ---------- ---------- 
+tarsier             ---------- ---------R SDNFENPVLQ QYFRNLEALA L-DLMEPEQA 
+lemur               ---------- ---------- ---------- ---------- ---------- 
+galago_lemur        ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+guinea_pig          ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+kangaroo_rat        ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DMMEPEAA 
+squirrel            ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+mouse               ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DMMESEQV 
+rat                 ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DMMESEQV 
+pika                ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+rabbit              ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+tree_shrew          ---------- ---------- ---------- ---------- ---------- 
+panda               ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+dog                 ---------- ---------R SDSFENPVLQ QHFRNLEVLA L-DLMEPEQA 
+ferret              ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQV 
+cat                 ---------- ---------R SDAFENPVLQ QHFRNLEALA L-DLMEPEQA 
+cow                 ---------- ---------R SDSFENPVLQ QHFRNMEALA L-DLMEPEQA 
+pig                 ---------- ---------R SDSFENPVLQ QHFRNMEALA L-DLMEPEQA 
+dolphin             ---------- ---------- SGSFENPVLQ QHFRNMEALA L-DLMEPEQA 
+alpaca              ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+horse               ---------- ---------R SDSFENPVLQ QHFKNLEALA L-DLMEPEQA 
+european_shrew      ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+bat                 ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLTEPEQA 
+flying_fox          ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMQPEQV 
+sloth               ---------- ---------R SDNFENPVLQ QHFRNLEALA L-DLMEPEQA 
+armadillo           ---------- ---------T SDSFENPVLQ QXXXXXXXXX X-XXXXXXXX 
+madagascar_hedgehog ---------- ---------- SDSFENPVLQ QHFRNLEALA L-DLMEPELA 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+hyrax               ---------- ---------R TDSFENPVLQ QHFRNLEALA L-DLMEPEEA 
+opossum             ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLTEPEHA 
+tasmanian_devil     ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DQLEPEQA 
+platypus_2          ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DLMEPEQA 
+platypus            ---------- ---------- ---------- ---------- ---------- 
+duck                ---------- ---------R TDSFENPVLQ QHFRNLEALA L-DMMEPEQA 
+flycatcher          ---------- ---------R ADSFENPVLQ QHFRNLEALA LEDKEEPEQA 
+zebra_finch         ---------- ---------R ADSFENPVLQ QHFRNLEALA L-DMMEPEQA 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             ---------- ---------R TDSFENPVLQ QHFRNLEALA L-DMLEPEQA 
+turkey              ---------- ---------R TDSFENPVLQ QHFRNLEALA L-DMLEPEQA 
+anole_lizard        ---------- ---------R SESFENPVLQ QHYMNLEALA L-DLMEPEKA 
+turtle              ---------- ---------- ---------- ---------- ---------- 
+turtle_2            ---------- ---------R NDSFENPVLQ QHFRNLEALA L-DLLEPEQA 
+xenopus             ---------- ---------R SDSFENPVLQ QHFRNLEALA L-DMLEPEPI 
+coelacanth          ---------- ---------- ---------- ---------- ---------- 
+zebrafish           ---------- ---------R SDAFENPVLQ QHYSNLEALA L-DMLSPEPI 
+zebrafish_2         ---------- ---------R SDAFENPVLQ QHYSNLEALA L-DMLSPEPI 
+cod                 ---------- ---------- SDSFENPVIQ QHFRNLEALA L-DMMAPENI 
+stickleback         ---------- ---------R SDAFENPVIQ QQYRNLEALA L-DMMAPEDI 
+medaka              ---------- ---------R SDAFENPVIQ KHFRNLEALA L-DMVAPEEI 
+platyfish           ---------- ---------R SDAFENPVLQ QHFRNLEALA L-DMMAPEDI 
+tilapia             ---------- ---------R SEGFENPVIQ QHFRNLEALA L-DMMAPEEI 
+fugu                ---------- ---------R SDAFENPAIQ KHFRNLEALA L-DMMAPEDV 
+pufferfish          ---------- ---------R SDAFENPVIQ QHFRNLEALA L-DMMAPEDT 
+lamprey             ---------- ---------R SESFENPSVQ QHYRNLEAMA L-DLEMPEPI 
+
+human               VDLT------ ---------- ---------- ---------- ---------- 
+gorilla             VDLTLPKVEA MNKSLDSLVV EFKEL----- ---------- ---------- 
+chimpanzee          ---------- ---------- ---------- ---------- ---------- 
+orangutan           VDLT------ ---------- ---------- ---------- ---------- 
+gibbon              VDLTCKAVES SSSFHGRLSY WFHSEPVIWV HFPVLSKHLT SLPRPPLFGS 
+macaque             VDLT------ ---------- ---------- ---------- ---------- 
+marmoset            ---------- ---------- ---------- ---------- ---------- 
+tarsier             VDLT------ ---------- ---------- ---------- ---------- 
+lemur               ---------- ---------- ---------- ---------- ---------- 
+galago_lemur        VDLT------ ---------- ---------- ---------- ---------- 
+guinea_pig          VDLT------ ---------- ---------- ---------- ---------- 
+kangaroo_rat        VDLT------ ---------- ---------- ---------- ---------- 
+squirrel            VDLT------ ---------- ---------- ---------- ---------- 
+mouse               VDLT------ ---------- ---------- ---------- ---------- 
+rat                 VDLT------ ---------- ---------- ---------- ---------- 
+pika                VDLT------ ---------- ---------- ---------- ---------- 
+rabbit              PDLT------ ---------- ---------- ---------- ---------- 
+tree_shrew          ---------- ---------- ---------- ---------- ---------- 
+panda               VDLT------ ---------- ---------- ---------- ---------- 
+dog                 EDLT------ ---------- ---------- ---------- ---------- 
+ferret              VDLT------ ---------- ---------- ---------- ---------- 
+cat                 VDLT------ ---------- ---------- ---------- ---------- 
+cow                 VDLT------ ---------- ---------- ---------- ---------- 
+pig                 VDLT------ ---------- ---------- ---------- ---------- 
+dolphin             VDLT------ ---------- ---------- ---------- ---------- 
+alpaca              VDLT------ ---------- ---------- ---------- ---------- 
+horse               VDLT------ ---------- ---------- ---------- ---------- 
+european_shrew      EDLT------ ---------- ---------- ---------- ---------- 
+bat                 EDLT------ ---------- ---------- ---------- ---------- 
+flying_fox          VDLT------ ---------- ---------- ---------- ---------- 
+sloth               EDLT------ ---------- ---------- ---------- ---------- 
+armadillo           XXXX------ ---------- ---------- ---------- ---------- 
+madagascar_hedgehog EDLT------ ---------- ---------- ---------- ---------- 
+elephant            ---------- ---------- ---------- ---------- ---------- 
+elephant_2          VDLT------ ---------- ---------- ---------- ---------- 
+hyrax               TDLT------ ---------- ---------- ---------- ---------- 
+opossum             PDLT------ ---------- ---------- ---------- ---------- 
+tasmanian_devil     PDLT------ ---------- ---------- ---------- ---------- 
+platypus_2          EDLT------ ---------- ---------- ---------- ---------- 
+platypus            ---------- ---------- ---------- ---------- ---------- 
+duck                EDLT------ ---------- ---------- ---------- ---------- 
+flycatcher          EDLT------ ---------- ---------- ---------- ---------- 
+zebra_finch         EDLT------ ---------- ---------- ---------- ---------- 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             EDLT------ ---------- ---------- ---------- ---------- 
+turkey              EDLT------ ---------- ---------- ---------- ---------- 
+anole_lizard        EDLT------ ---------- ---------- ---------- ---------- 
+turtle              ---------- ---------- ---------- ---------- ---------- 
+turtle_2            EDLT------ ---------- ---------- ---------- ---------- 
+xenopus             EDLT------ ---------- ---------- ---------- ---------- 
+coelacanth          ---------- ---------- ---------- ---------- ---------- 
+zebrafish           EDLT------ ---------- ---------- ---------- ---------- 
+zebrafish_2         EDLT------ ---------- ---------- ---------- ---------- 
+cod                 EDFI------ ---------- ---------- ---------- ---------- 
+stickleback         DDLI------ ---------- ---------- ---------- ---------- 
+medaka              EDLI------ ---------- ---------- ---------- ---------- 
+platyfish           EDLI------ ---------- ---------- ---------- ---------- 
+tilapia             EDLI------ ---------- ---------- ---------- ---------- 
+fugu                EDLI------ ---------- ---------- ---------- ---------- 
+pufferfish          EDLI------ ---------- ---------- ---------- ---------- 
+lamprey             VDYT------ ---------- ---------- ---------- ---------- 
+
+human               ------Z--- ---------- --------LP KVEAMNKRLG SLVDEFKELV 
+gorilla             ------Z--- ---------- ---------- ---------- ---------- 
+chimpanzee          ------Z--- ---------- ---------P KVEAMNKRLG SLVDEFKELV 
+orangutan           ------Z--- ---------- --------LP KVEAMNKRLG SLVDEFKELV 
+gibbon              FSRPA-Z--- ---------- ---------- ---------- ---------- 
+macaque             ------Z--- ---------- --------LP KVEAMNKRLG SLVDEFKELV 
+marmoset            ------Z--- ---------- ---------- ---------- ---------- 
+tarsier             ------Z--- ---------- --------LP KLEAMDKRLG SLVDEFKELV 
+lemur               ------Z--- ---------- ---------P KVEAMNKRLG SLVDEFKELV 
+galago_lemur        ------Z--- ---------- --------LP KVEAMNERLG SLVDEFKELV 
+guinea_pig          ------Z--- ---------- --------LP KVEAMNKRLG SLVEEFKDLV 
+kangaroo_rat        ------Z--- ---------- --------MP KVEAMNRRLG SLVDEFKELV 
+squirrel            ------Z--- ---------- --------LP KVEAMNKRLG SLVDEFKELV 
+mouse               ------Z--- ---------- --------LP KVEAIKKRLG SLADEFKELV 
+rat                 ------Z--- ---------- --------LP KVEAIKKRLG SLADEFKELV 
+pika                ------Z--- ---------- --------LP KVEAMNQRLG SLMDEFKELV 
+rabbit              ------Z--- ---------- --------LP KVEAMSKRLG SLVDEFKELV 
+tree_shrew          ------Z--- ---------- ---------P KVEEMDKRLG SLVDEFKELV 
+panda               ------Z--- ---------- --------LP KIEAIDRRLG SLVNEFKELV 
+dog                 ------Z--- ---------- --------LP KIEAIDKRLG SLVNEFKELV 
+ferret              ------Z--- ---------- --------LP KIEAIDKRLG FLVSEFKELV 
+cat                 ------Z--- ---------- --------LP KTKAIDKRLG PLVDEFKELV 
+cow                 ------Z--- ---------- --------LP KTEVMDKRLG SLVDEFKELV 
+pig                 ------Z--- ---------- --------LP KAEAMAKRLG SLVDEFKELV 
+dolphin             ------Z--- ---------- ---------P KVEVMDRRLG SLVDEFKELV 
+alpaca              ------Z--- ---------- ---------- ---------- ---------- 
+horse               ------Z--- ---------- --------LP KVEAMDKRLG FLVDEFKELV 
+european_shrew      ------Z--- ---------- --------LP KVEAMDKRLG SLVDEFKELV 
+bat                 ------Z--- ---------- --------LP KVEAMDERLG SLVEEFKELV 
+flying_fox          ------Z--- ---------- --------LP KVKAMDERLG PLVDNFKELV 
+sloth               ------Z--- ---------- --------LP KVEAMNKRLG SLVDEFKELV 
+armadillo           ------Z--- ---------- ---------- ---------- --VDEFKELV 
+madagascar_hedgehog ------Z--- ---------- ---------P KVEAMDKRLG SLVDEFKELV 
+elephant            ------Z--- ---------- ---------- ---------- ---------- 
+elephant_2          ------Z--- ---------- --------LP KVEAMDKRLG SLVDEFKELV 
+hyrax               ------Z--- ---------- --------LP KVEAIDRRLG SLVNEFKELV 
+opossum             ------Z--- ---------- --------LP KVEAMDLRLG SLVEEFKELV 
+tasmanian_devil     ------Z--- ---------- --------LP KVEAMDLRLG SLVEEFKELV 
+platypus_2          ------Z--- ---------- --------MP KVEAMNNRLG SLVDEFKELV 
+platypus            ------Z--- ---------- ---------- ---------- ---------- 
+duck                ------Z--- ---------- --------MP KSEEMSRRLG NLVEEFKQLV 
+flycatcher          ------Z--- ---------- --------MP KSEQMSQRLG NLVDEFKQLV 
+zebra_finch         ------Z--- ---------- --------MP KSEQMSHRLG NLVDEFKQLV 
+zebra_finch_2       ------Z--- ---------- ---------- ---------- ---------- 
+chicken             ------Z--- ---------- --------MP KTEEMSRRLG NLVEEFKQLV 
+turkey              ------Z--- ---------- --------MP KTEEMSRRLG NLVEEFKQLV 
+anole_lizard        ------Z--- ---------- --------MP KVEVMDSRLD NLVEEFKQLV 
+turtle              ------Z--- ---------- ---------- ---------- ---------- 
+turtle_2            ------Z--- ---------- --------LP KVEAMNHRLG DLVEQFKQLV 
+xenopus             ------Z--- ---------- --------LP KVEMIDRRLG TLVEEFKELV 
+coelacanth          ------Z--F EPYSLQKFSN CVFSFSLQVP KNEMIDSRLG SLTEEFKDLV 
+zebrafish           ------Z--- ---------- --------MP KVKMMDDRLG PLVQEFKDLV 
+zebrafish_2         ------Z--- ---------- --------MP KVKMMDDRLG PLVQEFKDLV 
+cod                 ------Z--- ---------- ---------P KVEQMDRRLG PLAQEFRDLV 
+stickleback         ------Z--- ---------- --------MP KVDQIDNRLG PLVQEFRDLV 
+medaka              ------Z--- ---------- --------MP KVEQIDQRLG PLVQEFKDLV 
+platyfish           ------Z--- ---------- --------MP KVDQIDQRLG PLADEFKDLV 
+tilapia             ------Z--- ---------- --------MP KVDQIDQRLG PLVQEFKDLV 
+fugu                ------Z--- ---------- --------MP KVDQINQRLG PLAEEFKDLV 
+pufferfish          ------Z--- ---------- --------MP KVDQINQRLG PLAQEFTELV 
+lamprey             ------Z--- ---------- --------RP PVERIEERAG TLISEFKELV 
+
+human               YPPDYNPEGK -VTKRKH--- ------Z--- ---------- -----DNEGS 
+gorilla             ---------- ---------- ------Z--Y PPDYNPEGKF TKRKHNNEDF 
+chimpanzee          YPPDYNPEGK -VTKRKH--- ------Z--- ---------- -----DNEGS 
+orangutan           YPPDYNPEGK -VTKRKH--- ------Z--- ---------- -----DNEGS 
+gibbon              ---------- ---------- ------Z--- ---------- ---------- 
+macaque             YPPDYNPEGK -VTKRKH--- ------Z--- ---------- -----DNDGS 
+marmoset            ---------- ---------- ------Z--- ---------- ---------- 
+tarsier             XXXXXXXXXX -XXXXXX--- ------Z--- ---------- -----XDEGS 
+lemur               YPPDYNPEGK -VTKQKQ--- ------Z--- ---------- -----GGEGS 
+galago_lemur        YPPDYNPKEK -ITKKKQ--- ------Z--- ---------- -----DDEGP 
+guinea_pig          YPPDYSPEGK -ATKRKQ--- ------Z--- ---------- -----DGEGS 
+kangaroo_rat        YPPDYNPEEK -VNKRKR--- ------Z--- ---------- -----DDNAS 
+squirrel            YPPDYNPEDK -VSKRKQ--- ------Z--- ---------- -----DDGVS 
+mouse               YPPGYNPEGK -VAKRKQ--- ------Z--- ---------- -----DDEGS 
+rat                 YPPGYNPEGK -IAKRKA--- ------Z--- ---------- -----DNEGS 
+pika                YPPDYNPEVK -SAGRRS--- ------Z--- ---------- -----AEEGP 
+rabbit              YPPDYNPEGK -ATGRKQ--- ------Z--- ---------- -----DDEGS 
+tree_shrew          YPPDYTPDRN -VTKRKQ--- ------Z--- ---------- -----DDEGS 
+panda               YPPDYNPEGK -VPKRKQ--- ------Z--- ---------- -----GDEGS 
+dog                 YPPDYSPEGK -APKRRQ--- ------Z--- ---------- -----DDEGL 
+ferret              YPPDYNPEGK -VSKRKQ--- ------Z--- ---------- -----DDEGS 
+cat                 YPPDYNPEEN -VSKRKQ--- ------Z--- ---------- -----DDEGS 
+cow                 YPPDYNPEGK -VTKRKK--- ------Z--- ---------- -----DDESY 
+pig                 YPPDYNPEGK -APKRKQ--- ------Z--- ---------- -----DNESC 
+dolphin             YPPDYNPEEK -VPKRKQ--- ------Z--- ---------- -----GDENS 
+alpaca              ---------- ---------- ------Z--- ---------- ---------- 
+horse               YPPDYSPKAE -VPVRKQ--- ------Z--- ---------- --------DS 
+european_shrew      YPPGYSPEGK -VPKRKQ--- ------Z--- ---------- -----DEDGP 
+bat                 YPPDYNPEGK -VSKRKQ--- ------Z--- ---------- -----DDEGA 
+flying_fox          YPPGYNPEGK -VPKRKQ--- ------Z--- ---------- -----DDEGS 
+sloth               YPPNYNPEGR -VTKRKQ--- ------Z--- ---------- -----DDEGS 
+armadillo           YPPNYNPEGK -VTKRKQ--- ------Z--- ---------- ---------- 
+madagascar_hedgehog YPADYNPEGK -ATKRKP--- ------Z--- ---------- -----GDDGS 
+elephant            ---------- ---------- ------Z--- ---------- --FPLDDEVS 
+elephant_2          YPPDYNPQGK -TIRRKQ--- ------Z--- ---------- -----DDEGS 
+hyrax               YPPDYNPQGK -TTKRKQ--- ------Z--- ---------- ---------- 
+opossum             YPPDYDPQRK -AVKRKQ--- ------Z--- ---------- ---GTEGGGP 
+tasmanian_devil     YPPDYNPEKK -ATKRKQ--- ------Z--- ---------- -----DGSGP 
+platypus_2          YPPNYNPEGK -AVKRKQ--- ------Z--- ---------- -----GGDGP 
+platypus            ---------- ---------- ------Z--- ---------- ---------- 
+duck                YPPDYNPDGK -AAKRKQ--- ------Z--- ---------- -----AYDDQ 
+flycatcher          YPPDYNPDEK -AVKRKQ--- ------Z--- ---------- -----ASDGE 
+zebra_finch         YPPDYNPEGK -AVKRKQ--- ------Z--- ---------- -----ASDDQ 
+zebra_finch_2       ---------- ---------- ------Z--- ---------- ---------- 
+chicken             YPPDYSPEGK -AAKRKQG-- ------Z--- ---------- -----TGDAQ 
+turkey              YPPDYNPEGK -AAKRKQ--- ------Z--- ---------- -----AGDGQ 
+anole_lizard        YPPGYDPDSK -ATKRKQ--- ------Z--- ---------- -----AGDGT 
+turtle              ---------- ---------- ------Z--- ---------- ---------- 
+turtle_2            YPPDYNPEGK -TVKRKQ--- ------Z--- ---------- ----GESAGQ 
+xenopus             YPPGYNPEGK -AVKRKQ--- ------Z--- ---------- ----GDSDSR 
+coelacanth          YPPSYSSEGK -GQKRKT--- ------Z--- ---------- ------GEGM 
+zebrafish           YPPDYNPEGK PAAKRKP--- ------Z--- ---------- -----AESGG 
+zebrafish_2         YPPDYNPEGK PAAKRKP--- ------Z--- ---------- -----AESGG 
+cod                 YPAGYDPDSK PASKRKPGTN ------Z--- ---------- ---------- 
+stickleback         YPDGYNPENK AAAKRKTGQS RKLAE-Z--- ---------- ---------- 
+medaka              YPADYNPETK PAAKRKT--- ------Z--- ---------- --------GA 
+platyfish           YPAGYNPESK PAPKRKT--- ------Z--- ---------- ------ADAG 
+tilapia             YPAYYNPESK PAAKRKT--- ------Z--- ---------- ------ADTG 
+fugu                YPANYNPESK PTTKRKS--- ------Z--- ---------- ------ADNG 
+pufferfish          YPAGYNPEIK PAPKRKS--- ------Z--- ---------- ------ADNE 
+lamprey             FPPDYEAGQP SGVKRKS--- ------Z--- ---------- -----ELAPA 
+
+human               G--SKRPK-- VEYSEEELKT HISKGTLGKF TVPMLKEACR AYGLK-SGLK 
+gorilla             G--SKRPK-- MKYSEEELKA NISKGMLGNF TVPMLKEA-- ------YGLK 
+chimpanzee          G--SKRPK-- VEYSEEELKT HISKGTLGKF TVPMLKEACR AYGLK-SGLK 
+orangutan           G--SKRPK-- VEYSEEELKT HISKGTLGKF TVPMLKEACR AYGLK-SGLK 
+gibbon              ---------- ---------- ---------- ---------- ---------- 
+macaque             G--SKRPK-- VEYSEEELKT HISKGTLGKF TVPMLKEACR AYGLK-SGLK 
+marmoset            ---------- ---------- ---------- --PVLKEACR A---K-SGLR 
+tarsier             A--SKRPK-- VEFSEEELKA HVTKGTLGKF TVPMLKEACR VLGLK-SGMK 
+lemur               G--SKRPK-- VEFSEEELKA HIRKGTLGKF TVPVLKEACR VYGLK-GGMK 
+galago_lemur        G--SKRPK-- VEFSEEELKA HVSKGTLGKF TVPMLKEACR AYGLK-GGMK 
+guinea_pig          G--SKRPK-- VELSKEELKA HATKGTLGKL TVPMLKEACR VCGLK-GGLK 
+kangaroo_rat        S--SKKFK-- VELSEEELKE HINKGTLHKL NVATLKEACR MYGLK-CELK 
+squirrel            G--SKKPK-- MEVSEEELKA HIAKGTLGKL TVPMLKEACR VYGLK-GGLK 
+mouse               T--SKKPK-- VELSEEELKA HFRKGTLGKL TVPTLKDICK AHGLK-SGPK 
+rat                 A--SKKPK-- VELSEEELKD LFAKGTLGKL TVPALRDICK AYGLK-SGPK 
+pika                G--SKRPR-- VELSAEELKA HVSKGTLGKL TVPVLKEACR VHGLK-AGPK 
+rabbit              R--SKRPR-- VELSDEELKA HVSKGTLGKL TVPVLKEACR AHGLK-GGLK 
+tree_shrew          G--SKRPK-- VEFSEEELKA HVSKGTLGKL TVPVLKEACR VYGLK-SGMK 
+panda               G--SKRPK-- MELSAEDLRA HVSKGTLGKL TVPMLKEACR VYGLR-GGLK 
+dog                 G--SKRPK-- MELSEEELRA HVNKGTLGKL TVPMLKEACR VCGLK-GGLK 
+ferret              G--SKRPK-- MQLSEEDLKA HVSKGTL--- ---------- ---------- 
+cat                 G--SKRPK-- VELSEEELKA HVSKGTLGKL TVPMLKEVCR VYGLK-GGLK 
+cow                 G--SKRPK-- VELSEEELKA HVSKGTLGKL TVPALKEACR MYGLK-GGLK 
+pig                 G--SKRPK-- VELSEEELKA HISEGTLGKL TVPTLKEACR VHGVK-GGMK 
+dolphin             G--SKRPK-- VELSEEELKA HVSKGTLGKL TVPTLKEACR VYGLK-SGTK 
+alpaca              ---------- ---------- ---------- ---------- ---------- 
+horse               G--NKRPK-- VEVSEEELKA HISKGTLGKF TVPMLKEACR EYGLK-VGLK 
+european_shrew      G--SKRPK-- VELSDEALKA HVSAGTLGKL TVPLLKEACR VYQLK-AGTK 
+bat                 G--SKRPK-- MELSEEELKA HVSRGTLGKL TVPVLKEACR VHGLR-GGMR 
+flying_fox          S--SKRPK-- MELSKEELKA HVSQGTLGKL TVPMLKEACR VYGLK-GGLR 
+sloth               E--SKKPK-- VELSQDDLKA HVSKGTLGKL TVPVLKEACR VCGLK-AGLK 
+armadillo           ---------- ---------- ---------- ---------- ---------- 
+madagascar_hedgehog G--SKRPK-- VEVSEEELKA HICKGTLGKL TVPALKEACK TYGLK-GGLK 
+elephant            R--KKRPK-- VKVPEEELRA HIGKGMLGKL TVPMLKEACR ------AG-- 
+elephant_2          R--NKRPK-- VEVSEEELKA HITKGTLGKL TVPVLKEACR MCGLQ-GGVK 
+hyrax               G--NKRPK-- VEVYEEELRA HFSRGTMGKL TVSVQKEACR KYGGK-AGMK 
+opossum             G--DKQPR-- LEVSQEELKA HAEKGTLGKL TVPVLKEACR VCGLKPSSTK 
+tasmanian_devil     A--EKQPK-- LELSEEELKA YFEKGTLGKL TVPMLKEACR VCQLKTNGTK 
+platypus_2          E--DKKIK-- FELSEQDLRD HVKKGTLGKL TVPLLKEACR TFGLK-GGGK 
+platypus            ---------- ---------- ---------- ---------- ---------- 
+duck                A--DKKPK-- IEVSEDSLRS YVQAGTLGKL TVPALKDACR FYGLR-SGGK 
+flycatcher          T--EKRPK-- VEVSKDELRS HVQKGTLGKF TVPVLKDACR FLGLR-CGSK 
+zebra_finch         T--EKRPK-- VEVSKDELRS HVQKGTLGKL TVSVLKDACR FLRLR-CGSK 
+zebra_finch_2       ---------- ---------- ---------- ---------- ---------- 
+chicken             A--EKRPK-- IEISEDSLRS YVQNGTLGKL TVSALKDTCR HYGLR-SGGK 
+turkey              A--EKKPK-- TEISEDSLRS YVQNGTLGKL TVSALKDMCR HYRLR-SGGK 
+anole_lizard        EKPEKKAK-- IEISEEELRN HIKKGTLGKL TVPVLKEVCR IYKLT-GGTK 
+turtle              ---------- ---------- ---------- ---------- ---------- 
+turtle_2            T--EKKAK-- MEISEDELRS HIKKGTLGKF TVPVLKEACR VYGLK-GGGK 
+xenopus             A--EKKAKAD ISISEDDLRS YVEKGTLGKL TVPVLKEACR GYKLK--GSK 
+coelacanth          GGAEKRPKAE VSFVEADVQD YVRKGTLGKL TVPMLKEISK QYGLR--GSK 
+zebrafish           GAAEKKAK-- VEISEEELKI HVAKGTLGKL TVPVLKDACK QFNIRTTGTK 
+zebrafish_2         GAAEKKAK-- VEISEEELKI HVAKGTLGKL TVPVLKDACK QFNIRTTGTK 
+cod                 ---DKKPK-- VELQEADLRH HIEHGTIGKL TVPVLKDACK QFGVRTTGTK 
+stickleback         ---EKKPK-- VEVAEDELRA HAQNGTLGKL TVPVLKDACK RFGVRTTGTK 
+medaka              GASEKKPK-- VELTEDELRA HVLNGTLGKL TVPVLKDACK QFGVRTTVTK 
+platyfish           AGAEKKPK-- VGATADELKA HMQSGTLGKL TVPVLKEACK QFGIKTTGTK 
+tilapia             GGAEKKPK-- VELTEDELKA HVQNNTLVKL TVPVLKDACK QFGVRTTGTK 
+fugu                GGDEKKAR-- VEVSEEELRA HVQNGTLGKL TVPVLKEACK KLGFRTTGTK 
+pufferfish          GGAEKKPK-- AEVSEEELRA HVQRGTLAKL TVPVLKEACK KFGVRTTGTK 
+lamprey             VRKTEKPKVE LVLSNEDVRA MVLDGSVVRH TVATLRDICK RFQLRHPGSK 
+
+human               KQELLEALTK HFQD-      
+gorilla             KQELLEVLSE HFQA-      
+chimpanzee          KQELLEALTK HFQD-      
+orangutan           KQELLEALTK HFQD-      
+gibbon              ---------- -----      
+macaque             KQELLEALTK HFQD-      
+marmoset            KQELLEALTK HFQD-      
+tarsier             KQELVETLTK HFQKE      
+lemur               KQELLDVLTK HFQN-      
+galago_lemur        KQELLDTLTK HFQK-      
+guinea_pig          KQELLDMLTQ HFLK-      
+kangaroo_rat        KQKLLDALTK HFQD-      
+squirrel            KQELLAALTE HFQKD      
+mouse               KQELLDALIR HLEKN      
+rat                 KQELLEALSR HLEK-      
+pika                KQELLDALTR HFRG-      
+rabbit              KQELLDALTR HFQD-      
+tree_shrew          KQELMDALTQ HFQEA      
+panda               KQELLDVLTK HFQN-      
+dog                 KQELLDILTK HFQKN      
+ferret              ---------- -----      
+cat                 KQELMNMLTE HFQKN      
+cow                 KQELLDVLTE HFQKA      
+pig                 KQELLDALTK HFQD-      
+dolphin             KQELLDALTK RFQKA      
+alpaca              ---------- -----      
+horse               KQELLDTLTK HFQK-      
+european_shrew      KQELLDALTK HFQA-      
+bat                 KQELLDALTK HFQD-      
+flying_fox          KQELLDTLSK HFQKD      
+sloth               KQELLDVLIK HFQEN      
+armadillo           ---------- -----      
+madagascar_hedgehog KQELLDTLTR HFQG-      
+elephant            ---------- -----      
+elephant_2          KQELLDALTR HFQE-      
+hyrax               KQELQDTLTR H----      
+opossum             KQELLGLLQE HFQK-      
+tasmanian_devil     KQELLDLLTQ HFQKA      
+platypus_2          KQELLDVLME HFEKH      
+platypus            ---------- -----      
+duck                KQELIDALTE YFNKH      
+flycatcher          KQELVDALTE YFTER      
+zebra_finch         KQELVDALTE YFNK-      
+zebra_finch_2       ---------- -----      
+chicken             KQELIDALTE YFSGR      
+turkey              KQELIDALTE YFSGR      
+anole_lizard        KQELLDVVTN YFSKH      
+turtle              ---------- -----      
+turtle_2            KQELLDALTE YFSKF      
+xenopus             KQELVDSLVE YFKKN      
+coelacanth          KQELIDAITK HFSKP      
+zebrafish           KQELIDALTM QLSK-      
+zebrafish_2         KQELIDALTM QLSK-      
+cod                 KQELIDALKA KL---      
+stickleback         KQELIDALIA QLGK-      
+medaka              KQELMDVLTS RLGS-      
+platyfish           KQDLIDALSE RLGS-      
+tilapia             KQELIDALIA RLR--      
+fugu                KQELIDALVA QMGP-      
+pufferfish          KQELMDALTA RLGS-      
+lamprey             KQDLIDSITN YFSKT      
+

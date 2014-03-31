@@ -100,8 +100,6 @@ int process_exons (Options *options, Alignment * alignment) {
 	    z_count++;
 	}
 	alignment->number_of_exon_bdries[refseq_ctr] = z_count;
-	printf ("number of exons in %s:  %d\n",
-		alignment->refseq_name[refseq_ctr], alignment->number_of_exon_bdries[refseq_ctr] );
     }
        
     /* allocate space to store exon bdries */

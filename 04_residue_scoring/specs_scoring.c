@@ -99,19 +99,21 @@ int  scoring ( Options *options, Alignment * alignment, Tree * tree,
 	break;
 	
     }
-    /* sink the gapped positions to the bottom, if requested */
-    if ( options->max_gaps ) {
-	int ctr;
-	double max_score = -1;
-	for ( ctr=0; ctr < alignment->length; ctr++ ) {
-	    if ( max_score < score[ctr] ) max_score = score[ctr];
-	}
-	for ( ctr=0; ctr < alignment->length; ctr++ ) {
-	    if ((double)alignment->column_gaps[ctr]/alignment->number_of_seqs> options->max_gaps ) {
-		score[ctr] = max_score;
-	    }
+    
+    /* sink the completely gapped positions to the bottom, or, if requested, sink also the positions that have
+     a pctg of gaps larger than the  max allowed*/
+    int ctr;
+    double max_score = -1;
+    for ( ctr=0; ctr < alignment->length; ctr++ ) {
+	if ( max_score < score[ctr] ) max_score = score[ctr];
+    }
+    for ( ctr=0; ctr < alignment->length; ctr++ ) {
+	if ( alignment->column_gaps[ctr]==alignment->number_of_seqs  ||
+	     (options->max_gaps  && (double)alignment->column_gaps[ctr]/alignment->number_of_seqs> options->max_gaps) ) {
+	    score[ctr] = max_score;
 	}
     }
+	
 
     return 0;
 }

@@ -2,7 +2,7 @@
 This source code is part of specs, an application for
 protein residue conservation scoring.
 Written by Ivana Mihalek.
-Copyright (C) 2007-2013 Ivana Mihalek.
+Copyright (C) 2007-2014 Ivana Mihalek.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
