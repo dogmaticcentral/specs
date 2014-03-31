@@ -16,14 +16,14 @@ import javax.imageio.*;
 
 public class SeqReport {
     
-    private static final Color bluish = new Color(31, 190, 214);
-    private static final float gapOffset = 0.8f;
-    final float MAXCOLOR = 1f;  // for Ivana color scheme
+    private static final Color BLUISH = new Color(31, 190, 214);
+    private static final float GAPOFFSET = 1.1f;
+    final float MAXCOLOR = 1;  
     float[] x = new float[10];
     int[] y = new int[10];
     String[] residue = new String[10];
-    float minX = 1000.f;
-    float maxX = -1000.f;
+    float minX = 1000;
+    float maxX = -1000;
     private static final int TT_NUMBER = StreamTokenizer.TT_NUMBER;
     private static final int TT_EOF = StreamTokenizer.TT_EOF;
     private static final int TT_WORD = StreamTokenizer.TT_WORD;
@@ -36,7 +36,7 @@ public class SeqReport {
         float tempInput = 0;
         int tempExtra = 0;
 
-        String stringInput = "";
+        String stringInput;
         StreamTokenizer tok;
 
         try {
@@ -63,14 +63,14 @@ public class SeqReport {
 
                 if (cnt >= start && cnt <= end) {
                     if (x.length == arrayIndex) {
-                        float[] temp = new float[arrayIndex+1];
-                        System.arraycopy(x, 0, temp,0, arrayIndex);
+                        float[] temp = new float[arrayIndex + 1];
+                        System.arraycopy(x, 0, temp, 0, arrayIndex);
                         x = temp;
-                        int[] tempY = new int[arrayIndex+1];
-                        System.arraycopy(y, 0, tempY,0, arrayIndex);
+                        int[] tempY = new int[arrayIndex + 1];
+                        System.arraycopy(y, 0, tempY, 0, arrayIndex);
                         y = tempY;
-                        String[] strTemp = new String[arrayIndex+1];
-                        System.arraycopy(residue, 0, strTemp,0, arrayIndex);
+                        String[] strTemp = new String[arrayIndex + 1];
+                        System.arraycopy(residue, 0, strTemp, 0, arrayIndex);
                         residue = strTemp;
                     }
                     x[arrayIndex] = tempInput;
@@ -86,14 +86,14 @@ public class SeqReport {
             for (int j = 0; j < y.length - 1; j++) {
                 if ( (int)(y[j + 1] - y[j]) != 1 && (int)(y[j + 1]) != 0 &&  (int)(y[j]) != 0) {
                     missing = true;
-                    countMissing ++;
+                    countMissing++;
                 }
             }
            
             if (missing) {
-                float[] modX = new float[x.length + 3*countMissing];
-                int[] modY = new int[x.length + 3*countMissing];
-                String[] modResidue = new String[x.length + 3*countMissing];
+                float[] modX = new float[x.length + 3 * countMissing];
+                int[] modY = new int[x.length + 3 * countMissing];
+                String[] modResidue = new String[x.length + 3 * countMissing];
                 int k = 0;
                 int j = 0;
 
@@ -119,7 +119,6 @@ public class SeqReport {
                 residue = modResidue;
                 y = modY;
             }
-            
         }
         catch (Exception e) {
             System.out.println("Exception " + e.getMessage() + " in readRanks()");
@@ -135,13 +134,13 @@ public class SeqReport {
     class MapPanel extends JComponent {      //this class does all the drawing
         float width = 500;
         float height = 500;
-        float margin =25;
+        float margin = 25;
         float marginTop = 25;
         float squareX = 20;  
 
         String title;
-        Font numberFont = new Font("Monospaced",Font.PLAIN,20);
-        Font residueFont = new Font("Monospaced",Font.PLAIN,10);
+        Font numberFont = new Font("Monospaced", Font.PLAIN, 20);
+        Font residueFont = new Font("Monospaced", Font.PLAIN, 10);
 
         MapPanel(String title) {
             this.title = title;
@@ -156,7 +155,6 @@ public class SeqReport {
         }
 
         public Color setIvanaColor(double cvg) {
-            //color scheme used by Ivana
             double red, blue, green, ratio, x;
             int  bin_size;
             int range = 20;
@@ -185,15 +183,8 @@ public class SeqReport {
                 }
             }
             return new Color((int)red, (int)blue, (int)green);        
-        }  // setIvanaColor method ends here
+        } 
 
-        public Color myColor(double norm) {
-            if (norm < 0.95)     //to avoid starting end ending in red
-                return Color.getHSBColor((float)norm, 1, 1);
-            else
-                return Color.getHSBColor(0.95f, 1, 1);
-        }
-   
         public void drawLegend(Graphics2D g, float x, float y) {
             int i;
             float hue;
@@ -202,8 +193,7 @@ public class SeqReport {
             g.setFont(numberFont);
 
             for (i = 0; i < (int)y; i++) {
-                //draw color bar as a series of tiny rectangles
-                hue = MAXCOLOR *i / y;
+                hue = MAXCOLOR * i / y;
                 if (hue < 0.)
                     color = Color.black;
                 else
@@ -214,11 +204,11 @@ public class SeqReport {
                 g.fill(rectangle);
             }
             g.setPaint(Color.black);
-            g.drawString("1", x + squareX + 5,i + 6);
+            g.drawString("1", x + squareX + 5, i + 6);
             
             i=0;
    
-            g.drawString(Integer.toString(i), x + squareX + 5,i + 6);
+            g.drawString(Integer.toString(i), x + squareX + 5, i + 6);
             g.setPaint(Color.black);
             g.setFont(defaultFont);
         }
@@ -235,7 +225,6 @@ public class SeqReport {
             float spacing;
 
             Font titleFont = new Font("Monospaced",Font.PLAIN,30);
-            FontMetrics fm = _g.getFontMetrics(titleFont);
             Rectangle2D.Float rectangle, rightRect, leftRect;
             RoundRectangle2D.Float roundRect;
             GeneralPath boundary = new GeneralPath();
@@ -248,8 +237,8 @@ public class SeqReport {
             spacing = 23.158f;
        
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                                            RenderingHints.VALUE_ANTIALIAS_ON);
-            g.setStroke(new BasicStroke(1.f));
+                               RenderingHints.VALUE_ANTIALIAS_ON);
+            g.setStroke(new BasicStroke(1));
 
             delta = 0;
             int countResidues = 0;
@@ -257,7 +246,7 @@ public class SeqReport {
  
             for (i = 0; i < x.length; i++) {
                 if (residue[i].equalsIgnoreCase("Z")) {
-                    g.setPaint(bluish);
+                    g.setPaint(BLUISH);
                 }
                 else
                     g.setPaint(setIvanaColor(x[i]));
@@ -266,42 +255,44 @@ public class SeqReport {
                     if(!residue[i].equalsIgnoreCase("Z"))
                         delta = 0;
                     else
-                        delta = -3.3f * gapOffset;
+                        delta = -3.3f * GAPOFFSET;
                 }
                 
                 if(x[i] / MAXCOLOR > cov)
                     g.setPaint(Color.blue);
 			      	
                 if (i != x.length - 1 || ((countResidues + 1) % 50 == 0) ) {
+                    
                     lineWidth = stripe * 1.1f; 
                 } 
-                else
+                else {
                     lineWidth = stripe;
-                
-               if ( (i != x.length - 1) && x[i+1] < 0)
-                    lineWidth = stripe;
- 
-                roundRect = new RoundRectangle2D.Float(margin + delta, marginTop + position - 5,3,spacing + 8, 10, 10);                      
-                
-                if (residue[i].equalsIgnoreCase("Z"))   {                    
-                    rectangle = new Rectangle2D.Float(margin + delta, marginTop + position - 8,3,spacing + 10);
                 }
+                
+                if (countResidues % 50 == 0) 
+                    roundRect = new RoundRectangle2D.Float(margin + delta + GAPOFFSET + 0.5f, marginTop + position - 5, 3, spacing + 8, 10, 10);       
                 else 
-                    if (newGap == 1) {
-                        rectangle = new Rectangle2D.Float(margin + delta, marginTop + position,lineWidth,spacing);
-                    }
-                    else
-                        rectangle = new Rectangle2D.Float(margin + delta, marginTop + position,lineWidth,spacing);
+                    roundRect = new RoundRectangle2D.Float(margin + delta, marginTop + position - 5, 3, spacing + 8, 10, 10);       
+                    
+                if ( (i != x.length - 1) && x[i+1] < 0)
+                        lineWidth = stripe;
+                
+                rectangle = new Rectangle2D.Float(margin + delta, marginTop + position, lineWidth, spacing);
+                rightRect = new Rectangle2D.Float(margin + delta + GAPOFFSET + 0.2f, marginTop + position,lineWidth - GAPOFFSET,spacing);
+                leftRect = new Rectangle2D.Float(margin + delta, marginTop + position, lineWidth - GAPOFFSET + 0.2f, spacing);
 
                 if(x[i] >= 0) {
                     if (residue[i].equalsIgnoreCase("Z")) {
-                        g.setPaint(bluish);  
+                        g.setPaint(BLUISH);  
                         g.fill(roundRect); 
                         g.setPaint(Color.black);
                         g.draw(roundRect);
                     }
                     else 
-                        if (i == 0 ) {
+                        if (i == 0) { 
+                            g.setPaint(setIvanaColor(x[i]));
+                            g.fill(rectangle);
+                            g.setPaint(Color.black);
                             boundary.moveTo(margin + delta, marginTop + position);
                             boundary.lineTo(margin + delta + lineWidth, marginTop + position);
                             boundary.moveTo(margin + delta, marginTop + position + spacing);
@@ -309,17 +300,16 @@ public class SeqReport {
                         }
                         else if (i == x.length - 1) { 
                             if (residue[i-1].equalsIgnoreCase("Z")) {
-                                rectangle = new Rectangle2D.Float(margin + delta + gapOffset, marginTop + position,lineWidth - gapOffset,spacing);
                                 g.setPaint(setIvanaColor(x[i]));
-                                g.fill(rectangle);
+                                g.fill(rightRect);
                                 g.setPaint(Color.black);
                                 boundary.moveTo(margin + delta, marginTop + position);
-                                boundary.lineTo(margin + delta + lineWidth - gapOffset, marginTop + position);
+                                boundary.lineTo(margin + delta + lineWidth - GAPOFFSET, marginTop + position);
                                 boundary.moveTo(margin + delta, marginTop + position + spacing);
-                                boundary.lineTo(margin + delta + lineWidth - gapOffset, marginTop + position + spacing);
+                                boundary.lineTo(margin + delta + lineWidth - GAPOFFSET, marginTop + position + spacing);
                             }
                             else {
-                                rectangle = new Rectangle2D.Float(margin + delta , marginTop + position,lineWidth,spacing);
+                                rectangle = new Rectangle2D.Float(margin + delta , marginTop + position, lineWidth, spacing);
                                 g.setPaint(setIvanaColor(x[i]));
                                 g.fill(rectangle);
                                 g.setPaint(Color.black);
@@ -330,28 +320,25 @@ public class SeqReport {
                             }
                         }
                         else if (i > 0 && i < x.length - 1) {
-                            if (residue[i-1].equalsIgnoreCase("Z")  && countResidues % 50 != 0) {
-                                rightRect = new Rectangle2D.Float(margin + delta + gapOffset + 0.5f, marginTop + position,lineWidth,spacing);
+                            if (residue[i-1].equalsIgnoreCase("Z")) { // && countResidues % 49 != 0 ) { 
                                 g.setPaint(setIvanaColor(x[i]));
                                 g.fill(rightRect);
                                 g.setPaint(Color.black);
-                                boundary.moveTo(margin + delta + gapOffset, marginTop + position);
+                                boundary.moveTo(margin + delta + GAPOFFSET, marginTop + position);
                                 boundary.lineTo(margin + delta + lineWidth, marginTop + position);
-                                boundary.moveTo(margin + delta + gapOffset, marginTop + position + spacing);
+                                boundary.moveTo(margin + delta + GAPOFFSET, marginTop + position + spacing);
                                 boundary.lineTo(margin + delta + lineWidth, marginTop + position + spacing);
                             }
                             else if (residue[i+1].equalsIgnoreCase("Z")) {
-                                leftRect = new Rectangle2D.Float(margin + delta, marginTop + position,lineWidth-1.f,spacing);
                                 g.setPaint(setIvanaColor(x[i]));
                                 g.fill(leftRect);
                                 g.setPaint(Color.black);
                                 boundary.moveTo(margin + delta, marginTop + position);
-                                boundary.lineTo(margin + delta + lineWidth - gapOffset, marginTop + position);
+                                boundary.lineTo(margin + delta + lineWidth - GAPOFFSET, marginTop + position);
                                 boundary.moveTo(margin + delta, marginTop + position + spacing);
-                                boundary.lineTo(margin + delta + lineWidth - gapOffset, marginTop + position + spacing);
+                                boundary.lineTo(margin + delta + lineWidth - GAPOFFSET, marginTop + position + spacing);
                             }
                             else { 
-                                rectangle = new Rectangle2D.Float(margin + delta, marginTop + position,lineWidth,spacing);
                                 g.setPaint(setIvanaColor(x[i]));
                                 g.fill(rectangle);
                                 g.setPaint(Color.black);
@@ -360,12 +347,11 @@ public class SeqReport {
                                 boundary.moveTo(margin + delta, marginTop + position + spacing);
                                 boundary.lineTo(margin + delta + lineWidth, marginTop + position + spacing);
                             } 
-                        }
+                    }
           
                     g.setPaint(Color.black);
                     g.setFont(residueFont);
-                    String axes = "";
-                    axes = residue[i];
+                    String axes = residue[i];
 
                     newGap = 0;
                     if (!residue[i].equalsIgnoreCase("Z")) {
@@ -374,8 +360,8 @@ public class SeqReport {
                     else
                         newGap = 1; 
                     if(countResidues%10 == 0 && newGap == 0){
-                        axes = Integer.toString(y[i]);//Integer.toString(shift + i+1);                                      
-                        g.drawString(axes,margin + delta, marginTop + position + stripe + 33.5f) ;
+                        axes = Integer.toString(y[i]);                                    
+                        g.drawString(axes, margin + delta, marginTop + position + stripe + 33.5f) ;
                     }
                     if (!residue[i].equalsIgnoreCase("Z")) 
                         countResidues++;
@@ -392,12 +378,13 @@ public class SeqReport {
                 else
                     delta += stripe;
 
-                if ((countResidues)%50 == 0 && newGap != 1) {                   
+                if ((countResidues) % 50 == 0 && newGap != 1) {                   
                     position += spacing + 32; 
                 }
             }  // end of for loop
+            
             g.draw(boundary);
-            g.translate(width - 2*margin, marginTop);
+            g.translate(width - 2 * margin, marginTop);
         }   // end of draw sequence method
     }   //end of class MapPanel
 
@@ -411,15 +398,13 @@ public class SeqReport {
             System.exit(0);
         }
         int w, h, shift, end;
-        float dimX, dimY;
+        float dimY;
     	
         Graphics2D g;
         BufferedImage image;
 
-        // create a new Plot object
         SeqReport plot = new SeqReport();
 
-        //read input file (should have 3 columns: x,y and z
         if (args.length >= 3 && Integer.parseInt(args[2]) > 0) {
             shift = Integer.parseInt(args[2]) - 1;
         }
@@ -432,7 +417,7 @@ public class SeqReport {
 
         plot.readPoints(new File(args[0]), shift, end);
      
-        dimY = 1.7f * (plot.x.length/50 + 1) * 32  + 10;
+        dimY = 1.7f * (plot.x.length / 50 + 1) * 32  + 10;
        
         MapPanel map = plot.new MapPanel(args[1], 500, dimY);
 
@@ -443,9 +428,8 @@ public class SeqReport {
         g = image.createGraphics();
        	g.setColor(Color.white);
        	g.fillRect(0, 0, w, h);
-      	map.drawSequence(g,w,h,shift);
-  
-       	ImageIO.write(image, "png", new File(args[1]+".png"));
+      	map.drawSequence(g, w, h, shift);  
+       	ImageIO.write(image, "png", new File(args[1] + ".png"));
    }
 }   //end of class Plot
 
