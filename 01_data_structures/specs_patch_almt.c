@@ -180,6 +180,8 @@ int patch_almt ( Options *options, Alignment * alignment) {
 	}
     }
 
+    printf ("ignoring %d seqs\n", number_of_seqs_to_ignore);
+
     if ( !number_of_seqs_to_ignore) {
 	free_cmatrix (alignment->sequence);
 	alignment->sequence = new_sequence;
@@ -234,7 +236,7 @@ int patch_almt ( Options *options, Alignment * alignment) {
      /* gaps */
      count_gaps (options, alignment);
      /* various indicators of sequence similarity */
-     if (! seq_pw_dist (alignment)) return 1;
+     if (seq_pw_dist (alignment)) return 1;
 
      
     
