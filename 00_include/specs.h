@@ -121,6 +121,7 @@ typedef struct {
     double significance_cutoff;
     double patch_sim_cutoff;
     double patch_min_length;
+    double min_fragment_length; /* we will not deal with the fragments here  - if the sequence is to small, toss out */
 
 } Options; 
 
@@ -141,6 +142,7 @@ int  afa_out (Options * options, Alignment * alignment);
 int  build_tree (Options * options, Alignment * alignment, Tree * tree);
 int  clustering (Protein *protein,  int* res_rank, int * int_cvg,
 		  double *clustering_score);
+int  count_gaps    (Options *options, Alignment * alignment);
 int  coverage (Protein * protein, Alignment * alignment,
 		int * almt2prot, double * score,
 		int almt_length, int * res_rank, int * int_cvg,
@@ -193,6 +195,7 @@ int  read_score_almt ( char *filename, Alignment * alignment, double *score );
 int  read_tree (Options *options,  Alignment *alignment, Tree * tree);
 int  scoring ( Options *options, Alignment * alignment, Tree *tree, 
 	       int * similar_to, double * score, int score_ctr);
+int seq_pw_dist(Alignment * alignment);
 int  set_similarity ( Options * options, int * similar_to );
 char single_letter ( char code[]);
 int  struct_almt_mapping (Protein * protein, Alignment * alignment,

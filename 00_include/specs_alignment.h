@@ -36,6 +36,7 @@ typedef struct{
     char * pdbseq;
     char ** refseq;
     char **refseq_name;
+    
     int  no_refseqs;
     int * protected_position;
     int number_of_protected_positions;

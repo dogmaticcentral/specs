@@ -22,14 +22,11 @@ Contact: ivana.mihalek@gmail.com.
 # include "specs.h"
 
 /************************************************************/
-
 int process_almt (Options *options, Alignment *alignment) {
     
     int retval;
     int process_exons (Options *options, Alignment * alignment);
-    int count_gaps    (Options *options, Alignment * alignment);
     int protected_positions (Options *options, Alignment * alignment);
-    int seq_pw_dist(Alignment * alignment);
 
     /* store the position of exons, and replace them with gaps in the alignment */
     process_exons (options, alignment);
@@ -40,12 +37,11 @@ int process_almt (Options *options, Alignment *alignment) {
     /* protected positions */
     protected_positions (options, alignment);
 
-    alignment->seq_dist = NULL;
-
-    /*allocate space for various indicators of sequence similarity*/
+     /*allocate space for various indicators of sequence similarity*/
     alignment->seq_dist =
 	dmatrix ( alignment->number_of_seqs, alignment->number_of_seqs);
-    
+    if ( !alignment->seq_dist )  return 1;
+	
     alignment->aligned_sites =
 	intmatrix ( alignment->number_of_seqs, alignment->number_of_seqs);
     if ( ! alignment->aligned_sites ) return 1;
@@ -58,14 +54,9 @@ int process_almt (Options *options, Alignment *alignment) {
 	intmatrix ( alignment->number_of_seqs, alignment->number_of_seqs);
     if ( ! alignment->similar_sites ) return 1;
     
- 
- 
-
-    
     retval   = seq_pw_dist (alignment);
     if ( retval) return retval;
 
-  
     return 0;
 }
 

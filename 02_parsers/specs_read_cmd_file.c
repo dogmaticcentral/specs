@@ -43,7 +43,8 @@ int read_cmd_file (char *filename, Options * options) {
     options->do_scoring = 1;
     options->tree_method = UPGMA;
     options->patch_sim_cutoff = -1;
-    options->patch_min_length = 0.9;
+    options->patch_min_length  = 0.9;
+    options->min_fragment_length = 0.66;
 
     line_ctr = 0;
     memset ( line, 0, LONGSTRING);
@@ -169,6 +170,15 @@ int read_cmd_file (char *filename, Options * options) {
 		    method_ctr ++;
 		}
 	    }
+	    
+	} else if (  ! strncmp (token[0], "min_frag_len", 12)  ) {
+	    if ( max_token < 1 ) {
+		errmsg ( log, line_ctr, line,
+		        "\t\t Keyord %s should be followed by min allowed fragment length.\n",
+			 token[0]);
+		return 1;
+	    }
+	    options->min_fragment_length = atof (token[1]);
 	    
 	} else if (  ! strncmp (token[0], "node", 4)  ) {
 	    if ( max_token < 1 ) {

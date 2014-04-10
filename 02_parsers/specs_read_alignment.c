@@ -333,24 +333,21 @@ int allocate_alignment_space (Alignment * alignment, Options * options, int numb
     alignment->sequence = chmatrix (number_of_seqs, almt_length);
     if ( !alignment->sequence ) return 1;
 
-
     if (  options->pdbname[0] && options->skip_pdbseq ) {
 	alignment->pdbseq     =  emalloc (almt_length*sizeof(char));
 	if ( !alignment->pdbseq) return 1;
     }
-    
-    alignment->seq_dist = dmatrix (number_of_seqs, number_of_seqs);
-    if ( !alignment->seq_dist ) return 1;
-
-    alignment->node     = emalloc (almt_length*sizeof(Node*));
-    if ( !alignment->node ) return 1;
-    
+ 
     alignment->name     = chmatrix (number_of_seqs, ALMT_NAME_LENGTH);
     if ( !alignment->name ) return 1;
 
     alignment->refseq   = emalloc (options->no_refseqs*sizeof(char*));
     if ( !alignment->refseq ) return 1;
 
+    /* this seems a bit out of place here */
+    alignment->node     = emalloc (almt_length*sizeof(Node*));
+    if ( !alignment->node ) return 1;
+    
     alignment->no_refseqs = options->no_refseqs;
     
     return 0;
