@@ -46,7 +46,7 @@ int clustering ( Protein *protein,  int * res_rank, int * int_cvg, double *clust
 	/* find  weight */
 	cluster_score (L, selection, adj_matrix, &weight);
 	/* find avg and stddev in the set of random picks */
-	std_dev_over_S ( L, int_cvg[ctr], adj_matrix, &avg,  &std_dev, first = !ctr);
+	std_dev_over_S (L, int_cvg[ctr], adj_matrix, &avg,  &std_dev, first = !ctr);
 	
 	/* evaluate and store the z-score */
 	z = (std_dev>1.e-5) ? (weight - avg)/std_dev : 0.0;
